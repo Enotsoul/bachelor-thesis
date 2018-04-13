@@ -1,0 +1,3288 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.8.2)  6 MAR 2018 12:28
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Licenta_Andrei.tex
+(./Licenta_Andrei.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.9r> and hyphenation patterns for 30 language(s) loaded.
+(./preamble.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2016/04/23 3.9r The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2016/06/24 v6.83q Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen104
+\Hy@linkcounter=\count89
+\Hy@pagecounter=\count90
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2016/06/24 v6.83q Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count91
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4362.
+Package hyperref Info: Hyper figures OFF on input line 4486.
+Package hyperref Info: Link nesting OFF on input line 4491.
+Package hyperref Info: Hyper index ON on input line 4494.
+Package hyperref Info: Plain pages OFF on input line 4501.
+Package hyperref Info: Backreferencing OFF on input line 4506.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4735.
+\c@Hy@tempcnt=\count92
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5088.
+\XeTeXLinkMargin=\dimen105
+\Fld@menulength=\count93
+\Field@Width=\dimen106
+\Fld@charsize=\dimen107
+Package hyperref Info: Hyper figures OFF on input line 6342.
+Package hyperref Info: Link nesting OFF on input line 6347.
+Package hyperref Info: Hyper index ON on input line 6350.
+Package hyperref Info: backreferencing OFF on input line 6357.
+Package hyperref Info: Link coloring OFF on input line 6362.
+Package hyperref Info: Link coloring with OCG OFF on input line 6367.
+Package hyperref Info: PDF/A mode OFF on input line 6372.
+LaTeX Info: Redefining \ref on input line 6412.
+LaTeX Info: Redefining \pageref on input line 6416.
+\Hy@abspage=\count94
+\c@Item=\count95
+\c@Hfootnote=\count96
+)
+
+Package hyperref Message: Driver: hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
+\Fld@listcount=\count97
+\c@bookmark@seq@number=\count98
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip43
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen108
+\Gin@req@width=\dimen109
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen110
+\extrarowheight=\dimen111
+\NC@list=\toks15
+\extratabsurround=\skip44
+\backup@length=\skip45
+)
+\everycr=\toks16
+\minrowclearance=\skip46
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen112
+\captionmargin@=\dimen113
+\captionwidth=\dimen114
+\caption@tempdima=\dimen115
+\caption@indent=\dimen116
+\caption@parindent=\dimen117
+\caption@hangindent=\dimen118
+)
+\c@ContinuedFloat=\count100
+Package caption Info: hyperref package is loaded.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2017/01/19 v4.29 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
+)
+\XKV@depth=\count101
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
+Package: mfirstuc 2016/07/31 v2.04 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count102
+)
+\@glsmfirst=\toks19
+\@glsmrest=\toks20
+)
+(/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2016/07/28 v2.27 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen119
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen120
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count103
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count104
+\leftroot@=\count105
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count106
+\DOTSCASE@=\count107
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen121
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
+\dotsspace@=\muskip11
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
+\tag@help=\toks22
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
+\andhelp@=\toks23
+\eqnshift@=\dimen122
+\alignsep@=\dimen123
+\tagshift@=\dimen124
+\tagwidth@=\dimen125
+\totwidth@=\dimen126
+\lineht@=\dimen127
+\@envbody=\toks24
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count115
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
+Package: datatool-fp 2016/07/28 v2.27 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count117
+\FP@xia=\count118
+\FP@xib=\count119
+\FP@xfa=\count120
+\FP@xfb=\count121
+\FP@rega=\count122
+\FP@regb=\count123
+\FP@regs=\count124
+\FP@times=\count125
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count126
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks26
+\@dtl@tmpcount=\count127
+\dtl@tmplength=\skip50
+\dtl@sortresult=\count128
+\@dtl@numgrpsepcount=\count129
+\@dtl@datatype=\count130
+\dtl@codeA=\count131
+\dtl@codeB=\count132
+\@dtl@foreach@level=\count133
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries-compatible-
+307.sty
+Package: glossaries-compatible-307 2017/01/19 v4.29 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/tracklang/tracklang.sty
+Package: tracklang 2016/11/03 v1.3.3 (NLCT) Track Languages
+
+(/usr/share/texlive/texmf-dist/tex/generic/tracklang/tracklang.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator-language-
+mappings.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-english/glossaries-english.
+ldf
+File: glossaries-english.ldf 2014/11/23 v1.0
+)
+\gls@level=\count134
+\@gls@tmpb=\toks27
+\gls@tmplen=\skip51
+\glskeylisttok=\toks28
+\glslabeltok=\toks29
+\glsshorttok=\toks30
+\glslongtok=\toks31
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
+y
+Package: glossary-hypernav 2017/01/19 v4.29 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2017/01/19 v4.29 (NLCT)
+\glslistdottedwidth=\skip52
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2017/01/19 v4.29 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count135
+\LTcapwidth=\dimen128
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count136
+\LT@rows=\count137
+\c@LT@tables=\count138
+\c@LT@chunks=\count139
+\LT@p@ftn=\toks32
+)
+\glsdescwidth=\skip57
+\glspagelistwidth=\skip58
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2017/01/19 v4.29 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2004/02/20 v4.1e the supertabular environment
+\c@tracingst=\count140
+\ST@wd=\dimen129
+\ST@rightskip=\skip59
+\ST@leftskip=\skip60
+\ST@parfillskip=\skip61
+\ST@pageleft=\dimen130
+\ST@headht=\dimen131
+\ST@tailht=\dimen132
+\ST@pagesofar=\dimen133
+\ST@pboxht=\dimen134
+\ST@lineht=\dimen135
+\ST@stretchht=\dimen136
+\ST@prevht=\dimen137
+\ST@toadd=\dimen138
+\ST@dimen=\dimen139
+\ST@pbox=\box32
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2017/01/19 v4.29 (NLCT)
+\glstreeindent=\skip62
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip63
+\f@ncyO@elh=\skip64
+\f@ncyO@erh=\skip65
+\f@ncyO@olh=\skip66
+\f@ncyO@orh=\skip67
+\f@ncyO@elf=\skip68
+\f@ncyO@erf=\skip69
+\f@ncyO@olf=\skip70
+\f@ncyO@orf=\skip71
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count141
+\lst@gtempboxa=\box33
+\lst@token=\toks33
+\lst@length=\count142
+\lst@currlwidth=\dimen140
+\lst@column=\count143
+\lst@pos=\count144
+\lst@lostspace=\dimen141
+\lst@width=\dimen142
+\lst@newlines=\count145
+\lst@lineno=\count146
+\lst@maxwidth=\dimen143
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count147
+\lst@skipnumbers=\count148
+\lst@framebox=\box34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen144
+\lightrulewidth=\dimen145
+\cmidrulewidth=\dimen146
+\belowrulesep=\dimen147
+\belowbottomsep=\dimen148
+\aboverulesep=\dimen149
+\abovetopsep=\dimen150
+\cmidrulesep=\dimen151
+\cmidrulekern=\dimen152
+\defaultaddspace=\dimen153
+\@cmidla=\count149
+\@cmidlb=\count150
+\@aboverulesep=\dimen154
+\@belowrulesep=\dimen155
+\@thisruleclass=\count151
+\@lastruleclass=\count152
+\@thisrulewidth=\dimen156
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen157
+\WF@size=\dimen158
+\c@WF@wrappedlines=\count153
+\WF@box=\box35
+\WF@everypar=\toks34
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count154
+\c@@ppsavesec=\count155
+\c@@ppsaveapp=\count156
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count157
+\Gm@cntv=\count158
+\c@Gm@tempcnt=\count159
+\Gm@bindingoffset=\dimen159
+\Gm@wd@mp=\dimen160
+\Gm@odd@mp=\dimen161
+\Gm@even@mp=\dimen162
+\Gm@layoutwidth=\dimen163
+\Gm@layoutheight=\dimen164
+\Gm@layouthoffset=\dimen165
+\Gm@layoutvoffset=\dimen166
+\Gm@dimlist=\toks35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks36
+\verbatim@line=\toks37
+\verbatim@in@stream=\read1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 44.
+\cftparskip=\skip72
+\cftbeforetoctitleskip=\skip73
+\cftaftertoctitleskip=\skip74
+\cftbeforepartskip=\skip75
+\cftpartnumwidth=\skip76
+\cftpartindent=\skip77
+\cftbeforechapskip=\skip78
+\cftchapindent=\skip79
+\cftchapnumwidth=\skip80
+\cftbeforesecskip=\skip81
+\cftsecindent=\skip82
+\cftsecnumwidth=\skip83
+\cftbeforesubsecskip=\skip84
+\cftsubsecindent=\skip85
+\cftsubsecnumwidth=\skip86
+\cftbeforesubsubsecskip=\skip87
+\cftsubsubsecindent=\skip88
+\cftsubsubsecnumwidth=\skip89
+\cftbeforeparaskip=\skip90
+\cftparaindent=\skip91
+\cftparanumwidth=\skip92
+\cftbeforesubparaskip=\skip93
+\cftsubparaindent=\skip94
+\cftsubparanumwidth=\skip95
+\cftbeforeloftitleskip=\skip96
+\cftafterloftitleskip=\skip97
+\cftbeforefigskip=\skip98
+\cftfigindent=\skip99
+\cftfignumwidth=\skip100
+\c@lofdepth=\count160
+\c@lotdepth=\count161
+\cftbeforelottitleskip=\skip101
+\cftafterlottitleskip=\skip102
+\cftbeforetabskip=\skip103
+\cfttabindent=\skip104
+\cfttabnumwidth=\skip105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/01/14 v0.5h Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count162
+\calc@Bcount=\count163
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip106
+\calc@Bskip=\skip107
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count164
+\calc@Cskip=\skip108
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+)
+\AM@pagewidth=\dimen169
+\AM@pageheight=\dimen170
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/01/14 v0.5h Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box36
+\AM@global@opts=\toks38
+\AM@toc@title=\toks39
+\c@AM@survey=\count165
+\AM@templatesizebox=\box37
+)
+(/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/02/22 v2.0g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/02/22 v2.0g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/02/22 v2.0g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box38
+\beforetitleunit=\skip109
+\aftertitleunit=\skip110
+\ttl@plus=\dimen171
+\ttl@minus=\dimen172
+\ttl@toksa=\toks40
+\titlewidth=\dimen173
+\titlewidthlast=\dimen174
+\titlewidthfirst=\dimen175
+)
+\@indexfile=\write3
+\openout3 = `Licenta_Andrei.idx'.
+
+
+Writing index file Licenta_Andrei.idx
+Package hyperref Info: Option `colorlinks' set `true' on input line 135.
+
+Package hyperref Warning: Option `pdftex' has already been used,
+(hyperref)                setting the option has no effect on input line 135.
+
+)
+
+LaTeX Warning: Unused global option(s):
+    [twosided].
+
+No file Licenta_Andrei.aux.
+\openout1 = `Licenta_Andrei.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 13.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 13.
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+\AtBeginShipoutBox=\box39
+Package hyperref Info: Link coloring ON on input line 13.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count166
+)
+LaTeX Info: Redefining \ref on input line 13.
+LaTeX Info: Redefining \pageref on input line 13.
+LaTeX Info: Redefining \nameref on input line 13.
+\@outlinefile=\write4
+\openout4 = `Licenta_Andrei.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count167
+\scratchdimen=\dimen176
+\scratchbox=\box40
+\nofMPsegments=\count168
+\nofMParguments=\count169
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count170
+\MPscratchDim=\dimen177
+\MPnumerator=\count171
+\makeMPintoPDFobject=\count172
+\everyMPtoPDFconversion=\toks42
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(./Licenta_Andrei.glsdefs)
+Runaway argument?
+! File ended while scanning use of \ifglsentryexists.
+<inserted text> 
+                \par 
+l.13 \begin{document}
+                     
+? 
+\c@lstlisting=\count173
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(85.35826pt, 441.01773pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=441.01773pt
+* \textheight=702.78308pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-33.0119pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=106.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+<frontpage_en.pdf, id=4, 597.55246pt x 845.07718pt>
+File: frontpage_en.pdf Graphic file (type pdf)
+ <use frontpage_en.pdf>
+Package pdftex.def Info: frontpage_en.pdf used on input line 15.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: frontpage_en.pdf Graphic file (type pdf)
+
+<use frontpage_en.pdf>
+Package pdftex.def Info: frontpage_en.pdf used on input line 15.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+<frontpage_en.pdf, id=7, page=1, 597.55246pt x 845.07718pt>
+File: frontpage_en.pdf Graphic file (type pdf)
+
+<use frontpage_en.pdf, page 1>
+Package pdftex.def Info: frontpage_en.pdf, page1 used on input line 15.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: frontpage_en.pdf Graphic file (type pdf)
+ <use frontpage_en.pdf, page 1>
+Package pdftex.def Info: frontpage_en.pdf, page1 used on input line 15.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: frontpage_en.pdf Graphic file (type pdf)
+
+<use frontpage_en.pdf, page 1>
+Package pdftex.def Info: frontpage_en.pdf, page1 used on input line 15.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: frontpage_en.pdf Graphic file (type pdf)
+ <use frontpage_en.pdf, page 1>
+Package pdftex.def Info: frontpage_en.pdf, page1 used on input line 15.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: frontpage_en.pdf Graphic file (type pdf)
+
+<use frontpage_en.pdf, page 1>
+Package pdftex.def Info: frontpage_en.pdf, page1 used on input line 15.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [1
+
+
+ <./frontpage_en.pdf>] [2
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `sec:IntelSDK' on page 3 undefined on input line 68.
+
+
+LaTeX Warning: Reference `sec:IntelSDK' on page 3 undefined on input line 68.
+
+
+LaTeX Warning: Reference `sec:using_hiphop' on page 3 undefined on input line 7
+1.
+
+
+LaTeX Warning: Reference `sec:using_hiphop' on page 3 undefined on input line 7
+1.
+
+
+LaTeX Warning: Reference `sec:lamp_optimise' on page 3 undefined on input line 
+76.
+
+
+LaTeX Warning: Reference `sec:lamp_optimise' on page 3 undefined on input line 
+76.
+
+
+LaTeX Warning: Reference `sec:testcasesphpBB' on page 3 undefined on input line
+ 79.
+
+
+LaTeX Warning: Reference `sec:testcasesphpBB' on page 3 undefined on input line
+ 79.
+
+
+LaTeX Warning: Reference `sec:scripts' on page 3 undefined on input line 83.
+
+
+LaTeX Warning: Reference `sec:scripts' on page 3 undefined on input line 83.
+
+
+LaTeX Warning: Reference `sec:scripts' on page 3 undefined on input line 86.
+
+
+LaTeX Warning: Reference `sec:scripts' on page 3 undefined on input line 86.
+
+[3
+
+]
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 \makeglossaries
+                    {}
+? 
+(./data/glossary.tex
+\@gls@deffile=\write5
+\openout5 = `Licenta_Andrei.glsdefs'.
+
+)
+No file Licenta_Andrei.gls.
+No file Licenta_Andrei.acr.
+[4
+
+]
+\tf@toc=\write6
+\openout6 = `Licenta_Andrei.toc'.
+
+ [5
+
+] [6
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7]
+\openout2 = `data/01_IntelEnergy.aux'.
+
+ (./data/01_IntelEnergy.tex
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
+
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 3.
+
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+
+LaTeX Warning: Citation `intel_ec_sdk_website' on page 8 undefined on input lin
+e 5.
+
+
+LaTeX Warning: Citation `intel_userGuide' on page 8 undefined on input line 8.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 87.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 87.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 87.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+
+LaTeX Warning: Reference `hellotest.c' on page 11 undefined on input line 109.
+
+
+LaTeX Warning: Reference `hellotest.c' on page 11 undefined on input line 109.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11]
+Overfull \hbox (14.455pt too wide) in paragraph at lines 149--150
+[]\T1/lmr/m/n/10.95 You can how-ever solve the prob-lem un-der De-bian/Ubun-tu/
+Linux Mint for the \T1/lmr/bx/n/10.95 pl_gui_monitor
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13] <images/Esrv_Energy_Consumption.png, id=261, 663.47874pt x 493.845pt>
+File: images/Esrv_Energy_Consumption.png Graphic file (type png)
+
+<use images/Esrv_Energy_Consumption.png>
+Package pdftex.def Info: images/Esrv_Energy_Consumption.png used on input line 
+206.
+(pdftex.def)             Requested size: 455.24408pt x 338.85448pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 206--206
+ [] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./images/Esrv_Energy_Consumption.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
+\openout2 = `data/02_HipHop_for_php.aux'.
+
+ (./data/02_HipHop_for_php.tex
+
+LaTeX Warning: Citation `facebook_devs' on page 18 undefined on input line 7.
+
+
+LaTeX Warning: Citation `hiphop_efficient_servers' on page 18 undefined on inpu
+t line 23.
+
+
+LaTeX Warning: Citation `hiphop_jemalloc' on page 18 undefined on input line 23
+.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18
+
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 37.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 37.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 53.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19]
+Overfull \hbox (45.19139pt too wide) in paragraph at lines 90--92
+[]\T1/lmr/m/n/10.95 As per: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / 
+bagder / curl / commit / 26b487a5d6ed9da5bc8e4a134a88d3125884b852$[][]
+ []
+
+
+Overfull \hbox (0.20152pt too wide) in paragraph at lines 93--95
+[]\T1/lmr/m/n/10.95 As per: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / 
+facebook / hiphop-[]php / issues / 319 # issuecomment-[]1445537$[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+[][][][][]$\T1/lmtt/m/n/9 https : / / github . com / h4ck3rm1k3 / hiphop-[]php 
+/ commit / 0628599b4b03dff6b33bc2ea31de09f236ea6452 #
+ []
+
+
+Overfull \hbox (8.08308pt too wide) in paragraph at lines 133--134
+\T1/lmr/m/n/10.95 Or edit the dae-mon and server sec-tions in \T1/lmr/bx/n/10.9
+5 /home/lostone/dev/hiphop-php/doc/Makefile
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+
+Package Listings Warning: Text dropped after begin of listing on input line 218
+.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
+Underfull \hbox (badness 4927) in paragraph at lines 235--235
+[][][]\T1/lmr/m/n/9 We're fol-low-ing this guide: [][]$\T1/lmtt/m/n/9 http : / 
+/ groups . google . com / group / hiphop-[]php-[]dev / browse _ thread /
+ []
+
+
+LaTeX Warning: Citation `hiphop_strconcat' on page 23 undefined on input line 2
+76.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25] <images/rId32.png, id=612, 651.43375pt x 420.57124pt>
+File: images/rId32.png Graphic file (type png)
+
+<use images/rId32.png>
+Package pdftex.def Info: images/rId32.png used on input line 383.
+(pdftex.def)             Requested size: 456.0005pt x 294.39786pt.
+
+Overfull \hbox (14.98277pt too wide) in paragraph at lines 383--383
+ [] 
+ []
+
+
+LaTeX Warning: Reference `rId32.png' on page 26 undefined on input line 385.
+
+
+Overfull \hbox (14.15787pt too wide) in paragraph at lines 393--403
+\T1/lmr/m/n/10.95 trans-late it into some-thing read-able, run this com-mand, \
+T1/lmr/bx/n/10.95 /tm-p/h-php_xpl7hT/program
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26 <./images/rId32.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27]
+Overfull \hbox (209.10857pt too wide) in paragraph at lines 439--442
+[]
+ []
+
+
+LaTeX Warning: Citation `ocportal_optimise' on page 28 undefined on input line 
+449.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]
+
+Package Listings Warning: Text dropped after begin of listing on input line 602
+.
+
+
+LaTeX Warning: Citation `hphp_fix_cssProblems' on page 31 undefined on input li
+ne 615.
+
+
+LaTeX Warning: Citation `downsides_of_hiphop' on page 31 undefined on input lin
+e 626.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31]
+
+LaTeX Warning: Citation `php_performance' on page 32 undefined on input line 64
+9.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32]
+Overfull \hbox (51.34766pt too wide) in paragraph at lines 683--684
+\T1/lmr/m/n/10.95 The fix is to set the PATH vari-ables as fol-low-ing, the pro
+b-lem is with the \T1/lmr/bx/n/10.95 CMAKE_PREFIX_PATH\T1/lmr/m/n/10.95 .
+ []
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33]
+\openout2 = `data/03_phpbb_setup.aux'.
+
+ (./data/03_phpbb_setup.tex
+
+LaTeX Warning: Reference `linux/lamp_stack.png' on page 34 undefined on input l
+ine 21.
+
+
+LaTeX Warning: Reference `linux/lamp_stack.png' on page 34 undefined on input l
+ine 21.
+
+
+LaTeX Warning: Reference `linux/lamp_clients.png' on page 34 undefined on input
+ line 23.
+
+
+LaTeX Warning: Reference `linux/lamp_clients.png' on page 34 undefined on input
+ line 23.
+
+<images/linux/lamp_stack.png, id=860, 695.59875pt x 307.1475pt>
+File: images/linux/lamp_stack.png Graphic file (type png)
+
+<use images/linux/lamp_stack.png>
+Package pdftex.def Info: images/linux/lamp_stack.png used on input line 24.
+(pdftex.def)             Requested size: 417.36247pt x 184.28992pt.
+
+<images/linux/lamp_clients.png, id=861, 762.85pt x 401.5pt>
+File: images/linux/lamp_clients.png Graphic file (type png)
+
+<use images/linux/lamp_clients.png>
+Package pdftex.def Info: images/linux/lamp_clients.png used on input line 25.
+(pdftex.def)             Requested size: 457.71353pt x 240.90184pt.
+
+Overfull \hbox (16.6958pt too wide) in paragraph at lines 25--25
+ [] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34
+
+
+ <./images/linux/lamp_stack.png>]
+
+LaTeX Warning: Citation `phplens_optimising_tips' on page 35 undefined on input
+ line 38.
+
+
+LaTeX Warning: Citation `graceHopper_story' on page 35 undefined on input line 
+46.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35 <./images/linux/lamp_clients.png>]
+
+LaTeX Warning: Citation `graceHopper_history' on page 36 undefined on input lin
+e 55.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\T1/lmr/bx/n/10.95 CPU sec-onds
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+\T1/lmr/bx/n/10.95 for 1 HTTP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\T1/lmr/bx/n/10.95 CPU sec-onds
+ []
+
+
+Underfull \hbox (badness 3000) in paragraph at lines 83--83
+\T1/lmr/bx/n/10.95 for 10 HTTP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\T1/lmr/bx/n/10.95 CPU sec-onds
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+\T1/lmr/bx/n/10.95 for 20 HTTP
+ []
+
+
+LaTeX Warning: Citation `400g_network_processor' on page 36 undefined on input 
+line 92.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37]
+
+LaTeX Warning: Reference `mdadm' on page 38 undefined on input line 119.
+
+
+LaTeX Warning: Citation `mdadmLink' on page 38 undefined on input line 125.
+
+
+LaTeX Warning: Citation `mdadmLink2' on page 38 undefined on input line 128.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[38]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[39]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[40]
+
+LaTeX Warning: Reference `rId38.png' on page 41 undefined on input line 217.
+
+<images/rId38.png, id=988, 1013.7875pt x 766.865pt>
+File: images/rId38.png Graphic file (type png)
+ <use images/rId38.png>
+Package pdftex.def Info: images/rId38.png used on input line 218.
+(pdftex.def)             Requested size: 415.65558pt x 314.41669pt.
+
+
+LaTeX Warning: Reference `rId39.png' on page 41 undefined on input line 221.
+
+
+LaTeX Warning: Reference `rId39.png' on page 41 undefined on input line 221.
+
+<images/rId39.png, id=989, 1043.9pt x 737.75626pt>
+File: images/rId39.png Graphic file (type png)
+ <use images/rId39.png>
+Package pdftex.def Info: images/rId39.png used on input line 227.
+(pdftex.def)             Requested size: 428.00177pt x 302.48203pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[41 <./images/rId38.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[42 <./images/rId39.png>]
+
+LaTeX Warning: Citation `xdebug_website' on page 43 undefined on input line 275
+.
+
+
+LaTeX Warning: Citation `diagnose_php_with_xdebug' on page 43 undefined on inpu
+t line 289.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[43] <images/rId40.png, id=1039, 1172.38pt x 733.74126pt>
+File: images/rId40.png Graphic file (type png)
+
+<use images/rId40.png>
+Package pdftex.def Info: images/rId40.png used on input line 295.
+(pdftex.def)             Requested size: 468.9437pt x 293.4913pt.
+
+Overfull \hbox (27.92596pt too wide) in paragraph at lines 295--295
+ [] 
+ []
+
+
+Overfull \hbox (18.98706pt too wide) in paragraph at lines 294--295
+[]\T1/lmr/m/n/10.95 We then find a file called /tm-p/-val-grind._phpbb_index_ph
+p_XDEBUG_PROFILE-1331719932
+ []
+
+
+LaTeX Warning: Reference `rId40.png' on page 44 undefined on input line 297.
+
+
+LaTeX Warning: Reference `rId40.png' on page 44 undefined on input line 297.
+
+
+LaTeX Warning: Citation `php_session' on page 44 undefined on input line 300.
+
+
+LaTeX Warning: Reference `rId42.png' on page 44 undefined on input line 307.
+
+
+LaTeX Warning: Reference `rId42.png' on page 44 undefined on input line 307.
+
+<images/rId42.png, id=1042, 746.79pt x 367.3725pt>
+File: images/rId42.png Graphic file (type png)
+ <use images/rId42.png>
+Package pdftex.def Info: images/rId42.png used on input line 309.
+(pdftex.def)             Requested size: 448.07745pt x 220.42519pt.
+
+Overfull \hbox (7.05972pt too wide) in paragraph at lines 309--309
+ [] 
+ []
+
+<images/rId44.png, id=1043, 1100.11pt x 544.0325pt>
+File: images/rId44.png Graphic file (type png)
+ <use images/rId44.png>
+Package pdftex.def Info: images/rId44.png used on input line 310.
+(pdftex.def)             Requested size: 440.03621pt x 217.60915pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[44 <./images/rId40.png>]
+
+LaTeX Warning: Reference `rId45.png' on page 45 undefined on input line 329.
+
+
+LaTeX Warning: Reference `rId45.png' on page 45 undefined on input line 329.
+
+<images/rId45.png, id=1057, 464.73625pt x 472.76625pt>
+File: images/rId45.png Graphic file (type png)
+ <use images/rId45.png>
+Package pdftex.def Info: images/rId45.png used on input line 330.
+(pdftex.def)             Requested size: 325.31316pt x 330.93411pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[45 <./images/rId42.png> <./images/rId44.png>])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[46 <./images/rId45.png>]
+\openout2 = `data/04_vApus_testcases.aux'.
+
+ (./data/04_vApus_testcases.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[47
+
+
+]
+
+LaTeX Warning: Reference `sec:scripts' on page 48 undefined on input line 59.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[48]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[49]
+
+LaTeX Warning: Reference `tab:1core' on page 50 undefined on input line 123.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 129--129
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `rId47.png' on page 50 undefined on input line 138.
+
+
+LaTeX Warning: Reference `rId48.png' on page 50 undefined on input line 139.
+
+
+LaTeX Warning: Reference `rId48.png' on page 50 undefined on input line 139.
+
+
+LaTeX Warning: Reference `rId49.png' on page 50 undefined on input line 140.
+
+
+LaTeX Warning: Reference `rId49.png' on page 50 undefined on input line 140.
+
+
+LaTeX Warning: Reference `rId51.png' on page 50 undefined on input line 141.
+
+
+LaTeX Warning: Reference `rId51.png' on page 50 undefined on input line 141.
+
+
+LaTeX Warning: Reference `rId50.png' on page 50 undefined on input line 142.
+
+
+LaTeX Warning: Reference `rId50.png' on page 50 undefined on input line 142.
+
+<images/rId47.png, id=1126, 803.0pt x 602.25pt>
+File: images/rId47.png Graphic file (type png)
+ <use images/rId47.png>
+Package pdftex.def Info: images/rId47.png used on input line 144.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId48.png, id=1127, 803.0pt x 602.25pt>
+File: images/rId48.png Graphic file (type png)
+ <use images/rId48.png>
+Package pdftex.def Info: images/rId48.png used on input line 145.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId49.png, id=1128, 803.0pt x 602.25pt>
+File: images/rId49.png Graphic file (type png)
+ <use images/rId49.png>
+Package pdftex.def Info: images/rId49.png used on input line 146.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId50.png, id=1129, 803.0pt x 602.25pt>
+File: images/rId50.png Graphic file (type png)
+ <use images/rId50.png>
+Package pdftex.def Info: images/rId50.png used on input line 147.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId51.png, id=1130, 803.0pt x 602.25pt>
+File: images/rId51.png Graphic file (type png)
+ <use images/rId51.png>
+Package pdftex.def Info: images/rId51.png used on input line 148.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[51 <./images/rId47.png> <./images/rId48.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52 <./images/rId49.png> <./images/rId50.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[53 <./images/rId51.png>]
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 165--165
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `tab:2cores' on page 54 undefined on input line 174.
+
+
+LaTeX Warning: Reference `rId52.png' on page 54 undefined on input line 176.
+
+
+LaTeX Warning: Reference `rId52.png' on page 54 undefined on input line 176.
+
+
+LaTeX Warning: Reference `rId53.png' on page 54 undefined on input line 178.
+
+
+LaTeX Warning: Reference `rId53.png' on page 54 undefined on input line 178.
+
+
+LaTeX Warning: Reference `rId54.png' on page 54 undefined on input line 180.
+
+
+LaTeX Warning: Reference `rId54.png' on page 54 undefined on input line 180.
+
+
+LaTeX Warning: Reference `rId56.png' on page 54 undefined on input line 182.
+
+
+LaTeX Warning: Reference `rId56.png' on page 54 undefined on input line 182.
+
+<images/rId52.png, id=1167, 803.0pt x 602.25pt>
+File: images/rId52.png Graphic file (type png)
+ <use images/rId52.png>
+Package pdftex.def Info: images/rId52.png used on input line 183.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId53.png, id=1168, 803.0pt x 602.25pt>
+File: images/rId53.png Graphic file (type png)
+ <use images/rId53.png>
+Package pdftex.def Info: images/rId53.png used on input line 184.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId54.png, id=1169, 803.0pt x 602.25pt>
+File: images/rId54.png Graphic file (type png)
+ <use images/rId54.png>
+Package pdftex.def Info: images/rId54.png used on input line 185.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId56.png, id=1170, 803.0pt x 602.25pt>
+File: images/rId56.png Graphic file (type png)
+ <use images/rId56.png>
+Package pdftex.def Info: images/rId56.png used on input line 187.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[54
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[55 <./images/rId52.png> <./images/rId53.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[56 <./images/rId54.png> <./images/rId56.png>]
+
+LaTeX Warning: Reference `tab:4cores' on page 57 undefined on input line 198.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 202--202
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `rId57.png' on page 57 undefined on input line 212.
+
+
+LaTeX Warning: Reference `rId57.png' on page 57 undefined on input line 212.
+
+
+LaTeX Warning: Reference `rId58.png' on page 57 undefined on input line 214.
+
+
+LaTeX Warning: Reference `rId58.png' on page 57 undefined on input line 214.
+
+
+LaTeX Warning: Reference `rId61.png' on page 57 undefined on input line 216.
+
+
+LaTeX Warning: Reference `rId61.png' on page 57 undefined on input line 216.
+
+<images/rId61.png, id=1194, 803.0pt x 602.25pt>
+File: images/rId61.png Graphic file (type png)
+ <use images/rId61.png>
+Package pdftex.def Info: images/rId61.png used on input line 217.
+(pdftex.def)             Requested size: 297.10535pt x 222.82901pt.
+
+<images/rId57.png, id=1195, 803.0pt x 602.25pt>
+File: images/rId57.png Graphic file (type png)
+ <use images/rId57.png>
+Package pdftex.def Info: images/rId57.png used on input line 218.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId58.png, id=1196, 803.0pt x 602.25pt>
+File: images/rId58.png Graphic file (type png)
+ <use images/rId58.png>
+Package pdftex.def Info: images/rId58.png used on input line 219.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[57
+
+ <./images/rId61.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[58 <./images/rId57.png> <./images/rId58.png>]
+
+LaTeX Warning: Reference `tab:8cores' on page 59 undefined on input line 234.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 239--239
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `rId62.png' on page 59 undefined on input line 250.
+
+
+LaTeX Warning: Reference `rId62.png' on page 59 undefined on input line 250.
+
+
+LaTeX Warning: Reference `rId63.png' on page 59 undefined on input line 252.
+
+
+LaTeX Warning: Reference `rId63.png' on page 59 undefined on input line 252.
+
+
+LaTeX Warning: Reference `rId65.png' on page 59 undefined on input line 255.
+
+
+LaTeX Warning: Reference `rId65.png' on page 59 undefined on input line 255.
+
+<images/rId62.png, id=1214, 803.0pt x 602.25pt>
+File: images/rId62.png Graphic file (type png)
+ <use images/rId62.png>
+Package pdftex.def Info: images/rId62.png used on input line 256.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId63.png, id=1215, 803.0pt x 602.25pt>
+File: images/rId63.png Graphic file (type png)
+ <use images/rId63.png>
+Package pdftex.def Info: images/rId63.png used on input line 257.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId65.png, id=1216, 803.0pt x 602.25pt>
+File: images/rId65.png Graphic file (type png)
+ <use images/rId65.png>
+Package pdftex.def Info: images/rId65.png used on input line 258.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[59
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[60 <./images/rId62.png> <./images/rId63.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61 <./images/rId65.png>]
+Overfull \hbox (0.97356pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (10.56992pt too wide) in paragraph at lines 264--277
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--277
+
+ []
+
+
+LaTeX Warning: Reference `tab:1coremoresteps' on page 62 undefined on input lin
+e 282.
+
+
+Underfull \hbox (badness 2932) in paragraph at lines 280--284
+[]\T1/lmr/m/n/10.95 The test was stopped when it passed
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 280--284
+\T1/lmr/m/n/10.95 reached the high-est through-put any-way.
+ []
+
+
+LaTeX Warning: Reference `tab:1to8cores' on page 62 undefined on input line 286
+.
+
+
+Overfull \hbox (19.98714pt too wide) in paragraph at lines 292--292
+[]|\T1/lmr/bx/n/10.95 Concurrent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\T1/lmr/bx/n/10.95 Resp
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\T1/lmr/bx/n/10.95 Resp
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\T1/lmr/bx/n/10.95 Resp
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\T1/lmr/bx/n/10.95 Resp
+ []
+
+
+Overfull \hbox (32.33076pt too wide) in paragraph at lines 290--300
+ [] 
+ []
+
+<images/throughput1to8cores.png, id=1242, 471.26062pt x 273.27094pt>
+File: images/throughput1to8cores.png Graphic file (type png)
+
+<use images/throughput1to8cores.png>
+Package pdftex.def Info: images/throughput1to8cores.png used on input line 303.
+
+(pdftex.def)             Requested size: 471.25948pt x 273.27025pt.
+
+Overfull \hbox (30.24174pt too wide) in paragraph at lines 303--303
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 62 undefined on inpu
+t line 304.
+
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 62 undefined on inpu
+t line 304.
+
+
+LaTeX Warning: Reference `responsetime1to8cores.png' on page 62 undefined on in
+put line 304.
+
+
+LaTeX Warning: Reference `responsetime1to8cores.png' on page 62 undefined on in
+put line 304.
+
+<images/responsetime1to8cores.png, id=1243, 468.24937pt x 258.21469pt>
+File: images/responsetime1to8cores.png Graphic file (type png)
+
+<use images/responsetime1to8cores.png>
+Package pdftex.def Info: images/responsetime1to8cores.png used on input line 30
+5.
+(pdftex.def)             Requested size: 468.24821pt x 258.21405pt.
+
+Overfull \hbox (27.23048pt too wide) in paragraph at lines 305--305
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `responsetime1to8cores.png' on page 62 undefined on in
+put line 306.
+
+
+LaTeX Warning: Reference `responsetime1to8cores.png' on page 62 undefined on in
+put line 306.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[62
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[63 <./images/throughput1to8cores.png> <./images/responsetime1to8cores.png>]
+
+LaTeX Warning: Reference `subsec:frontend' on page 64 undefined on input line 3
+27.
+
+
+LaTeX Warning: Citation `optimizing_LAMP_helioviewer' on page 64 undefined on i
+nput line 329.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[64
+
+]
+Overfull \hbox (22.49101pt too wide) in paragraph at lines 364--365
+\T1/lmr/m/n/10.95 Run the ./im-port-mysqldb.sh to change the database. Fol-low-
+ing: http://yoursite/install/index.php 
+ []
+
+
+LaTeX Warning: Reference `tab:phpbbUpgrade' on page 65 undefined on input line 
+379.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
+[]|\T1/lmr/bx/n/10.95 Concurrent
+ []
+
+
+Overfull \hbox (0.97356pt too wide) in paragraph at lines 387--387
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (0.97356pt too wide) in paragraph at lines 387--387
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[65
+
+]
+
+LaTeX Warning: Reference `rId69.png' on page 66 undefined on input line 416.
+
+
+LaTeX Warning: Reference `rId69.png' on page 66 undefined on input line 416.
+
+
+LaTeX Warning: Reference `rId70.png' on page 66 undefined on input line 418.
+
+
+LaTeX Warning: Reference `rId70.png' on page 66 undefined on input line 418.
+
+<images/rId69.png, id=1320, 803.0pt x 602.25pt>
+File: images/rId69.png Graphic file (type png)
+ <use images/rId69.png>
+Package pdftex.def Info: images/rId69.png used on input line 421.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+<images/rId70.png, id=1321, 803.0pt x 602.25pt>
+File: images/rId70.png Graphic file (type png)
+ <use images/rId70.png>
+Package pdftex.def Info: images/rId70.png used on input line 422.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[66
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[67 <./images/rId69.png> <./images/rId70.png>]
+
+LaTeX Warning: Reference `tab:8coresmemcached' on page 68 undefined on input li
+ne 425.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 431--431
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--431
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 431--431
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--431
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `tab:16coreCompare' on page 68 undefined on input line
+ 455.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 460--460
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 460--460
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[68
+
+] <images/16_cores_cpu_intensive.png, id=1357, 803.0pt x 602.25pt>
+File: images/16_cores_cpu_intensive.png Graphic file (type png)
+
+<use images/16_cores_cpu_intensive.png>
+Package pdftex.def Info: images/16_cores_cpu_intensive.png used on input line 4
+74.
+(pdftex.def)             Requested size: 240.90186pt x 180.67639pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[69 <./images/16_cores_cpu_intensive.png>]
+
+LaTeX Warning: Reference `rId71.png' on page 70 undefined on input line 491.
+
+
+LaTeX Warning: Reference `rId71.png' on page 70 undefined on input line 491.
+
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 70 undefined on input lin
+e 492.
+
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 70 undefined on input lin
+e 492.
+
+
+LaTeX Warning: Reference `tab:apacheNewAndOld' on page 70 undefined on input li
+ne 496.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 501--501
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--501
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 501--501
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--501
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+<images/newVSoldApache.png, id=1374, 465.23813pt x 289.08pt>
+File: images/newVSoldApache.png Graphic file (type png)
+
+<use images/newVSoldApache.png>
+Package pdftex.def Info: images/newVSoldApache.png used on input line 515.
+(pdftex.def)             Requested size: 465.23698pt x 289.07928pt.
+
+Overfull \hbox (24.21925pt too wide) in paragraph at lines 515--515
+ [] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[70]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[71 <./images/newVSoldApache.png>]
+
+LaTeX Warning: Reference `tab:memcachedCompare' on page 72 undefined on input l
+ine 520.
+
+
+LaTeX Warning: Reference `tab:16coreCompare' on page 72 undefined on input line
+ 520.
+
+
+LaTeX Warning: Reference `tab:16coreCompare' on page 72 undefined on input line
+ 520.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 525--525
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--525
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 525--525
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--525
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Citation `optimizing_memcached' on page 72 undefined on input li
+ne 541.
+
+
+LaTeX Warning: Reference `rId73.png' on page 72 undefined on input line 546.
+
+
+LaTeX Warning: Reference `rId73.png' on page 72 undefined on input line 546.
+
+
+LaTeX Warning: Reference `tab:newmemcachedResults' on page 72 undefined on inpu
+t line 547.
+
+
+Overfull \hbox (0.97356pt too wide) in paragraph at lines 552--552
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--552
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+<images/rId73.png, id=1393, 803.0pt x 602.25pt>
+File: images/rId73.png Graphic file (type png)
+ <use images/rId73.png>
+Package pdftex.def Info: images/rId73.png used on input line 567.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[72
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[73 <./images/rId73.png>]
+
+LaTeX Warning: Reference `tab:otherApache-settings' on page 74 undefined on inp
+ut line 583.
+
+
+Overfull \hbox (0.97356pt too wide) in paragraph at lines 588--588
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--588
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `rId74.png' on page 74 undefined on input line 601.
+
+
+LaTeX Warning: Reference `rId74.png' on page 74 undefined on input line 601.
+
+
+LaTeX Warning: Reference `rId75.png' on page 74 undefined on input line 603.
+
+
+LaTeX Warning: Reference `rId75.png' on page 74 undefined on input line 603.
+
+<images/rId74.png, id=1412, 803.0pt x 602.25pt>
+File: images/rId74.png Graphic file (type png)
+ <use images/rId74.png>
+Package pdftex.def Info: images/rId74.png used on input line 605.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/rId75.png, id=1413, 803.0pt x 602.25pt>
+File: images/rId75.png Graphic file (type png)
+ <use images/rId75.png>
+Package pdftex.def Info: images/rId75.png used on input line 606.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[74
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[75 <./images/rId74.png> <./images/rId75.png>]
+
+LaTeX Warning: Reference `tab:newMysqlSettings' on page 76 undefined on input l
+ine 624.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 629--629
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 629--629
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[76
+
+]
+
+LaTeX Warning: Reference `tab:APCvsApache' on page 77 undefined on input line 6
+83.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 690--690
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--690
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 690--690
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--690
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `PHP_APC_Cpu_Usage.png' on page 77 undefined on input 
+line 704.
+
+
+LaTeX Warning: Reference `PHP_APC_Cpu_Usage.png' on page 77 undefined on input 
+line 704.
+
+
+LaTeX Warning: Reference `PHP_APC_Memory_usage.png' on page 77 undefined on inp
+ut line 705.
+
+
+LaTeX Warning: Reference `PHP_APC_Memory_usage.png' on page 77 undefined on inp
+ut line 705.
+
+
+LaTeX Warning: Reference `PHP_APC_CPU_usage_processes.png' on page 77 undefined
+ on input line 706.
+
+
+LaTeX Warning: Reference `PHP_APC_CPU_usage_processes.png' on page 77 undefined
+ on input line 706.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[77] <images/PHP_APC_Cpu_Usage.png, id=1498, 803.0pt x 602.25pt>
+File: images/PHP_APC_Cpu_Usage.png Graphic file (type png)
+
+<use images/PHP_APC_Cpu_Usage.png>
+Package pdftex.def Info: images/PHP_APC_Cpu_Usage.png used on input line 712.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/PHP_APC_Memory_usage.png, id=1499, 803.0pt x 602.25pt>
+File: images/PHP_APC_Memory_usage.png Graphic file (type png)
+
+<use images/PHP_APC_Memory_usage.png>
+Package pdftex.def Info: images/PHP_APC_Memory_usage.png used on input line 713
+.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/PHP_APC_Disk_Usage.png, id=1500, 803.0pt x 602.25pt>
+File: images/PHP_APC_Disk_Usage.png Graphic file (type png)
+
+<use images/PHP_APC_Disk_Usage.png>
+Package pdftex.def Info: images/PHP_APC_Disk_Usage.png used on input line 714.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/PHP_APC_CPU_usage_processes.png, id=1501, 803.0pt x 602.25pt>
+File: images/PHP_APC_CPU_usage_processes.png Graphic file (type png)
+
+<use images/PHP_APC_CPU_usage_processes.png>
+Package pdftex.def Info: images/PHP_APC_CPU_usage_processes.png used on input l
+ine 715.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[78 <./images/PHP_APC_Cpu_Usage.png> <./images/PHP_APC_Memory_usage.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79 <./images/PHP_APC_Disk_Usage.png> <./images/PHP_APC_CPU_usage_processes.png
+>]
+
+LaTeX Warning: Reference `tab:apcTo1000Users' on page 80 undefined on input lin
+e 722.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 727--727
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+LaTeX Warning: Reference `APC_1000_cpu.png' on page 80 undefined on input line 
+745.
+
+
+LaTeX Warning: Reference `APC_1000_cpu.png' on page 80 undefined on input line 
+745.
+
+
+LaTeX Warning: Reference `APC_1000_memory.png' on page 80 undefined on input li
+ne 746.
+
+
+LaTeX Warning: Reference `APC_1000_memory.png' on page 80 undefined on input li
+ne 746.
+
+
+LaTeX Warning: Reference `APC_1000_diskusage.png' on page 80 undefined on input
+ line 747.
+
+
+LaTeX Warning: Reference `APC_1000_diskusage.png' on page 80 undefined on input
+ line 747.
+
+
+LaTeX Warning: Reference `APC_1000_iosar.png' on page 80 undefined on input lin
+e 749.
+
+
+LaTeX Warning: Reference `APC_1000_iosar.png' on page 80 undefined on input lin
+e 749.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 80 undefined on input
+ line 751.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 80 undefined on input
+ line 751.
+
+<images/APC_1000_cpu.png, id=1521, 803.0pt x 602.25pt>
+File: images/APC_1000_cpu.png Graphic file (type png)
+
+<use images/APC_1000_cpu.png>
+Package pdftex.def Info: images/APC_1000_cpu.png used on input line 752.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/APC_1000_memory.png, id=1522, 803.0pt x 602.25pt>
+File: images/APC_1000_memory.png Graphic file (type png)
+
+<use images/APC_1000_memory.png>
+Package pdftex.def Info: images/APC_1000_memory.png used on input line 753.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/APC_1000_diskusage.png, id=1523, 803.0pt x 602.25pt>
+File: images/APC_1000_diskusage.png Graphic file (type png)
+
+<use images/APC_1000_diskusage.png>
+Package pdftex.def Info: images/APC_1000_diskusage.png used on input line 754.
+(pdftex.def)             Requested size: 264.99081pt x 198.7431pt.
+
+<images/APC_1000_iosar.png, id=1524, 803.0pt x 602.25pt>
+File: images/APC_1000_iosar.png Graphic file (type png)
+
+<use images/APC_1000_iosar.png>
+Package pdftex.def Info: images/APC_1000_iosar.png used on input line 755.
+(pdftex.def)             Requested size: 321.1943pt x 240.89572pt.
+
+<images/APC_1000_processes.png, id=1525, 803.0pt x 602.25pt>
+File: images/APC_1000_processes.png Graphic file (type png)
+
+<use images/APC_1000_processes.png>
+Package pdftex.def Info: images/APC_1000_processes.png used on input line 756.
+(pdftex.def)             Requested size: 321.1943pt x 240.89572pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[80
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[81 <./images/APC_1000_cpu.png> <./images/APC_1000_memory.png> <./images/APC_10
+00_diskusage.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[82 <./images/APC_1000_iosar.png> <./images/APC_1000_processes.png>]
+
+LaTeX Warning: Reference `tab:apcmoresteps' on page 83 undefined on input line 
+761.
+
+
+Overfull \hbox (3.81902pt too wide) in paragraph at lines 766--766
+[]|\T1/lmr/bx/n/10.95 Throughput
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
+[]|\T1/lmr/bx/n/10.95 Response
+ []
+
+
+Overfull \hbox (12.03957pt too wide) in paragraph at lines 806--809
+\T1/lmr/m/n/10.95 After many tries.. \T1/lmr/bx/n/10.95 Fa-tal er-ror: Can't op
+en and lock priv-i-lege ta-bles: Ta-ble 'mysql.host'
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[83
+
+]
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 84 undefined on inpu
+t line 818.
+
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 84 undefined on inpu
+t line 818.
+
+
+LaTeX Warning: Reference `comparison_8_16_cores.png' on page 84 undefined on in
+put line 821.
+
+
+LaTeX Warning: Reference `comparison_8_16_cores.png' on page 84 undefined on in
+put line 821.
+
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 84 undefined on input lin
+e 830.
+
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 84 undefined on input lin
+e 830.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndThroughput' on page 84 undefined
+ on input line 834.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndResponseTime' on page 84 undefin
+ed on input line 834.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndResponseTime' on page 84 undefin
+ed on input line 834.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 84 undefined on input
+ line 835.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 84 undefined on input
+ line 835.
+
+
+Overfull \hbox (2.91531pt too wide) in paragraph at lines 864--864
+[]|\T1/lmr/bx/n/10.95 Concurrent
+ []
+
+
+Overfull \hbox (2.91531pt too wide) in paragraph at lines 883--883
+[]|\T1/lmr/bx/n/10.95 Concurrent
+ []
+
+<images/comparison_8_16_cores.png, id=1581, 528.97626pt x 336.25626pt>
+File: images/comparison_8_16_cores.png Graphic file (type png)
+
+<use images/comparison_8_16_cores.png>
+Package pdftex.def Info: images/comparison_8_16_cores.png used on input line 89
+8.
+(pdftex.def)             Requested size: 370.28085pt x 235.37776pt.
+
+<images/conclusion_tests_responsetime.png, id=1582, 635.37375pt x 461.725pt>
+File: images/conclusion_tests_responsetime.png Graphic file (type png)
+
+<use images/conclusion_tests_responsetime.png>
+Package pdftex.def Info: images/conclusion_tests_responsetime.png used on input
+ line 900.
+(pdftex.def)             Requested size: 444.75859pt x 323.20529pt.
+
+Overfull \hbox (3.74086pt too wide) in paragraph at lines 900--900
+ [] 
+ []
+
+<images/conclusion_tests_throughput.png, id=1583, 615.29875pt x 436.63126pt>
+File: images/conclusion_tests_throughput.png Graphic file (type png)
+
+<use images/conclusion_tests_throughput.png>
+Package pdftex.def Info: images/conclusion_tests_throughput.png used on input l
+ine 901.
+(pdftex.def)             Requested size: 430.70618pt x 305.63979pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[84]
+
+LaTeX Warning: Text page 85 contains only floats.
+
+
+Overfull \vbox (0.63426pt too high) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[85 <./images/comparison_8_16_cores.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[86 <./images/conclusion_tests_responsetime.png> <./images/conclusion_tests_thr
+oughput.png>]
+\openout2 = `data/05_Scripts.aux'.
+
+ (./data/05_Scripts.tex
+
+LaTeX Warning: Reference `Screenshot-plotchart_things.png' on page 87 undefined
+ on input line 3.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[87
+
+
+] <images/Screenshot-plotchart_things.png, id=1623, 831.105pt x 722.7pt>
+File: images/Screenshot-plotchart_things.png Graphic file (type png)
+
+<use images/Screenshot-plotchart_things.png>
+Package pdftex.def Info: images/Screenshot-plotchart_things.png used on input l
+ine 36.
+(pdftex.def)             Requested size: 415.55148pt x 361.3491pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[88 <./images/Screenshot-plotchart_things.png>]
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 89 undefined on inpu
+t line 236.
+
+
+LaTeX Warning: Reference `throughput1to8cores.png' on page 89 undefined on inpu
+t line 236.
+
+
+LaTeX Warning: Reference `comparison_8_16_cores.png' on page 89 undefined on in
+put line 239.
+
+
+LaTeX Warning: Reference `comparison_8_16_cores.png' on page 89 undefined on in
+put line 239.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[89
+
+]
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 90 undefined on input lin
+e 248.
+
+
+LaTeX Warning: Reference `newVSoldApache.png' on page 90 undefined on input lin
+e 248.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndThroughput' on page 90 undefined
+ on input line 252.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndResponseTime' on page 90 undefin
+ed on input line 252.
+
+
+LaTeX Warning: Reference `tab:scalingBeginToEndResponseTime' on page 90 undefin
+ed on input line 252.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 90 undefined on input
+ line 253.
+
+
+LaTeX Warning: Reference `APC_1000_processes.png' on page 90 undefined on input
+ line 253.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[90]
+\tf@lof=\write7
+\openout7 = `Licenta_Andrei.lof'.
+
+ [91
+
+]
+\tf@lot=\write8
+\openout8 = `Licenta_Andrei.lot'.
+
+ [92
+
+]
+No file Licenta_Andrei.bbl.
+\openout2 = `data/appendix.aux'.
+
+(./data/appendix.tex [93
+
+
+
+
+] [94]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[95]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[96] <images/rId71.png, id=1772, 803.0pt x 602.25pt>
+File: images/rId71.png Graphic file (type png)
+ <use images/rId71.png>
+Package pdftex.def Info: images/rId71.png used on input line 103.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[97
+
+ <./images/rId71.png>]
+No file Licenta_Andrei.ind.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 274.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 274.
+(./Licenta_Andrei.aux (./data/01_IntelEnergy.aux) (./data/02_HipHop_for_php.aux
+) (./data/03_phpbb_setup.aux) (./data/04_vApus_testcases.aux)
+(./data/05_Scripts.aux) (./data/appendix.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 274.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 274.
+
+
+Package rerunfilecheck Warning: File `Licenta_Andrei.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Licenta_Andrei.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  478267F6703C8D8C5BF5B309FB807F38;9646.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 274.
+ ) 
+Here is how much of TeX's memory you used:
+ 20110 strings out of 494358
+ 323765 string characters out of 6164528
+ 595785 words of memory out of 5000000
+ 21970 multiletter control sequences out of 15000+600000
+ 82602 words of font info for 60 fonts, out of 8000000 for 9000
+ 350 hyphenation exceptions out of 8191
+ 47i,18n,83p,2044b,1857s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{glo:hyperthreading} has been referenced but does 
+not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:tcl} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:cobol} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:html} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:mime} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:cms} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:vapus} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:css} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:hphpi} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:memcached} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:ram} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:hphp} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:sqlite} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:csv} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:uuid} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:makefile} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:tcpip} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:pl} has been referenced but does not exist, rep
+laced by a fixed one
+
+pdfTeX warning (dest): name{glo:ide} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:sdk} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:api} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:apc} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:mysql} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:apache} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{glo:ssd} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:raid} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:lamp} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{glo:cpu} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{glo:php} has been referenced but does not exist, re
+placed by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvip
+s/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/sha
+re/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
+rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+sy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pf
+b>
+Output written on Licenta_Andrei.pdf (97 pages, 2497116 bytes).
+PDF statistics:
+ 2052 PDF objects out of 2073 (max. 8388607)
+ 1854 compressed objects within 19 object streams
+ 1049 named destinations out of 1200 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
+

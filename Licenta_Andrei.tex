@@ -1,0 +1,274 @@
+%%%%%%%%%%%%%
+%Clinciu Andrei
+%%%%%%%%%%%%%
+\input{preamble} % This command is roughly equivalent to \clearpage \input{filename} \clearpage.
+
+
+%%%%%%%%%%%%%
+% Information
+%%%%%%%%%%%%%
+\author{Clinciu Andrei George}
+\title{Internship}
+
+\begin{document}
+%\maketitle{}
+\includepdf[pages={1}]{frontpage_en.pdf}
+%\input{data/title}
+\pagestyle{empty}%remove the numbering.. etc
+\thispagestyle{empty}
+
+%\appendix{}
+
+%The sections before the table of contents
+
+\clearpage{}
+\section*{Foreword}
+My name is Andrei Clinciu and I'm a student in my final year following NMCT(New Media and Communication Technology) at Howest.
+In my last year I've chosen majors like operating systems, network infrastructure, information systems security, virtualisation and cloud computing.
+I enjoy programming a lot and want to combine it with the Linux operating system.
+
+Throughout the existence of the Web there were always developers who wanted to create dynamic content to attract more people to their websites.
+Within this evolution dynamic languages into the context. 
+
+As the Internet did not have that many users in the beginning you could notice lagging websites but didn't have a faster connection so everything was all right.
+With the evolution of better network connections and the wide spread of computers, videos, images and advanced web applications many bottlenecks were noticed.
+
+This document explains how to optimise such applications by optimally managing your configuration.
+Optimising existing software to gain more throughput and a better response time is a must for today's websites since the cost of electricity grows daily.
+
+This thesis is meant for the researchers at Sizing Servers so they can follow most of the steps here to be able to build upon it and further their work.
+It is also meant for people who want to set up their own web server, even people searching for quick speed-up tricks.
+Regard it as a work of research with a lot of trial and error. For me this has been very enriching. 
+
+All of the examples here have been set up using Ubuntu Linux 11.10 (server edition).
+Any other Linux distribution should work, though there might be some differences. It's best advised to first test everything on Ubuntu.
+
+I'd like to thank everyone from the Sizing Servers team for the possibility to have an internship in my last year at Howest, also for the acceptance and the nice time we had together.
+Many thanks to my internship supervisor Johan De Gelas for the project ideas. 
+Last but not least my appreciation for Hans Ameel my coach, who reviewed my work and presentation helping me in the technical field and attentive analysing my linguistic mistakes.
+
+I'm sure that you, the reader, will find something interesting  in this work.
+
+With regards
+\\Andrei Clinciu.
+
+\clearpage{}
+\section*{Summary}
+This work of research is about software optimisations or configuration settings that can make your software work better and require less CPU power. 
+Thus enabling servers to do their calculations faster and use less energy. 
+
+The problem is not how to begin or what to do because there is enough information on that but how to notice when something isn't productive.
+Only continuing if the results are optimal.
+This is a big problem since in research you can waste years of intensive work to just find out that it was not worth researching in the first place.
+
+The best way to be sure that you won't fail so fast is to document everything you do as much as possible. 
+That's what I've done from the beginning. Gathering information and reviewing existing tests that have something to do with the research I'm working on to see if it's a good idea. 
+For the full results of each phase look at the end of each section.
+
+The usage of Intel Energy Checker and how to integrate it in your software to be able to see how much energy an application uses is explained in \autoref{sec:IntelSDK} on page \pageref{sec:IntelSDK}.
+It's very hard to integrate it into an existing project. The network agent it uses isn't usable for what we required. 
+
+A detailed mini documentation on how to use the HipHop  compiler for PHP made by Facebook is found at \autoref{sec:using_hiphop} on page \pageref{sec:using_hiphop}. What it is, how it can be used, what the speed benefits are. 
+The conclusion is that HipHop can't be used in a production environment because  any existing website needs to be rewritten following some guidelines 
+and that it takes a long time to compile. If you do compile it without problems, you'll notice that every change requires a recompilation of everything which is not so efficient. 
+Only one site may be hosted per binary file and those binary files are 50 mb's.
+
+Ever wanted set up an existing Apache installation on a SSD? If so go to \autoref{sec:lamp_optimise} on page \pageref{sec:lamp_optimise}. There you will find a little introduction on how to setup your SSD and migrate MySQL databases and Apache's PHP files to a SSD for speed benefits. 
+Code profiling techniques are likewise explained including Xdebug for PHP.
+
+If you're only interested in LAMP settings to make your LAMP installation work better you can fast forward to \autoref{sec:testcasesphpBB}  on page \pageref{sec:testcasesphpBB}.
+There examples and graphics show different settings and how they have an impact on the throughput and response time.
+One of the best things you can do to your website is install APC and use the extension in applications. It decreases the CPU usage to half.
+
+For a quick overview of the Plotchart script written in TCL you can always refer to \autoref{sec:scripts}  on page \pageref{sec:scripts}. It imports log data from the stresstests and generates graphics for the CPU, memory usage, disk usage, network traffic and some other related graphics. 
+This script has helped me in distinguishing the data without having to spend a whole day in Excel and plotting everything manually.
+
+For the final conclusion you can jump to \autoref{sec:scripts}  on page \pageref{sec:scripts}.
+
+%KEEP IT SIMPLE 
+\clearpage{}
+%verklarende woordenlijst
+%terms + alphabetical
+%\setglossarystyle[acronym]{style=long,border=true}
+\makeglossaries{}
+\input{data/glossary}
+%\makeacronym
+\printglossaries{}
+%\printacronym
+\clearpage{}
+
+%\section*{Symbols list}
+%\clearpage{}
+
+%remove these lines when you want to ident the table of contents:)
+
+\cftsetindents{section}{0.5in}{0.5in}
+\cftsetindents{subsection}{0.5in}{0.5in}
+\cftsetindents{subsubsection}{0.5in}{0.5in}
+\cftsetindents{paragraph}{0.5in}{0.5in}
+% insert the table of contents
+\tableofcontents{}
+\clearpage
+
+\pagestyle{headings}
+\section{The lovely world of research}
+\subsection{About Sizing Servers lab}
+The Sizing Servers Lab is a government subsidized and acknowledged research lab, located in the University College of Western Flanders, 
+doing razor sharp research into the newest server technologies, both hardware- and software-wise.
+For over 4 years, the lab has offered several companies the opportunity to access this expertise, and thanks to a dynamic and growing team,
+Sizing Servers is able to offer highly specialized services to exactly those companies in need of expertise that require a deep and academic understanding of the subject matter.
+
+Over the past few years, the lab has always been just ahead of the industry by diving deep into all the different aspects of virtualization
+and their impact on the performance of the server landscape. The results of this research, enhanced by their in-house developed unique stress testing 
+software vApus, have already been published to publications read by IT professionals from all over the world, 
+and a successful themeday that received the attention of over 100 visitors.
+
+Thanks to the very broad collection of important partners the lab is able to enjoy, it is now capable of putting extensive 
+research into the next big wave of innovation: Cloud Computing.
+\subsection{Why have I chosen for this internship}
+I have chosen for this kind of internship because I knew I could learn a lot and be up to date with the newest software and hardware trends on the market.
+Being around people that work with the newest hardware and know a lot about everything on the market is a big plus for learning new things.
+
+\subsection{My research projects}
+I didn't know exactly what I was going to do until I first started but even at that moment I did not have a good idea on everything. 
+It took a few weeks and finishing a few little researches, reading a lot of documentation to get a  better view on everything.
+
+My job is actually to research how software can perform better in terms of higher throughput and lower response time thus using less energy all the way.
+This is done by reading a lot of documentation and testing many of the things myself. 
+Documenting what I've found is a must because everything I do might be useful for Sizing Servers in the future so they have a reference whenever they need to re-test something and give them a good starting point.
+
+My first research project was on how to implement Intel Energy Checker into other existing software so we can "measure" the energy usage of that software.
+This was somewhat problematic because you require the source of that software and it isn't easy to find and the implementation is almost impossible for real life tests.
+
+My second research project was on HipHop \gls{php} to C++ compiler made by Facebook. This is done so the \gls{cpu} usage is lowered and you get a better workload on the servers.
+I had to see how it would be possible to convert an existing \gls{php} website to a HipHop compiled one. Not quite that easy.
+
+My third research project being the longest one was on optimising \gls{lamp}. 
+First of all I had to search what bottlenecks are in reality, what optimisations are available.
+After this I prepared the system, using \gls{raid} on \gls{ssd}'s for speed so the hard disks wouldn't become the bottleneck. 
+This meant the migration of \gls{apache} and \gls{mysql} to the SSD.
+Then starting the test from 1 core to the full 16 cores to view how everything would scale.
+
+After the setup was done I had to do research on small things to use so there would be an increase in speed.
+Many configuration options are either in \gls{apache} or in \gls{php} of which one of the most important was \gls{apc}.
+
+%%%%%%%%%%%%%
+% INCLUDES
+%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+% with this we ensure that the chapter and section
+% headings are in lowercase.
+\begin{comment}
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection\ #1}}
+\fancyhf{} % delete current header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+	\fancyhead{} % get rid of headers on plain pages
+	\renewcommand{\headrulewidth}{0pt} % and the line
+}
+\end{comment}
+
+\include{data/01_IntelEnergy}
+\include{data/02_HipHop_for_php}
+\include{data/03_phpbb_setup}
+\include{data/04_vApus_testcases}
+\include{data/05_Scripts}
+
+%Protect the footnote so it doesn't break down..
+%\section{I am considerate \protect\footnote{and protect my footnotes}}
+
+%table design
+%\begin{tabular}{|r|r|r|r|} 
+
+\begin{comment}
+	
+
+\begin{wrapfigure}{r}{0.55\textwidth}
+ \vspace{-20pt}
+  \begin{center}
+	\includegraphics[width=0.55\textwidth]{img/hwcomparison}
+  \end{center}
+  \vspace{-30pt}
+  \caption{Hardware platform comparison}
+  \label{fig:hwcomparison}
+\end{wrapfigure}
+\end{comment}
+
+
+%keep text together \mbox{text}
+%Conclusions come here
+\section{Final conclusion}\label{sec:conclusions}
+While Intel is working hard on good hardware and they're always bringing out state of the art hardware we can notice that this SDK implementation isn't that straightforward to use.
+Intel Energy Checker \gls{sdk} provides a lot of good software to do your job if the software you want to test is on a PC where you're at most of the time and not for servers.
+This is bad since you can either use the \gls{pl} counters from your HDD or via TCP/IP but not both at the same time. 
+This means that you can only log the ESRV server using another external program you have to write yourself.
+As we've seen the TCP/IP settings can't be given to the compiler and we have to manually change those settings in the header file.
+
+The logging system is very bad in my opinion. This because it uses flat files to store one \gls{pl} per file at a time. The values of those files change every time, and you can only have numerical values in those files. It would have been far easier to just use \gls{csv} files  or just store all the data in a \gls{sqlite} database.
+
+Using HipHop has more downsides than positive ones. The positive sides are that the development time in PHP is lower than in C++, it uses less CPU thus using less servers.
+It can use memcached for speed to centralise objects thus it's better.
+
+The downsides are that it's hard to build for non technical people, it changes often meaning that it could not work in a new version. There are differences with PHP.
+It only supports \gls{php} 5.2. Fixing bugs is very time consuming, you can't use PHP modules. 
+And finally it crashes a lot.
+
+HipHop is only usable if you want to rewrite your whole application and want to use \gls{php} 5.2 without InnoDB support. Since it implements a version of APC, you'd better use APC to speed up your website.
+
+Optimisation is not only about coding but also about avoiding bottlenecks. They can be numerous including network latency, processor load, file system speed.
+Threading and processes creation, memory leaks, depending on external services is very slow if you require a lot of data.
+
+There are a few techniques for databases, using caching instead of regenerating the same content. 
+Remember to always reprofile your software using Valgrind or Xdebug.
+
+Moving your \gls{apache} files and \gls{mysql} databases to a \gls{ssd} (or more if you want SSD RAID) helps avoinding disk latency.
+
+Linux web servers are widely used and easy to configure, look for example at how you could disable or enable new cores.
+As we've shown earlier the throughput for all the tests from 1 to 8 cores increase steadily (see \autoref{throughput1to8cores.png} on page \pageref{throughput1to8cores.png}). 
+As each core count increased the total CPU usage decreased. 
+Interesting to view is that the network traffic models after the \gls{cpu} usage. There haven't been any problems with any disk activity on the SSD's, they seem to work properly.
+There isn't really a big increase if you're enabling \gls{hyperthreading} (16 logical out of 8 physical cores see \autoref{comparison_8_16_cores.png} on page \pageref{comparison_8_16_cores.png}).
+
+In a real environment using \gls{hyperthreading} for the extra boost it gives is important if you want to use 10\% more \gls{cpu} power. Our main comparison point for all the tests was the one with \gls{hyperthreading} enabled, as we'll refer to "16 cores normal". 
+There have been more than 20 tests in total, some failed, we will be only showing 5 of them.
+The caching and expires settings of \gls{apache} couldn't have been stresstested since vApus doesn't look at the expire times, but in the real world using a browser with caching enabled helps save bandwidth thus increasing throughput.
+
+Using \gls{memcached} has a benefit only in a distributed environment, on a single server it uses far more memory (double than normal) and it's slower even compared to simple file cache. Changing the memory settings increases the memory to 5.2GB but does not give any extra performance.
+
+You do get a little boost if you tweak the Apache worker settings to suite your webserver. Each system administrator needs to check the hardware available and set everything accordingly.
+This can improve throughput and response time in high traffic websites. Using the wrong settings can have bad effects as shown in  \autoref{newVSoldApache.png} on page \pageref{newVSoldApache.png}.
+
+\gls{apc} is the best thing that you can do to optimise your \gls{php} website. It decreases the \gls{cpu} usage and increases the throughput while lowering the response time. It does this by using an opcode system. 
+
+Please refer to  \autoref{tab:scalingBeginToEndThroughput} and \autoref{tab:scalingBeginToEndResponseTime} on page \pageref{tab:scalingBeginToEndResponseTime} for the results, they are relative to the first test. 
+However when you want to go past 500 concurrent users on our phpBB site, the \gls{mysql} process starts using a lot of \gls{cpu} (see \autoref{APC_1000_processes.png} on page \pageref{APC_1000_processes.png}), even after changing the settings. 
+This has to do with the queries and all the connections that occur all the time since \gls{mysql} has to open and close a connection for every HTTP request.
+
+The world of research is lovely indeed. It requires a lot of effort and testing but the results are wonderful. Optimising software is a hard task, even tweaking the configuration can prove being a little challenging. 
+\clearpage{}
+\listoffigures{}
+\clearpage{}
+\listoftables{}
+\clearpage{}
+
+%\bibliography{IEEEabrv,php optimisation}
+
+%Colophon
+
+%\bibliography
+\bibliographystyle{IEEEtran}
+\bibliography{data/biblio}
+%include the Appendix
+\include{data/appendix}
+%The index is best to be put as the last thing..
+\printindex{}
+\end{document}

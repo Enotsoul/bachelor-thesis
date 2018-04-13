@@ -1,0 +1,37 @@
+\section{Scripts written}\label{sec:scripts}
+\subsection{TCL script to plot charts}
+The \textbf{plotchart\_things.tcl} script i've written (see \autoref{Screenshot-plotchart_things.png}) uses \gls{vapus} dstat information, 
+top (processes memory and cpu usage) and sar (extra disk statistics) information from csv or simple outputs to generate some graphics.
+It imports each log file accordingly and puts the information line per line in the \gls{sqlite} database.
+Then it gives you the chance to generate graphics per test to view the CPU usage, the memory usage, disk IO and network send and recieve.
+Also it generates a few pie charts to know which process used the most CPU and memory throughout the test. Input/output from sar is also plotted.
+ 
+By pressing CTRL+S you can save each plot as a png image.This script will be very usefull when analysing data without having to open Excel and 
+spending at least half an hour to plot everything how it should be done just to view some graphics.
+
+The first version of this script had one big window that was split in 4 graphics but then I added tabs to the script and removed the extra windows for the piecharts.
+It is more usable now and you can even open two scripts next to eachother and view two different tests from the same database. This allows full flexibility to analyse the differences between each test.
+
+Made the save image function so you save all the canvases even if they are empty(no data imported)..
+
+A few problems occured but they were fixed.
+After importing 14 right files, the \gls{sqlite} database has been increased to the size of 50 mb. Now when I select something in my script it takes almost 30 seconds to display the plots! Way too slow! After looking through my code I discovered that code portions like this one:
+\begin{codelisting}
+plotDB eval {SELECT DISTINCT process  FROM topTestData WHERE cpuUsage>1 AND topTestID=:chosen_testID  }
+\end{codelisting}
+Are taking way too long to complete, an average of 4.6 seconds. The rest of the code is working ok, but if I do 2 or 3 such selects in my code at once(and I require to do them) it takes my script 15 seconds only for that lousy information.
+One way to fix it is to select ALL the processes (that would be an immense list) and then select them via another procedure. 
+Another fix, that could still enable us to use \textbf{DISTINCT} is to add \textbf{INDEXES} on what we select the most.
+Indexes actually speed up selects and slow down updates/inserts but that's not bad since we'll select more data than we'll actually insert.
+\begin{codelisting}
+plotDB eval {CREATE INDEX idx_process ON topTestData(process); CREATE INDEX idx_toptestid ON topTestData(topTestID)}
+\end{codelisting}
+Now the time needed for one distinct select is \textbf{0.1474927 seconds}, it's an improvement of 31 times! I imagine if the \gls{sqlite} file was one gigabyte and if it didn't have any indexes that it would have been even slower.
+Another problem is that if there is more than 4000 seconds of data for the IO sar, it takes way too long to plot the data. Another way must be found to actually do that right.
+Eventually I had to rewrite the code in a manner that It just generates a list of x points and then it uses the existing y ones without any recalculation and then just uses the ,,plotlist'' setting of Plotchart to plot a whole list at once insead of each point at a time.
+\subsection{CSV convert script}
+Another little project I did was a snippet for Jannick that he could convert his 20-40 mb \gls{csv} files from one formatting to another and also changing the date.
+That was the actual starting point of my plotchart.
+
+\img[htb!]{scale=0.5}{Screenshot-plotchart_things.png}{TCL Plotchart script example}
+

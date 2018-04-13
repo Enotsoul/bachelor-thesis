@@ -1,0 +1,104 @@
+%appendinx aka bijlagen..   
+%\appendix{}
+
+\begin{appendices}
+\section{Hellotest.c example intel SDK}
+\label{hellotest.c}
+\begin{codelisting}
+//      hellotest.c  
+//All defines must be before the include links
+#include "productivity_link.h"
+
+//#define PL_AGENT_ADDRESS 192.168.34.70 
+//#define PL_DEFAULT_PL_AGENT_ADDRESS "192.168.34.70"
+//#define PL_AGENT_PL_PORT 49253
+
+int main(void) {
+
+// maybe use this for clarity
+#define COUNTERS_COUNT 2
+#define COUNTERS_NAMES { "Frames", "Pixels" }
+char *counters[COUNTERS_COUNT] = COUNTERS_NAMES;
+
+	PL_STATUS ret = PL_FAILURE;
+	int pld = PL_INVALID_DESCRIPTOR;
+	char application_name[] = "hellotest";
+	const char *counters_name[] = { "A","B","C" };
+	unsigned long long value[3];
+	unsigned int counters_count = 3;
+	uuid_t uuid;
+	enum COUNTERS {
+		A = 0,
+		B,
+		C
+	};
+
+	/*The application name is used to name the folder, and the counters_name are each files used as "counters"
+	 * The countes_count are the #counters
+	*/
+	pld = pl_open(
+		application_name,
+		counters_count,
+		counters_name,
+		&uuid
+	);
+	if(pld != PL_INVALID_DESCRIPTOR) {
+		value[0] =value[1]=value[2] = 1000;
+	//You nead the PL and a value reference + a number OF the counter to use starting from 0
+	// use an ENUM to know each one
+	//it returns a CODE which you'd better test EACH time:)
+		ret = pl_write(
+			pld,
+			&value[0],
+			A
+		);
+		value[1] +=33;
+		ret = pl_write(
+			pld,
+			&value[1],
+			B
+		);
+		value[2] = 77;
+		ret = pl_write(
+			pld,
+			&value[2],
+			C
+		);
+		
+		value[0] /=2 ;
+		ret = pl_write(
+			pld,
+			&value[0],
+			A
+		);
+		if(ret == PL_SUCCESS) {
+			ret = pl_close(pld);
+			puts("Ok, it was successful!");
+		} else  
+			puts("Failed to write..:(");
+	} else {
+		puts("Could not open file/connection.. check settings?");
+		if (pld == PL_FILESYSTEM_LESS_INITIALIZATION_FAILED) {
+			puts("The filesystem less init failed:(");
+		}
+	}
+	return(ret);
+}	
+\end{codelisting}
+
+\section{Best way to set up PostgreSQL/MySQL}\label{apx.postgresql}
+
+,,With a database engine, such as PostgreSQL, you can completely avoid touching completely the software's source code and simply rely on the database's existing statistics gathering mechanism to extract the amount of useful work done.
+
+For PostgreSQL, useful work is simply defined as the number of SQL statements executed. Thus, we can devise a set of dedicated processes - called loggers - Thus, which communicate with the database back end, using the PostgreSQL native back-end, interface.
+
+Since the version of PostgreSQL used in this study is capable of dynamically expanding its buffers pool, but cannot shrink it, we amended its buffer management routines to add this required feature. This work was done by modifying a limited number of source code files and at a very reasonable development cost.
+
+The experiment demonstrates that comparing with no insight and support on the application's memory utilization in the operating system, additional energy can be saved with little performance impact by incorporating application level memory application-level utilization feedback into power management software.''
+p. 250
+
+Information on Intel\textsuperscript{\textregistered} Node Manager + Power capping theory
+\clearpage{}
+\section{Graphics}
+\img[htb!]{scale=0.5}{rId71.png}{Memory usage for new apache settings}
+\end{appendices}

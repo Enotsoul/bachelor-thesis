@@ -1,0 +1,900 @@
+\ifglsentryexists{cobol}{}%
+{%
+\gls@defglossaryentry{cobol}%
+{%
+name={COBOL},%
+sort={COBOL},%
+type={acronym},%
+first={COmmon Business-Oriented Language\glsspace (COBOL)},%
+firstplural={COmmon Business-Oriented Languages\glsspace (COBOLs)},%
+text={COBOL},%
+plural={COBOLs},%
+description={COmmon Business-Oriented Language},%
+descriptionplural={COmmon Business-Oriented Language\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={COmmon Business-Oriented Language},%
+longplural={COmmon Business-Oriented Languages},%
+short={COBOL},%
+shortplural={COBOLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pl}{}%
+{%
+\gls@defglossaryentry{pl}%
+{%
+name={PL},%
+sort={PL},%
+type={acronym},%
+first={Productivity Link\glsspace (PL)},%
+firstplural={Productivity Links\glsspace (PLs)},%
+text={PL},%
+plural={PLs},%
+description={Productivity Link},%
+descriptionplural={Productivity Link\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Productivity Link},%
+longplural={Productivity Links},%
+short={PL},%
+shortplural={PLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{uuid}{}%
+{%
+\gls@defglossaryentry{uuid}%
+{%
+name={UUID},%
+sort={UUID},%
+type={acronym},%
+first={Universally Unique Identifier\glsspace (UUID)},%
+firstplural={Universally Unique Identifiers\glsspace (UUIDs)},%
+text={UUID},%
+plural={UUIDs},%
+description={Universally Unique Identifier},%
+descriptionplural={Universally Unique Identifier\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Universally Unique Identifier},%
+longplural={Universally Unique Identifiers},%
+short={UUID},%
+shortplural={UUIDs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{tcpip}{}%
+{%
+\gls@defglossaryentry{tcpip}%
+{%
+name={TCP/IP},%
+sort={TCP/IP},%
+type={acronym},%
+first={Transmission Control Protocol over Internet Protocol\glsspace (TCP/IP)},%
+firstplural={Transmission Control Protocol over Internet Protocols\glsspace (TCP/IPs)},%
+text={TCP/IP},%
+plural={TCP/IPs},%
+description={Transmission Control Protocol over Internet Protocol},%
+descriptionplural={Transmission Control Protocol over Internet Protocol\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Transmission Control Protocol over Internet Protocol},%
+longplural={Transmission Control Protocol over Internet Protocols},%
+short={TCP/IP},%
+shortplural={TCP/IPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hphp}{}%
+{%
+\gls@defglossaryentry{hphp}%
+{%
+name={HPHP},%
+sort={HPHP},%
+type={acronym},%
+first={HipHop for PHP\glsspace (HPHP)},%
+firstplural={HipHop for PHPs\glsspace (HPHPs)},%
+text={HPHP},%
+plural={HPHPs},%
+description={HipHop for PHP},%
+descriptionplural={HipHop for PHP\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={HipHop for PHP},%
+longplural={HipHop for PHPs},%
+short={HPHP},%
+shortplural={HPHPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hphpi}{}%
+{%
+\gls@defglossaryentry{hphpi}%
+{%
+name={HPHPI},%
+sort={HPHPI},%
+type={acronym},%
+first={HipHop for PHP interpreter\glsspace (HPHPI)},%
+firstplural={HipHop for PHP interpreters\glsspace (HPHPIs)},%
+text={HPHPI},%
+plural={HPHPIs},%
+description={HipHop for PHP interpreter},%
+descriptionplural={HipHop for PHP interpreter\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={HipHop for PHP interpreter},%
+longplural={HipHop for PHP interpreters},%
+short={HPHPI},%
+shortplural={HPHPIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{html}{}%
+{%
+\gls@defglossaryentry{html}%
+{%
+name={HTML},%
+sort={HTML},%
+type={acronym},%
+first={HyperText Markup Language\glsspace (HTML)},%
+firstplural={HyperText Markup Languages\glsspace (HTMLs)},%
+text={HTML},%
+plural={HTMLs},%
+description={HyperText Markup Language},%
+descriptionplural={HyperText Markup Language\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={HyperText Markup Language},%
+longplural={HyperText Markup Languages},%
+short={HTML},%
+shortplural={HTMLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{css}{}%
+{%
+\gls@defglossaryentry{css}%
+{%
+name={CSS},%
+sort={CSS},%
+type={acronym},%
+first={Cascading Style Sheets\glsspace (CSS)},%
+firstplural={Cascading Style Sheetss\glsspace (CSSs)},%
+text={CSS},%
+plural={CSSs},%
+description={Cascading Style Sheets},%
+descriptionplural={Cascading Style Sheets\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Cascading Style Sheets},%
+longplural={Cascading Style Sheetss},%
+short={CSS},%
+shortplural={CSSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sql}{}%
+{%
+\gls@defglossaryentry{sql}%
+{%
+name={SQL},%
+sort={SQL},%
+type={acronym},%
+first={Structured Query Language\glsspace (SQL)},%
+firstplural={Structured Query Languages\glsspace (SQLs)},%
+text={SQL},%
+plural={SQLs},%
+description={Structured Query Language},%
+descriptionplural={Structured Query Language\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Structured Query Language},%
+longplural={Structured Query Languages},%
+short={SQL},%
+shortplural={SQLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{lamp}{}%
+{%
+\gls@defglossaryentry{lamp}%
+{%
+name={LAMP},%
+sort={LAMP},%
+type={acronym},%
+first={Linux, Apache, MySQL and PHP\glsspace (LAMP)},%
+firstplural={Linux, Apache, MySQL and PHPs\glsspace (LAMPs)},%
+text={LAMP},%
+plural={LAMPs},%
+description={Linux, Apache, MySQL and PHP},%
+descriptionplural={Linux, Apache, MySQL and PHP\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Linux, Apache, MySQL and PHP},%
+longplural={Linux, Apache, MySQL and PHPs},%
+short={LAMP},%
+shortplural={LAMPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cpu}{}%
+{%
+\gls@defglossaryentry{cpu}%
+{%
+name={CPU},%
+sort={CPU},%
+type={acronym},%
+first={Central Processing Unit\glsspace (CPU)},%
+firstplural={Central Processing Units\glsspace (CPUs)},%
+text={CPU},%
+plural={CPUs},%
+description={Central Processing Unit},%
+descriptionplural={Central Processing Unit\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Central Processing Unit},%
+longplural={Central Processing Units},%
+short={CPU},%
+shortplural={CPUs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ram}{}%
+{%
+\gls@defglossaryentry{ram}%
+{%
+name={RAM},%
+sort={RAM},%
+type={acronym},%
+first={Random Access Memory\glsspace (RAM)},%
+firstplural={Random Access Memorys\glsspace (RAMs)},%
+text={RAM},%
+plural={RAMs},%
+description={Random Access Memory},%
+descriptionplural={Random Access Memory\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Random Access Memory},%
+longplural={Random Access Memorys},%
+short={RAM},%
+shortplural={RAMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ssd}{}%
+{%
+\gls@defglossaryentry{ssd}%
+{%
+name={SSD},%
+sort={SSD},%
+type={acronym},%
+first={Solid State Disk\glsspace (SSD)},%
+firstplural={Solid State Disks\glsspace (SSDs)},%
+text={SSD},%
+plural={SSDs},%
+description={Solid State Disk},%
+descriptionplural={Solid State Disk\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Solid State Disk},%
+longplural={Solid State Disks},%
+short={SSD},%
+shortplural={SSDs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{tcl}{}%
+{%
+\gls@defglossaryentry{tcl}%
+{%
+name={TCL},%
+sort={TCL},%
+type={acronym},%
+first={Tool Command Language\glsspace (TCL)},%
+firstplural={Tool Command Languages\glsspace (TCLs)},%
+text={TCL},%
+plural={TCLs},%
+description={Tool Command Language},%
+descriptionplural={Tool Command Language\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Tool Command Language},%
+longplural={Tool Command Languages},%
+short={TCL},%
+shortplural={TCLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{csv}{}%
+{%
+\gls@defglossaryentry{csv}%
+{%
+name={CSV},%
+sort={CSV},%
+type={acronym},%
+first={Comma Separated Values\glsspace (CSV)},%
+firstplural={Comma Separated Valuess\glsspace (CSVs)},%
+text={CSV},%
+plural={CSVs},%
+description={Comma Separated Values},%
+descriptionplural={Comma Separated Values\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Comma Separated Values},%
+longplural={Comma Separated Valuess},%
+short={CSV},%
+shortplural={CSVs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sqlite}{}%
+{%
+\gls@defglossaryentry{sqlite}%
+{%
+name={SQLite},%
+sort={SQLite},%
+type={main},%
+first={SQLite},%
+firstplural={SQLites},%
+text={SQLite},%
+plural={SQLites},%
+description={SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine. SQLite is the most widely deployed SQL database engine in the world. The source code for SQLite is in the public domain.},%
+descriptionplural={SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine. SQLite is the most widely deployed SQL database engine in the world. The source code for SQLite is in the public domain.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{api}{}%
+{%
+\gls@defglossaryentry{api}%
+{%
+name={API},%
+sort={API},%
+type={main},%
+first={Application Programming Interface (API)},%
+firstplural={Application Programming Interface (API)s},%
+text={API},%
+plural={APIs},%
+description={An application programming interface (API) is a specification intended to be used as an interface by software components to communicate with each other. An API may include specifications for routines, data structures, object classes, and variables},%
+descriptionplural={An application programming interface (API) is a specification intended to be used as an interface by software components to communicate with each other. An API may include specifications for routines, data structures, object classes, and variables},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sdk}{}%
+{%
+\gls@defglossaryentry{sdk}%
+{%
+name={SDK},%
+sort={SDK},%
+type={main},%
+first={Software development kit (SDK)},%
+firstplural={Software development kit (SDK)s},%
+text={SDK},%
+plural={SDKs},%
+description={A software development kit (SDK or "devkit") is typically a set of software development tools that allows for the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar platform},%
+descriptionplural={A software development kit (SDK or "devkit") is typically a set of software development tools that allows for the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar platform},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ide}{}%
+{%
+\gls@defglossaryentry{ide}%
+{%
+name={IDE},%
+sort={IDE},%
+type={main},%
+first={Integrated development environment (IDE)},%
+firstplural={Integrated development environment (IDE)s},%
+text={IDE},%
+plural={IDEs},%
+description={An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development},%
+descriptionplural={An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{php}{}%
+{%
+\gls@defglossaryentry{php}%
+{%
+name={PHP},%
+sort={PHP},%
+type={main},%
+first={Hypertext Preprocessor (PHP)},%
+firstplural={Hypertext Preprocessor (PHP)s},%
+text={PHP},%
+plural={PHPs},%
+description={PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages},%
+descriptionplural={PHP is a general-purpose server-side scripting language originally designed for Web development to produce dynamic Web pages},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cms}{}%
+{%
+\gls@defglossaryentry{cms}%
+{%
+name={CMS},%
+sort={CMS},%
+type={main},%
+first={Content Management System (CMS)},%
+firstplural={Content Management System (CMS)s},%
+text={CMS},%
+plural={CMSs},%
+description={A content management system (CMS) is a computer system that allows publishing, editing, and modifying content as well as site maintenance from a central page. It provides a collection of procedures used to manage work flow in a collaborative environment.},%
+descriptionplural={A content management system (CMS) is a computer system that allows publishing, editing, and modifying content as well as site maintenance from a central page. It provides a collection of procedures used to manage work flow in a collaborative environment.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{apache}{}%
+{%
+\gls@defglossaryentry{apache}%
+{%
+name={Apache},%
+sort={Apache},%
+type={main},%
+first={Apache},%
+firstplural={Apaches},%
+text={Apache},%
+plural={Apaches},%
+description={Apache HTTP Server, commonly referred to as Apache},%
+descriptionplural={Apache HTTP Server, commonly referred to as Apache},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mysql}{}%
+{%
+\gls@defglossaryentry{mysql}%
+{%
+name={MySQL},%
+sort={MySQL},%
+type={main},%
+first={MySQL},%
+firstplural={MySQLs},%
+text={MySQL},%
+plural={MySQLs},%
+description={MySQL is the world's most used relational database management system (RDBMS) that runs as a server providing multi-user access to a number of databases. It is named after developer Michael Widenius' daughter, My. The SQL phrase stands for Structured Query Language},%
+descriptionplural={MySQL is the world's most used relational database management system (RDBMS) that runs as a server providing multi-user access to a number of databases. It is named after developer Michael Widenius' daughter, My. The SQL phrase stands for Structured Query Language},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{vapus}{}%
+{%
+\gls@defglossaryentry{vapus}%
+{%
+name={vApus},%
+sort={vApus},%
+type={main},%
+first={Virtualized Application Unique Stresstesting (vApus)},%
+firstplural={Virtualized Application Unique Stresstesting (vApus)s},%
+text={vApus},%
+plural={vApuss},%
+description={An advanced Application Stresstesting program.},%
+descriptionplural={An advanced Application Stresstesting program.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mime}{}%
+{%
+\gls@defglossaryentry{mime}%
+{%
+name={MIME},%
+sort={MIME},%
+type={main},%
+first={Multipurpose Internet Mail Extensions (MIME)},%
+firstplural={Multipurpose Internet Mail Extensions (MIME)s},%
+text={MIME},%
+plural={MIMEs},%
+description={Multipurpose Internet Mail Extensions (MIME) is an Internet standard that extends the format of email to support Text in character sets other than ASCII, Non-text attachments, Message bodies with multiple parts and Header information in non-ASCII character sets},%
+descriptionplural={Multipurpose Internet Mail Extensions (MIME) is an Internet standard that extends the format of email to support Text in character sets other than ASCII, Non-text attachments, Message bodies with multiple parts and Header information in non-ASCII character sets},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{raid}{}%
+{%
+\gls@defglossaryentry{raid}%
+{%
+name={RAID},%
+sort={RAID},%
+type={main},%
+first={redundant array of independent disks (RAID)},%
+firstplural={redundant array of independent disks (RAID)s},%
+text={RAID},%
+plural={RAIDs},%
+description={RAID (redundant array of independent disks) is a storage technology that combines multiple disk drive components into a logical unit. Data is distributed across the drives in one of several ways called "RAID levels", depending on what level of redundancy and performance (via parallel communication) is required},%
+descriptionplural={RAID (redundant array of independent disks) is a storage technology that combines multiple disk drive components into a logical unit. Data is distributed across the drives in one of several ways called "RAID levels", depending on what level of redundancy and performance (via parallel communication) is required},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{apc}{}%
+{%
+\gls@defglossaryentry{apc}%
+{%
+name={APC},%
+sort={APC},%
+type={main},%
+first={Alternative PHP Cache (APC)},%
+firstplural={Alternative PHP Cache (APC)s},%
+text={APC},%
+plural={APCs},%
+description={The Alternative PHP Cache (APC) is a free and open opcode cache for PHP. Its goal is to provide a free, open, and robust framework for caching and optimizing PHP intermediate code},%
+descriptionplural={The Alternative PHP Cache (APC) is a free and open opcode cache for PHP. Its goal is to provide a free, open, and robust framework for caching and optimizing PHP intermediate code},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{memcached}{}%
+{%
+\gls@defglossaryentry{memcached}%
+{%
+name={Memcached},%
+sort={Memcached},%
+type={main},%
+first={Memcached},%
+firstplural={Memcacheds},%
+text={Memcached},%
+plural={Memcacheds},%
+description={Memcached is a high-performance, distributed memory object caching system, generic in nature, but originally intended for use in speeding up dynamic web applications by alleviating database load},%
+descriptionplural={Memcached is a high-performance, distributed memory object caching system, generic in nature, but originally intended for use in speeding up dynamic web applications by alleviating database load},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hyperthreading}{}%
+{%
+\gls@defglossaryentry{hyperthreading}%
+{%
+name={Hyper-Threading},%
+sort={Hyper-Threading},%
+type={main},%
+first={Hyper-Threading},%
+firstplural={Hyper-Threadings},%
+text={Hyper-Threading},%
+plural={Hyper-Threadings},%
+description={Hyper-threading (abbreviated HTT or HT) is Intel's term for its simultaneous multithreading. It works by duplicating certain sections of the processor - those that store the architectural state - but not duplicating the main execution resources},%
+descriptionplural={Hyper-threading (abbreviated HTT or HT) is Intel's term for its simultaneous multithreading. It works by duplicating certain sections of the processor - those that store the architectural state - but not duplicating the main execution resources},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{makefile}{}%
+{%
+\gls@defglossaryentry{makefile}%
+{%
+name={Makefile},%
+sort={Makefile},%
+type={main},%
+first={\protect \textbf  {Makefile}},%
+firstplural={\protect \textbf  {Makefile}s},%
+text={\protect \textbf  {Makefile}},%
+plural={\protect \textbf  {Makefile}s},%
+description={In software development, Make is a utility that automatically builds executable programs and libraries from source code by reading files called makefiles which specify how to derive the target program},%
+descriptionplural={In software development, Make is a utility that automatically builds executable programs and libraries from source code by reading files called makefiles which specify how to derive the target program},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

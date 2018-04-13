@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%
+% Preamble 
+%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt,twosided]{book}
+
+%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%
+\usepackage[english]{babel}
+%CHecks syntax only, no dvi produced
+%\usepackage{syntonly}
+\usepackage[pdftex,bookmarks=true]{hyperref}
+\usepackage{cite}
+%\usepackage{biblatex}
+\usepackage{graphicx,color,colortbl}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[small,bf,hang]{caption} 
+\usepackage{capt-of}
+\usepackage[acronym]{glossaries} % remove the [toc] so it won't show in TOC
+%\usepackage{acronym}
+%Use this package to make indexes for the used words..
+\usepackage{makeidx}
+%\usepackage{showidx}
+%Use fancy headers..
+\usepackage{fancyhdr}
+\usepackage{listings} %use new listings 
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage[toc,page,title,titletoc]{appendix}
+
+%\usepackage{url}
+\usepackage{wrapfig} % fig wrapping
+%\usepackage{rotating}
+%to view any information about any package type
+%texdoc <package> - and it will open a pdf
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}%make the page a little bigger...
+%\usepackage[cm]{fullpage} %standardized margins 
+\usepackage{verbatim} %multiline comments..
+\usepackage{parskip} % this package places a newline after each paragraph..
+\usepackage{tocloft}%toc identing
+\usepackage{pdfpages}
+%using other fonts
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+
+%%%%%%%%%%%%%
+% Define some things
+%%%%%%%%%%%%%
+\definecolor{myLightGreen}{rgb}{0.58,0.776,0}
+\definecolor{listingColor}{HTML}{EEEEFF}
+\definecolor{rowhighlight}{HTML}{DFF7AD}
+%graphics path
+\graphicspath{{images/}}
+
+%Give sections colours
+\usepackage{titlesec}
+
+%\titleformat{\section}
+%{\normalfont\Large\bfseries}
+%{\thesection}{1em}{}
+%\color{LimeGreen}\normalfont\Large\bfseries}
+%{\color{LimeGreen}\thesection}{1em}{}
+
+\titleformat*{\section}{\normalfont\LARGE\bfseries\color{LimeGreen}}
+\titleformat*{\subsection}{\normalfont\Large\bfseries\color{LimeGreen}}
+\titleformat*{\subsubsection}{\normalfont\large\bfseries\color{LimeGreen}}
+
+%Enable indexing
+%\addcontentsline{toc}{chapter}{Index}
+\makeindex{}
+\clearpage{}
+
+\setcounter{secnumdepth}{4}%set the counting mechanism on for paragraph & subparagraph
+\setcounter{tocdepth}{3}%only allow to 1.2.3 listings.. change to 4 if you want to include subparagraphs in index
+
+%%%%%%%%%%%%%
+% Functions
+%%%%%%%%%%%%%
+% Command to add images. Usage:
+% \img[H]{width=5cm}{filename}{caption}
+\newcommand{\img}[4][!ht]{                  % The first argument is default 'ht'.
+    \begin{figure}[#1]
+		\begin{center}
+            \includegraphics[#2]{#3}
+            \caption{#4\label{#3}}
+        \end{center}
+    \end{figure}
+
+}
+
+%Fixes the paragraph problems
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+% Code listings
+
+\lstnewenvironment{codelisting}{
+    \vspace{1.2ex plus 0.5ex minus 0.5ex}
+    \lstset{
+        basicstyle=\small,
+        numbers=left,
+        numberstyle=\tiny,
+        stepnumber=1,
+        numbersep=5pt,
+        showspaces=false, 
+        showstringspaces=false,
+        showtabs=false,
+        frame=tb,
+        tabsize=4,
+        captionpos=b,
+        breaklines=true,
+        breakatwhitespace=false,
+	   backgroundcolor=\color{listingColor},
+	   belowskip=0pt,
+        }
+	}
+{\vspace{0.9ex plus 0.5ex minus 0.5ex}}
+
+% \codeblock{text}{caption}
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%%%%%%%%%%%%%
+% Configuration options
+%%%%%%%%%%%%%
+%Set hyperlinks to be black..
+\hypersetup{colorlinks,%
+citecolor=red,%
+filecolor=black,%
+linkcolor=black,%
+urlcolor=blue,%
+pdftex,
+pdfauthor={Clinciu Andrei},
+}
+%pdftitle={Hello there friend!}

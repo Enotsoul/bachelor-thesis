@@ -1,0 +1,688 @@
+\section{Using HipHop}\label{sec:using_hiphop}
+\subsection{What is HipHop?}
+\gls{hphp} is made by Facebook as a \gls{php} to C++ source code transformer that is used to optimise code and then compile it to C++ code.
+It can be run faster, use less CPU and less memory (if it's the case). 
+This possibility allows big companies to have a larger throughput thus allow more users to work on the same server while using less energy, less server and a better development scheme.
+
+It is a reimplementation of PHP's runtime system\cite{facebook_devs} and some rewrites of PHP extensions to benefit from improved performance.
+It's based on a version of \gls{apc} that has better serialisation.
+
+However, a few limitations and downsides will be covered in this test case. The positive and negative points will all be explained. 
+While this project has had a enormous impact on Facebook it can also have one on other applications.
+
+The final decision has to be made by each individual that will want to use HipHop,
+my conclusion is that it's not user friendly and very unstable and I believe that Facebook uses another version for it's own development since the open source version has so little commits.
+
+One thing everyone should know is that HipHop is not some kind of magic tool that automatically makes your slow software run faster. You need to optimise everything efficiently in your code. Detect the bottlenecks, rewrite the needed application parts and implement better algorithms.
+
+\subsection{Why use PHP?}
+\gls{php} is a scripting language that has benefits for the programmer for faster development, it has many existing libraries and is widely available on the internet. But has the downside of being less CPU efficient and use much more memory.
+Facebook wanted something that would be much faster than just using expansions in C++.
+
+\subsection{Optimisations}
+A lot of optimisations\cite{hiphop_efficient_servers} have been done to make it work faster. The most important was the improved memory allocation using jemalloc\cite{hiphop_jemalloc}.
+One interesting thing to note about Facebook Hip Hop C++ implementation is that it uses jemalloc, a different type of allocation that keeps track of dirty unallocated memory(memory that was once allocated but that was deallocated and that is between other data). 
+It solves fragmentation by allocating the dirty memory with the lowest address. It also performs garbage collection.
+It's just more than what I can explain in words, the facebook developers have long worked on  jemalloc and of course before we start, if you ever run into problems please go to http://groups.google.com/group/hiphop-php-dev/ and maybe there is an answer, but sometimes you need to do small hacks yourself.
+\subsubsection{Server setup}
+Installation of Ubuntu 11.10 server version was done on a Chenbro-nehalem server. So it's advised to start with a clean install if you want to test the whole application. The Linux version has been installed on the server so it's not virtualized, so we can test the full speed of the server.
+\\IP: \textbf{192.168.35.35} Hostname: {\textbf chenbro-nehalem}
+\\username: \textbf{lostone} password: \textbf{13131313}
+\\Mysql root password: 123
+\\\textbf{CPU (16 cores)}		
+\\2 x L5520 @ 2,27GHz
+\\\textbf{\gls{ram} (8GB RAM)}
+\\2 x 3 x Crucial CT25672BA1067.18SFD 2GB DDR3 1066MHz CL7 ECC Registered
+
+The setup was done following the instructions on the Sizing Servers Wiki.\footnote{\url{http://wiki.sizingservers.be/index.php/VAPUS_FOS_-_HTTP_protocol}}
+
+\subsubsection{Building and installing on Ubuntu 11.10}
+A list of all the important packages and programs to install. Including \gls{memcached}.
+\begin{codelisting}
+sudo apt-get install git-core cmake g++ libboost-dev libmysqlclient-
+	dev libxml2-dev libmcrypt-dev libicu-dev openssl build-essential
+	binutils-dev libcap-dev libgd2-xpm-dev zlib1g-dev libtbb-dev libonig-
+	dev libpcre3-dev autoconf libtool libcurl4-openssl-dev libboost-
+	system-dev libboost-program-options-dev libboost-filesystem-dev wget
+	memcached libreadline-dev libncurses-dev libmemcached-dev libbz2-dev
+	libc-client2007e-dev php5-mcrypt php5-imagick libgoogle-perftools-dev
+	libcloog-ppl0
+\end{codelisting}
+A total of 421 MB will be used..
+
+Before the installation it's wise to always use \textbf{make -j\texttt{<}insert nr of cores here\texttt{>}} so it builds things faster.
+
+\textbf{Getting the HipHop source-code}
+\begin{codelisting}
+mkdir dev
+cd dev
+git clone git://github.com/facebook/hiphop-php.git
+cd hiphop-php
+export CMAKE_PREFIX_PATH=`/bin/pwd`/../
+export HPHP_HOME=`/bin/pwd`
+export HPHP_LIB=`/bin/pwd`/bin
+cd ..
+\end{codelisting}
+\myparagraph{Building third-party libraries}
+\textbf{libevent}
+\begin{codelisting}
+wget http://www.monkey.org/~provos/libevent-1.4.14b-stable.tar.gz
+tar -xzvf libevent-1.4.14b-stable.tar.gz
+cd libevent-1.4.14b-stable
+cp ../hiphop-php/src/third_party/libevent-1.4.14.fb-changes.diff .
+patch -p1 < libevent-1.4.14.fb-changes.diff
+./configure --prefix=\$CMAKE_PREFIX_PATH
+make
+make install
+cd ..
+\end{codelisting}
+\textbf{libCurl}
+\\Make sure that your system time is correct, otherwise \textbf{./configure} will fail.
+\begin{codelisting}
+wget http://curl.haxx.se/download/curl-7.21.2.tar.gz
+tar -xvzf curl-7.21.2.tar.gz
+cd curl-7.21.2
+cp ../hiphop-php/src/third_party/libcurl.fb-changes.diff .
+patch -p1 < libcurl.fb-changes.diff
+./configure --prefix=\$CMAKE_PREFIX_PATH
+\end{codelisting}
+
+As per: \url{https://github.com/bagder/curl/commit/26b487a5d6ed9da5bc8e4a134a88d3125884b852}
+Edit \textbf{lib/ssluse.c}
+
+As per: \url{https://github.com/facebook/hiphop-php/issues/319#issuecomment-1445537}
+Edit \textbf{../hiphop-php/src/runtime/ext/extension.cpp}
+
+Then following github \footnote{\url{https://github.com/h4ck3rm1k3/hiphop-php/commit/0628599b4b03dff6b33bc2ea31de09f236ea6452\#diff-5}} type
+\begin{codelisting}
+make -j8
+make install
+cd ..
+\end{codelisting}
+
+\textbf{libmemcached}
+\begin{codelisting}
+wget
+http://launchpad.net/libmemcached/1.0/0.49/+download/libmemcached-0.49.tar.gz
+tar -xzvf libmemcached-0.49.tar.gz
+cd libmemcached-0.49
+./configure --prefix=\$CMAKE_PREFIX_PATH
+make -j8
+make install
+cd ..
+\end{codelisting}
+
+\myparagraph{Building HipHop}
+\begin{codelisting}
+cd hiphop-php
+git submodule init
+git submodule update
+cmake .
+make -j16
+\end{codelisting}
+The \gls{hphp} binary can be found in \textbf{src/hphp} folder and is called \textbf{hphp}.
+If any errors occur, it may be required to remove the CMakeCache.txt directory in the checkout. If your failure was on the make command, try to correct the error and run make again, it should restart
+from the point it stops. If it doesn't, try to remove the file as explained above.
+
+Everything took 37 minutes to build following these instructions. It can depend on your server's CPU and memory.
+
+Run documentation server but first stop \gls{apache}:
+\begin{codelisting}
+	/etc/init.d/apache2 stop
+\end{codelisting}
+Or edit the daemon and server sections in \textbf{/home/lostone/dev/hiphop-php/doc/Makefile} as following:
+\begin{codelisting}
+daemon:
+sudo ../src/hphpi/hphpi -m daemon -v
+"Server.DefaultDocument=index.php" -v "Server.SourceRoot=`pwd`" -p
+9070 --admin-port 9071
+server:
+sudo ../src/hphpi/hphpi -m server -v
+"Server.DefaultDocument=index.php" -p 9070 --admin-port 9071
+\end{codelisting}
+What it does it changes the default port to 9070 for the documentation webserver and the adminport so it doesn't conflict with our compiled application on port 80.
+
+\myparagraph{Exports}
+The needed exports, you can also put them in  \textbf{~/.bashrc} or \textbf{/etc/bash.bashrc} but it's easier to always export them.
+\begin{codelisting}
+export HPHP_HOME=/home/lostone/dev/hiphop-php
+export HPHP_LIB=/home/lostone/dev/hiphop-php/bin
+export CMAKE_PREFIX_PATH=/home/lostone/dev/hiphop-php/../
+\end{codelisting}
+For multiprocessor compilation enter this in bash:
+\begin{codelisting}
+export MAKEOPTS=-j12
+\end{codelisting}
+
+\subsection{Running HipHop Applications}
+At this moment we have to understand how \gls{hphp} works exactly. You have two programs that work differently. You have the \gls{hphpi} and the \gls{hphp}. 
+The interpreter is a PHP code interpreter that runs your \gls{php} sites so you can make some settings in them before you compile it. 
+It runs a little slower than even \gls{apache} with \gls{php}. Maybe because it tries to simulate how the compiler works without having to wait too long for the compilation.
+The compiler is the program we'll use to make our websites.
+
+\subsection{Setting Up Your Environment}
+To get started, you \underline{\textbf{need}} to configure these environment variables. The \gls{hphp} ones are for the \gls{hphp}.
+\begin{codelisting}
+cd /home/lostone/dev/hphp # into the root of the hphp checkout
+export HPHP_HOME=`pwd`
+export HPHP_LIB=`pwd`/bin
+# if you followed the Ubuntu 9.10 instructions, you also need
+export CMAKE_PREFIX_PATH=`/bin/pwd`/../
+\end{codelisting}
+I have chosen for the following:
+\begin{codelisting}
+export HPHP_HOME=/home/lostone/dev/hiphop-php
+export HPHP_LIB=/home/lostone/dev/hiphop-php/bin
+export CMAKE_PREFIX_PATH=/home/lostone/dev/hiphop-php/../
+\end{codelisting}
+
+\subsection{Choosing which Mode to Run HipHop}
+You can run HipHop in 5 different modes. These Hello World examples demonstrate each one. All commands are run from the src/ directory in these examples.
+
+We'll create a file called test.php using 
+\begin{codelisting}
+echo 'echo "Hello, world";' > test.php.
+\end{codelisting}
+\textbf{Mode 1}: Compiling HipHop and running it directly.
+\begin{codelisting}
+hphp/hphp test.php
+\end{codelisting}
+\textbf{Mode 2}: Compiling HipHop in a temporary directory and running the compiled program from the command line.
+\begin{codelisting}
+hphp/hphp test.php --keep-tempdir=1 --log=3
+/tmp/hphp_p6vSsP/program (use your own temporary directory name from output)
+\end{codelisting}
+$--keep-tempdir=1$ can also be specified with -k 1. Note it's single dash and there is a space, not ,,=''
+between ,,k'' and ,,1''. This is something to watch out when working with boost command line options.
+--log=3 outputs some verbose information, so you can find out which temporary directory it created. You
+may always specify your own output directory with --output-dir=mypath or -o mypath.
+
+\textbf{Mode 3}: Compiling HipHop in a temporary directory and running the compiled program as a web server.
+\begin{codelisting}
+hphp/hphp test.php --keep-tempdir=1 --log=3
+sudo /tmp/hphp_p6vSsP/program -m server
+\end{codelisting}
+
+Then, from another window in your browser go to http://localhost/test.php
+
+If you don't want to use sudo, you can run HipHop on port 8080.
+\begin{codelisting}
+hphp/hphp test.php --keep-tempdir=1 --log=3
+/tmp/hphp_p6vSsP/program -m server -p 8080
+curl http://localhost:8080/test.php
+\end{codelisting}
+
+Go to http://localhost:8080 to administer your server.
+
+You can also run the server as a daemon:
+\begin{codelisting}sudo /tmp/hphp_p6vSsP/program -m daemon\end{codelisting}
+\textbf{Mode 4:} Interpreting HipHop directly.
+\begin{codelisting}
+hphpi/hphpi -f test.php (note the "-f" flag)
+\end{codelisting}
+\textbf{Mode 5:} Starting a Web server or daemon and interpreting HipHop on the fly.
+\begin{codelisting}
+sudo hphpi/hphpi -m server (or daemon)
+\end{codelisting}
+The websites as stated before:
+http://localhost/test.php
+http://localhost:8088
+
+
+\subsection{Small one page tests to measure speed}
+In this section we'll test some tests with PHP built-in fuctions and see how fast PHP vs HPHP works.
+\subsubsection{Pack and Unpack tests}
+The code\footnote{We're following this guide: \url{http://groups.google.com/group/hiphop-php-dev/browse_thread/thread/8ff8e7ccd6a6f52c\#}}:
+\begin{codelisting}
+<?
+/*test.php
+* pack & unpack are ways of accesing data in various formats..
+**/
+$before = microtime(true);
+for( $i = 0; $i < 500000; ++$i ) {
+$data =pack('SSCCa5', 11, 22, 33, 44, 'tiago');
+unpack('Ss1/Ss2/Cc3/Cc/a5', $data);
+}
+$after = microtime(true);
+echo "\n" .($after-$before) . " sec\n";
+?>
+\end{codelisting}%$
+PHP results: \textbf{1.18 sec}
+
+How to compile and run:
+\begin{codelisting}
+lostone@chenbro-nehalem:~/testing$ $HPHP_HOME/src/hphp/hphp test.php -o packtest --log=3
+running hphp....
+compiling and linking CPP files...
+^C
+lostone@chenbro-nehalem:~/testing$ cd packtest/
+lostone@chenbro-nehalem:~/testing/packtest$ make -j16
+./program -p 8877 -m server
+\end{codelisting}
+
+Test link: \url{http://chenbro-nehalem:8877/test.php}\\
+HipHop compiled version results: \textbf{1.29 sec}
+
+Conclusion: the HipHop version is indeed a little faster.
+
+\subsection{Other tests}
+Here are some other tests, and because the information posted can't be that relevant we're going to test some out to see for our own. 
+Not because we're skeptical but because of the changes that have been made to HipHop and maybe it is changing more than expected, who knows? 
+Maybe speed with \gls{hphp} is achieved by using a multiprocessor with multicores?
+
+While following\footnote{\url{http://php.webtutor.pl/en/2011/04/04/hiphop-for-php-benchmark-revenge-of-php/}} you can view a lot of existing tests but not all of them provide any significant speed difference, since \gls{php} already uses some functions that are written in C++. Sometimes the differences are only in memory usage.
+
+\subsubsection{String concatenation speed test}
+There was an article while searching information about HipHop that it handles string operations very slow, problems with the memory allocation\cite{hiphop_strconcat}, etc. So let's test it out and see if it works\ldots
+\footnote{\url{http://stackoverflow.com/questions/8641926/hiphop-php-issues-with-string-concat}}
+We use \gls{apache} + \gls{php} and the  \gls{hphp} compiled version for the tests differently, and we just access everything in our browser and not in the commandline as presented by those tests, this is how it should work.
+The code that was placed in \textbf{stringspeed.php} and copied to both places.
+\begin{codelisting}
+<?php
+$before = microtime(true);
+$a='';
+for($i=0;$i<50000;$i++) {
+$a="test".$a."test";
+}
+$after = microtime(true);
+printf($a ."\n\n");
+echo "\n" .($after-$before) . " sec/serialize\n";
+?>
+\end{codelisting}%$
+\gls{php} test: 1.47sec
+\\The compiled version, your current location is in the testing folder:
+\begin{codelisting}
+$HPHP_HOME/src/hphp/hphp testing/stringspeed.php -o Stringspeed --log=3
+CTRL+C
+cd Stringspeed
+make -j16
+
+./program -p 8877 -m server
+\end{codelisting}%$
+The actual speed: 0.74 sec
+Ok so that proves it's double the speed in HipHop and not \gls{php} for string concatenation.
+
+\subsection{Compiling a large codebase}
+To get a overview of the compiler switches type \textbf{hphp/hphp --help}.
+
+There are a few ways to specify some flags. The first is by a configuration file in HDF format. Please read doc/hdf for more information. Then use --config to specify the config file. 
+[2] For almost every option in HDF file, you can list it directly in its dot notation format. For example, -v "node.subnode=value". 
+\subsubsection{Using Parse-on-demand Mode (optional)}
+The inclusion of other files that aren't specified from the command line while compiling isn't that hard. 
+You need to create a special file consisting of the location of your CSS,JS and images or any other HTML files.
+There are a few possibilities:
+Files as simple literals; so the compiler can include them during compilation time; written in simple form like \textbf{"include\_once \$MY\_ROOT.'/path/file.php';"}
+Or you can tell the compіler where to look for \$MY\_ROOT by creating a configuration file with contents as the following:
+\begin{codelisting}
+IncludeRoots {
+	*{
+		root = $MY_ROOT
+		path = lib/my_site_code
+	}
+	*{
+		root = $ANOTHER_ROOT
+		path = anotherinterestinglib
+	}
+}
+\end{codelisting}
+
+Use --config to include this configuration file. The compiler resolves the above include statement as ``lib/my\_code/path/file.php''.
+\textbf{Note:} If you find parse-on-demand mode difficult to configure, try using \textbf{--input-list} to include every PHP file you want to compile
+
+\subsection{Example: Compiling WordPress}
+First of all I must emphasize that no one example/test found on the internet or on the official github wiki worked. The following guide is an example of what you should to compile something. It didn't work for me.\footnote{\url{http://huichen.org/en/2010/06/wordpress-three-hardened-by-hphp/}}
+\begin{enumerate}
+\item 	Normally I tried to get version 2.9.1, 3.0.1 patched version and the newest version 3.3.1. None of  would them compile! Not even the guided installations
+\begin{codelisting}
+wget http://wordpress.org/latest.tar.gz
+tar zxvf latest.tar.gz
+cd wordpress
+\end{codelisting}
+\item  Create a config.php, perhaps by copying config.sample.php and set up database information. This file needs to be prepared BEFORE the compilation, so it's compiled into the final binary. 
+Any changes of this file need a re-compilation of the whole package. NOTE: use the loopback interface (typically '127.0.0.1') instead of 'localhost'; see this thread on the mailing list for an explanation.
+\item This prepares a list of all PHP files we want to compile:
+\begin{codelisting}
+	find . -name "*.php" > files.list
+\end{codelisting}
+\item Now we're ready to compile the project.
+\begin{codelisting}
+$HPHP_HOME/src/hphp/hphp --input-list=files.list -k 1 --log=3 \
+	--force=1 –cluster-count=50 -o ./hphp
+\end{codelisting}%$
+
+Wordpress doesn't have that much dynamic code so we don't use the dynamic options.
+
+Now, when the output reaches the following, just hit CTRL+C
+\begin{codelisting}
+lostone@chenbro-nehalem:~/wordpress$ $HPHP_HOME/src/hphp/hphp --
+input-list=files.list -k 1 --log=3
+--force=1 --cluster-count=50 -o
+./hphp
+running hphp...
+parsing inputs...
+parsing inputs took 0'00" (541 ms) wall time
+pre-optimising...
+pre-optimising took 0'01" (1578 ms) wall time
+inferring types...
+inferring types took 0'00" (831 ms) wall time
+post-optimising...
+post-optimising took 0'00" (162 ms) wall time
+creating CPP files...
+creating CPP files took 0'00" (945 ms) wall time
+saving code errors...
+compiling and linking CPP files...
+^C
+\end{codelisting}
+Now we have stopped the compilation we will restart it from the hphp folder. We do this so we actually see what's happening, otherwise there will be no output what so ever\ldots the things will get logged but logs aren't so user friendly when you can see live output.
+Another reason to stop this is to be sure you're compiling using ALL of your CPU power.
+
+\begin{codelisting}
+cd hphp
+make -j16
+\end{codelisting}
+\img[htb!]{scale=0.7}{rId32.png}{Sample compilation error}
+
+As you can see in \autoref{rId32.png}, it will fail to compile so we'll show the example output
+
+If it did compile you'd run it with:
+\begin{codelisting}
+cd ..
+sudo ./hphp/program -m server -v "Server.SourceRoot=`pwd`" \
+-v "Server.DefaultDocument=index.php" -c $HPHP_HOME/bin/mime.hdf
+\end{codelisting}%$
+sudo because we need to listen to port 80, the only port WordPress works on.\\
+-m server runs the program in server mode. -m daemon is okay as well.\\
+-v "Server.SourceRoot=`pwd`" We still need this to locate image and \gls{css} files.\\
+-v "Server.DefaultDocument=index.php", so http://server/ would work.\\
+-c \$HPHP\_HOME/bin/mime.hdf has a list of static content file extensions that need to be loaded by the server to be able to serve those files with different MIME headers.\\
+If you want to see verbose logging, add these flags,
+-v "Log.Level=Verbose" This will output a lot more errors, warnings and information.\\
+-v "Log.NoSilencer=on" This prints out errors from statements that have ,,@'' operators, which WordPress code uses a lot.\\
+-v "Log.Header=on" This will print a header for each line of logging. The most interesting in the header is a long string with hex-encoding. That's hex-encoded stacktrace. To translate it into something readable, run this command,
+\textbf{/tmp/hphp\_xpl7hT/program -m translate the-long-hex-string-without-brackets}
+\end{enumerate}
+
+\subsubsection{phpBB test case}
+Because of the \gls{vapus} application that Sizing servers uses to stresstest hardware I was told to try and compile the forum they use for stress testing. However, I was stuck very positive to see that it compiled!
+As far as I know it was the first thing that did compile. But it didn't seem to work at all, and not even one pointer to show why it didn't work.
+
+The files where prepared in advance, the database was uploaded and the config.php file was already set up to work corectly. One other thing that won't keep phpBB from working is the mysqli function.
+HipHop doesn't support \textbf{INNODB} or \textbf{mysqli} just the old version of \gls{mysql}.
+
+This prepares a list of all PHP files we want to compile:
+\begin{codelisting}
+lostone@chenbro-nehalem:~/forum$ find . -name "*.php" > files.list
+\end{codelisting}%$
+Now start the compilation:
+\begin{codelisting}
+$HPHP_HOME/src/hphp/hphp --input-list=files.list -k 1 --log=3 \
+--force=1 --cluster-count=50 -o ./hphp
+\end{codelisting}%$
+Wait until you see the text ``compiling and linking CPP files\ldots'' type CTRL+C type cd /hphp and make -j16 again.
+
+It compiles:
+\begin{codelisting}
+[100%] Building CXX object
+CMakeFiles/program.dir/sys/dynamic_table_constant.cpp.o
+Linking CXX executable program
+[100%] Built target program
+\end{codelisting}
+But when we run it:
+\begin{codelisting}
+sudo ./hphp/program -m server -v "Server.SourceRoot=`pwd`" \
+-v "Server.DefaultDocument=index.php" -c $HPHP_HOME/bin/mime.hdf -p 8080
+\end{codelisting}%$
+We get a beautiful white screen. Sometimes after compilation it gives a config.php missing error.
+
+\subsubsection{Other test cases}
+\mbox{
+Many other test cases have been tested, it's useless to point out the different examples and codes used to compile them all if it failed. }
+Every time there was some new error. One of the bad things in \gls{hphp} is that it's very volatile. 
+The source code changes every time, and the \gls{php} \gls{cms} or blogs also change which renders everything unstable.
+
+The best thing is to write your own code, or to find some example that really works. 
+
+Under these where Wordpress version 2.9.1, 3.0.3(patched) and 3.3.2. Even myBB, and \gls{cms} Made Simple. This is because the code needs to be restructured.
+
+\subsection{The only functional test case: OcPortal CMS}
+After some frustrating time spent on the internet to find one library to compile I stumbled upon ocPortal that was modified to be able to compile for hphp and also to work! 
+This is incredible if I think about it. But reading more on the website's optimisation page they tried to use other programs aswell.\cite{ocportal_optimise}
+
+\subsubsection{The big setup}
+Well, download it, extract it to your favourite location. 
+I did this in \textbf{/home/lostone/ocportal} and then I copied it to \textbf{/var/www/ocportal} but I changed it to be the only website on \textbf{/var/www/} later on so it's easier for the stresstest when I switch from \gls{apache} to the HipHop server.
+
+The \gls{apache} setup won't be explained here because if someone is interested in HipHop for \gls{php} they would at least know how to upload something and change the permissions. 
+If you run into permission problems use \textbf{./fixperm.sh}.
+
+Installing the ocPortal with \textsc{install.php} should be straightforward.
+
+All passwords are \textbf{123456} except for the \textsc{root} of mysql that's \textbf{123}. The location should be http://chenbro-nehalem (or your own host).
+
+Delete the data\_custom/fields.xml.
+
+Then normally you should run the ./hphp.sh file that came with ocPortal but you need to edit it first, so open it in a text editor of your choice.
+
+Edit the locations and makeopts:
+\begin{codelisting}
+#then
+export
+export
+export
+export
+#fi
+HPHP_HOME=~/dev/hiphop-php
+HPHP_LIB=~/dev/hiphop-php/bin
+MAKEOPTS=-j16
+MAKEOPTS="-j16"
+\end{codelisting}
+
+Comment out lines 23,24 and 28.
+\lstset{		firstline=23,	 }
+\begin{codelisting}
+#if [ -e "hphp/CMakeFiles/program.dir/php" ]
+#then
+#mv hphp/CMakeFiles/program.dir/php php.obj.bak
+#echo "Backed up old object files. When hphp compiling you can ctrl+c and do ..."
+#echo "rm -rf hphp/CMakeFiles/program.dir/php ; mv php.obj.bak hphp/CMakeFiles/program.dir/php ; cd hphp ; make"
+#fi
+\end{codelisting}
+
+Compile it:
+\begin{codelisting}
+lostone@chenbro-nehalem:~/ocportal$ ./hphp.sh
+ocP: Finding files to compile...
+ocP: Compiling...
+running hphp...
+re-creating sync directory /tmp/hphp_sync ...
+parsing inputs...
+parsing inputs took 0'00" (999 ms) wall time
+pre-optimising...
+saving file cache......
+0MB hphp-static-cache saved
+saving file cache... took 0'00" (3 ms) wall time
+pre-optimising took 0'00" (346 ms) wall time
+inferring types...
+inferring types took 0'02" (2026 ms) wall time
+post-optimising...
+post-optimising took 0'00" (481 ms) wall time
+creating CPP files...
+sync: updating hphp/php
+sync: updating hphp/sys
+sync: updating hphp/sep_extensions.mk
+sync: updating hphp/cls
+creating CPP files took 0'01" (1624 ms) wall time
+saving code errors...
+compiling and linking CPP files...
+^C
+lostone@chenbro-nehalem:~/ocportal$ cd hphp/ <-go to
+directory
+lostone@chenbro-nehalem:~/ocportal/hphp$ make -j16 <- compile it manually
+Scanning dependencies of target program
+[ 0%] [ 0%] [ 0%] [ 0%] Building CXX object
+CMakeFiles/program.dir/php/adminzone/load_template.cpp.o
+[ 0%] [ 0%] [ 0%] Building CXX object
+CmakeFiles/program.dir/php/adminzone/pages/modules/admin_ocf_post_temp
+lates.cpp.o
+....
+[100%] Built target program
+\end{codelisting}%$
+
+Edit \textbf{hphp\_debug.sh} as following:
+\begin{codelisting}
+#!/bin/sh
+export HPHP_HOME=~/dev/hiphop-php
+export HPHP_LIB=~/dev/hiphop-php/bin
+sudo hphp/program -m server -v "Server.SourceRoot=`pwd`" -v
+"Server.DefaultDocument=index.php" --config ./ocp.hdf -p 80 -v
+"Log.Level=Verbose" -v "Log.Header=on"
+\end{codelisting}
+
+Now we could run it but it doesn't have any sense to do so, since it will be a unformatted page with text and links. We have to do some edits so the webserver knows to load the .js/.css and images. Also that it
+knows the other \gls{mime} types. Thanks to the Google Groups we managed to fix it.\footnote{\url{http://groups.google.com/group/hiphop-php-dev/browse_thread/thread/921b80c03c5eb1dc}}\\
+Open \textbf{ocp.hdf} and edit the static content.
+\begin{codelisting}
+7. EnableStaticContentCache = true
+8. EnableStaticContentFromDisk = true
+\end{codelisting}
+And append the contents of \textbf{~/dev/hiphop-php/bin/mime.hdf} to the end of the \textbf{ocp.hdf} file.
+
+Now run it!
+\begin{codelisting}
+sudo hphp/program -m server -v "Server.SourceRoot=`pwd`" -v
+"Server.DefaultDocument=index.php" --config ./ocp.hdf -p 80 -v
+"Log.Level=Verbose" -v "Log.Header=on"
+\end{codelisting}
+
+Go to your web browser and you shall see a miracle. It works!
+Well, for a while it does..
+
+\subsubsection{Writing it as an upstart service that respawns}
+HPHP crashes a lot actually. This is actually a big problem if we want to use it with \gls{vapus} stresstest.  So I spent some time finding a way to respawn it. 
+Since the inittab has been removed from Ubuntu's newest versions I had to go into upstart to get it working. This has been one of the most frustrating things I had to to until now. 
+
+We'll create a script that makes it as a service.
+Create the following file on your Linux \textbf{/etc/init/hphp\_ocportal.conf}:
+\begin{codelisting}
+# hphp - HipHop facebook daemon
+#
+# hphp is a compiled version of php code developped by facebook this currently starts the ocForum
+description "hphp ocportal using upstart linux ubuntu"
+author "Clinciu Andrei"
+start on runlevel [2345]
+stop on runlevel [06]
+#expect daemon
+respawn
+script
+cd /home/lostone/ocportal
+./hphp_debug.sh
+echo "starting hphp ocportal"
+end script
+\end{codelisting}
+
+Now start it and test it out, if it crashes it will restart.
+	
+\begin{codelisting}
+lostone@chenbro-nehalem:~/ocportal$ sudo service hphp_ocportal start
+hphp_ocportal start/running, process 19682
+\end{codelisting}%$
+Of course, this isn't a 100\% fix, HipHop should be fixed and ocPortal optimised again. This is only a fast workaround to start the server again in a very short time. For a stresstest it can certainly be expected that the server will crash a lot.
+
+\subsubsection{Working with Lupus}
+Well, Lupus is a proxy application that logs the user interactions with a specific website and exports them in a format that can be read by vApus.
+Lupus has been tested with the \gls{apache} website as well as with the HipHop binary.
+But the problem is, after some time spent on the ocPortal \gls{hphp} binary, it just changed the way it looks! 
+Not being usable anymore thus I had to recompile again. It was VERY annoying.
+
+Because the application crashes a lot, there won't be any stresstest anymore.
+
+\subsection{HipHop Documentation Server}
+The /doc directory contains a list of files that can be read either as plain-text or as formatted \gls{html} in a web browser. This is the documentation provided by Facebook.
+To start up the documentation server with HipHop itself, first make sure the compiler is compiled correctly, then run one of the following commands from the /doc folder:
+\begin{codelisting} make server \end{codelisting}
+Or, if you want to run the documentation server in the background:
+\begin{codelisting}
+make daemon
+\end{codelisting}
+
+Read the documentation on the page http://chenbro-nehalem/.
+
+\subsection{Compilation errors}
+There are a lot of compilation errors, sometimes because of an empty file.
+The HipHop compiled program crashes a lot. Even if it's in daemon mode it crashes.
+I tried to work with the init in Ubuntu, even make it as a service but it failed. I eventually lost a few hours scripting a upstart script.
+
+Fixing the \gls{css} and JavaScript errors. \cite{hphp_fix_cssProblems}
+
+\subsection{Conclusions}
+\subsubsection{Positive points}
+\begin{enumerate}
+\item Fast development in \gls{php} without needing to know C++. PHP is a fast growing language and easy to use.
+\item Less CPU usage means less energy which allows you to run it on even more less servers that equals lower costs.
+\item More throughput for your website which means more users are getting served if the bandwidth isn't the bottleneck.
+\item It uses \gls{memcached} for speed.
+\end{enumerate}
+\subsubsection{Downsides}
+There are more downsides for \gls{hphp} than there are positive points.\cite{downsides_of_hiphop}
+\begin{enumerate}
+\item Hard to build for the non tech people. It is fragile, and because it's under constant
+development things tend to break when a new update is made. This means that your application won't
+compile nor work anymore and that you have to start searching for HipHop patches and/or program
+patches!
+\item Only support for PHP 5.2, as this may not seem such a big problem for some websites that use the
+newest functions it is because many of the newest things from 5.3 are not there. 
+However, HipHop contains some other functions that may be used for debugging purposes but they won't work on an Apache website.
+\item The \textbf{\gls{hphpi}} is \underline{slower} than \gls{php} and shows differences from the compiled
+version and also from PHP itself. If you work on development (HPHPI) for small changes and then
+compile it for production it's possible that  you will see some differences.
+\item Fixing \textbf{\underline{bugs}} in applications compiled with HPHP is \underline{time consuming}. This is so because first you
+need to know whether there is a problem with your code in PHP or if it's a PHP vs HPHP difference.
+Isolation of the problem
+\item You can't use PHP modules, nor PEAR ones. You have to recompile HipHOp with your own
+modules and this is more work than just using PHP.
+\item You can't use INNODB (mysqli) because it's not supported, only simple MySQL is supported. So
+your applications will run a little slower on the database side.
+\item You can only run one website per server. This means only one web application per server. You
+either change your whole structure and program these things, or you compile a different version for each
+application you use (on a different port) or use virtual machines for every website.
+\item Your code must already contain good algorithms if you want \textbf{performance}. 
+Otherwise you can't achieve any HipHop increase in speed if your PHP code is written in a bad style that isn't optimised..\cite{php_performance}
+\item It crashes even after you've compiled an application. If you click a link or do something, it just
+quits. Even in daemon mode. So you have to write an \textbf{upstart/init} script to keep it as a
+service. Even as a service if you have a lot of users going to your website I think they
+won't like the idea that it isn't available when they click
+
+\end{enumerate}
+
+\subsubsection{Final personal conclusion}
+I personally think that HipHop isn't usable nor user friendly for any big project. It has the potential to
+allow you to speed up your applications if \gls{php} is the bottleneck. For all the downsides that it brings I think
+you're better off with something like GWAN or Zend Accelerator. Or using \gls{php} with ngix. 
+Think about using APC instead, since HipHop implements a version of APC.
+Speed also has to do with \gls{mysql} selects and writes, file servings, GZIPped content, algorithms used and other things.
+
+Use it for small things and for testing, I tend to believe that Facebook is using it's own version for internal
+use and that this is only a version they want to show to the world so people could bring extra
+improvement.
+
+\subsection{Problems and erros}
+This is a list of the most common problems and errors that I have encountered.
+\subsubsection{Libevent not found}
+\begin{codelisting}
+compiling and linking CPP files...
+CMake Error at /home/lostone/dev/hiphop-
+php/CMake/FindLibEvent.cmake:29 (message):\n Could NOT find
+libevent.\nCall Stack (most recent call first):\n
+/home/lostone/dev/hiphop-php/CMake/HPHPFindLibs.cmake:55
+(find_package)\n /home/lostone/dev/hiphop-
+php/CMake/HPHPSetup.cmake:46 (include)\n CMakeLists.txt:41
+(include)\n\n\n
+compiling and linking CPP files took 0'00" (490 ms) wall time
+hphp failed
+\end{codelisting}
+The fix is to set the PATH variables as following, the problem is with the \textbf{CMAKE\_PREFIX\_PATH}.
+\begin{codelisting}
+export HPHP_HOME=/home/lostone/dev/hiphop-php
+export HPHP_LIB=/home/lostone/dev/hiphop-php/bin
+export CMAKE_PREFIX_PATH=/home/lostone/dev/hiphop-php/../
+\end{codelisting}

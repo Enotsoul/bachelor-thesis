@@ -1,0 +1,22 @@
+\select@language {english}
+\contentsline {table}{\numberline {1}{\ignorespaces CPU usage of scripts\relax }}{36}{table.caption.5}
+\contentsline {table}{\numberline {2}{\ignorespaces Table containing all the information of the different softwares used\relax }}{47}{table.caption.12}
+\contentsline {table}{\numberline {3}{\ignorespaces Throughput and response time for 1 core\relax }}{50}{table.caption.13}
+\contentsline {table}{\numberline {4}{\ignorespaces Throughput and response time for 2 core\relax }}{54}{table.caption.19}
+\contentsline {table}{\numberline {5}{\ignorespaces Throughput and response time for 4 cores\relax }}{57}{table.caption.24}
+\contentsline {table}{\numberline {6}{\ignorespaces Throughput and response time for 8 cores\relax }}{59}{table.caption.28}
+\contentsline {table}{\numberline {7}{\ignorespaces Throughput and response time for 1 core with more steps\relax }}{62}{table.caption.32}
+\contentsline {table}{\numberline {8}{\ignorespaces Throughput and Response Time for 1 to 8 cores\relax }}{62}{table.caption.33}
+\contentsline {table}{\numberline {9}{\ignorespaces Differencing response time and throughput after phpBB upgrade\relax }}{65}{table.caption.36}
+\contentsline {table}{\numberline {10}{\ignorespaces Throughput and Response time for 8 cores comparing no cache settings with Memcached\relax }}{68}{table.caption.39}
+\contentsline {table}{\numberline {11}{\ignorespaces Throughput and Response time for 16 cores comparing simple file cache with memcached\relax }}{69}{table.caption.40}
+\contentsline {table}{\numberline {12}{\ignorespaces Apache old vs new configuration differences\relax }}{70}{table.caption.42}
+\contentsline {table}{\numberline {13}{\ignorespaces Comparing memcache tests with the new and old settings\relax }}{72}{table.caption.44}
+\contentsline {table}{\numberline {14}{\ignorespaces Throughput results for new memcached settings\relax }}{73}{table.caption.45}
+\contentsline {table}{\numberline {15}{\ignorespaces Other apache settings\relax }}{74}{table.caption.47}
+\contentsline {table}{\numberline {16}{\ignorespaces New MySQL settings and APC installation\relax }}{76}{table.caption.50}
+\contentsline {table}{\numberline {17}{\ignorespaces APC module for PHP vs Simple apache\relax }}{77}{table.caption.51}
+\contentsline {table}{\numberline {18}{\ignorespaces APC module up till 1000 users\relax }}{80}{table.caption.56}
+\contentsline {table}{\numberline {19}{\ignorespaces APC module more steps\relax }}{83}{table.caption.62}
+\contentsline {table}{\numberline {20}{\ignorespaces Throughput for all the tests\relax }}{85}{table.caption.63}
+\contentsline {table}{\numberline {21}{\ignorespaces Response Time for all the tests\relax }}{85}{table.caption.64}

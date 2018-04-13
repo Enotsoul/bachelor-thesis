@@ -1,0 +1,277 @@
+#LyX file created by tex2lyx 2.0.0
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+%Clinciu Andrei
+
+
+
+% PACKAGES
+
+%CHecks syntax only, no dvi produced
+%\usepackage{syntonly}
+
+
+
+%\usepackage{url}
+
+%\usepackage{graphicx}
+%\usepackage{rotating}
+%\usepackage{booktabs}
+%\usepackage{listings}
+%\usepackage[toc]{glossaries}
+
+% define the title
+\author{Clinciu Andrei George}
+\title{Internship}
+
+
+\end_preamble
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 11
+\spacing single
+\use_hyperref 1
+\pdf_bookmarks 1
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 0
+\pdf_backref section
+\pdf_pdfusetitle 1
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% generates the title
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+ 
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+pagestyle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+headings
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+
+The lovely world of optimisation
+\end_layout
+
+\begin_layout Standard
+
+Well, and here begins my lovely article. 
+\begin_inset CommandInset include
+LatexCommand include
+preview false
+filename "chapters/01_IntelEnergy.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% Example 1
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+\SpecialChar \ldots{}
+when Einstein introduced his formula 
+\begin_inset Formula \begin{equation}
+e = m \cdot c^2 \; ,
+\end{equation}
+\end_inset
+
+ which is at the same time the most widely known and the least well understood physical formula.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% Example 2
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+\SpecialChar \ldots{}
+from which follows Kirchhoff’s current law: 
+\begin_inset Formula \begin{equation}
+\sum_{k=1}^{n} I_k = 0 \; .
+\end{equation}
+\end_inset
+
+ Kirchhoff’s voltage law can be derived \SpecialChar \ldots{}
+\SpecialChar \ldots{}
+which has several advantages. 
+\begin_inset Formula \begin{equation}
+I_D = I_F - I_R
+\end{equation}
+\end_inset
+
+ is the core of a very different transistor model. \SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%keep text together 
+\backslash
+mbox{text}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

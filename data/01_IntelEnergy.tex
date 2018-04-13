@@ -1,0 +1,300 @@
+\section{Intel energy Checker SDK}\label{sec:IntelSDK}
+\subsection{Product overview}
+``The Intel\textsuperscript{\textregistered} Energy Checker \gls{api} provides the functions required for exporting and importing counters from an application. A counter stores the number of times a particular event or process has occurred, much like the way an odometer records the distance a car has travelled. Other applications can read these counters and take actions based on current counter values or trends derived from reading those counters over time. The core Intel\textsuperscript{\textregistered} Energy Checker \gls{api} consists of five functions to open, re-open, read, write, and close a counter.
+
+The Intel\textsuperscript{\textregistered} Energy Checker \gls{sdk} \gls{api} exposes metrics of "useful work" done by an application through easy software instrumentation. For example, the amount of useful work done by a payroll application is different from the amount of useful work performed by a video serving application, a database application, or a mail server application. All too often, activity is measured by how busy a server is while running an application rather than by how much work that application completes. The Intel\textsuperscript{\textregistered} Energy Checker \gls{sdk} provides a way for the software developer to determine what measures of "useful work" are important for that application and expose those metrics through a simple \gls{api}.''\cite{intel_ec_sdk_website}  
+\nolinebreak
+\subsubsection{Documentation}
+Most of the documentation and examples shown here are based on the \textbf{Intel(R) Energy Checker SDK--User Guide.pdf}\cite{intel_userGuide} examples and documentation. 
+
+The \gls{sdk} includes a few PDF's with information about it. To understand how it works someone needs to read the whole documentation on forehand. A simple demonstration won't prove anything to the reader before he understands what it does exactly. I myself have read the User Guide two times before I could understand what it does and how to use some examples.
+
+Since this is a \gls{sdk} don't expect to know how to use it in a few pages, most people don't know how to use an \gls{ide} or \gls{sdk} even after a few months of usage!
+\nolinebreak
+\subsubsection{Programs included in SDK}
+It's a \gls{sdk} thus it has a lot of little programs that each do something, they don't all work as expected after compilation, some need ROOT access, others need to be edited. It can be expected that while working with engineering and research applications you'll have to tweak a lot of things before they work. It has a broad usage and is very complex.
+
+It can even be used in scripting environments with precompiled functions.
+\subsubsection{Basic concepts}
+One of the basic concepts is the counters, and it numbers the particular times some event or process occurred. Like the number of kilometres a vehicle had travelled. Those can be exported or imported using the \gls{pl}.\nolinebreak
+\myparagraph{Productivity links}
+\\An application imports and exports \gls{pl}'s from a standard location through the EC \gls{api}.
+
+"The \gls{api} automatically allows multiple instances of an application to maintain separate counters for each instance of the application." This means you can easily use it in multi-threaded applications.
+
+Each application can simultaneously open 10 \gls{pl}'s and each \gls{pl} can have a maximum of 512 counters, thus 5120 counters in total per application. \gls{pl} counters store ONLY numerical data! The names must be valid and max 199 chars.  The values are usually long integers ($2^{64-}1$ bits).
+\myparagraph{Suffix counters}
+\\You can use suffix counters to just append a type of suffix. Sign suffix positive changes to negative  and the other way around, these are just files with the same counter.
+
+\textbf{Software Status Counter}
+\\It's recommended to define the Status counter to indicate the states of an application. 
+\\0 = terminated, 1 = idle, 2 = initializing, 3 = active, 4= terminating.
+
+\textbf{Metrics}
+\\Calculate the useful work done by the software and see the energy consumed.
+
+\textbf{API Overview}
+\\The \gls{api} code is provided as a set of two C source code files (\textbf{productivity\_link.c} and \textbf{productivity\_link.h}). Therefore, no external libraries or run-time software is required with the instrumented application; this allows Intel EC-instrumented applications to run standalone, without imposing any additional library dependencies. Alternatively, Intel EC code can be built into Dynamic Link Libraries (DLLs) or Shared Objects (SOs) to provide dynamic linkage at runtime.
+
+\textbf{Symbols}
+\\Each command and function needs to use a specific symbol. See the Intel R Energy checker SDK  User Guide PDF for more details. This is useful for the building of the library also known as compilation.
+\subsubsection{API commands}
+The API is very simple, it only uses 5 commands. But to correctly include these commands in your application is the task of the software designer.
+\myparagraph{pl\_open()}
+This command creates a \gls{pl} and creates the counters specified by couter\_names. Those counters will be used by other functions to store data. The returned value is an integer that can be identified by a special error code at 3.4.6 in the ,,Intel Energy Checker SDK''
+%\\(move this to the appendix?)
+
+\textbf{Syntax}
+\begin{codelisting}
+int pl_open(
+	char *application_name,
+	unsigned int counter_count,
+	const char *counter_names[],
+	uuid_t *uuid
+);
+\end{codelisting}
+
+\textbf{Parameters}
+\begin{codelisting}
+application_name 	Pointer to a zero terminated ASCII string
+counter_count 		Number of  counters to create
+counter_names 		Array of pointers to zero terminated ASCII strings
+uuid				Pointer to a uuid
+\end{codelisting}
+\myparagraph{pl\_close()}
+This command closes a previously opened \gls{pl}, it also frees the memory used.\nolinebreak
+\begin{codelisting}
+int pl_close(
+	int pl_descriptor
+);
+\end{codelisting}
+\myparagraph{pl\_write()}
+This simple command writes values into \gls{pl} counters. You can use a write action for every counter.\nolinebreak
+
+\textbf{Syntax}
+\begin{codelisting}
+int pl_write(
+	int pl_descriptor,
+	const void *pointer_to_data,
+	unsigned int counter_offset
+);
+\end{codelisting}
+
+\textbf{Parameters}
+\begin{codelisting}
+pl_descriptor 	A valid Productivity Link descriptor.
+pointer_to_data	A valid pointer to a memory location storing an unsigned long long value.
+counter_offset	A valid index in the PL's counters list (zero-relative).
+\end{codelisting}
+\myparagraph{pl\_read()}
+This command is analogous to the write one, it reads the information. The pointer to the data must be large enough to hold the data.
+
+\textbf{Syntax}
+\begin{codelisting}
+int pl_read(
+	int pl_descriptor,
+	const void *ponter_to_data,
+	unsigned int counter_offset
+);
+\end{codelisting}
+\myparagraph{pl\_attach()}
+Sometimes it's a good idea to attach to an existing pl configuration file to read or edit it.
+
+\textbf{Syntax}
+\begin{codelisting}
+int pl_attach (
+	char *pl_config_ini_file_name
+);
+\end{codelisting}
+Please refer to the Appendix \ref{hellotest.c} (p. \pageref{hellotest.c}) \textbf{hellotest.c} for a working example.
+
+\subsection{File system-less mode}
+The \gls{api} gives the option to use a system-less mode for devices like mobile phones etc. It stores the \gls{pl} information on an agent via the \gls{tcpip} network.
+
+To do so define \textbf{\_\_PL\_FILESYSTEM\_LESS\_\_} in your code while building the application. The Agents are the servers. 
+A sample agent is included as an example in the \gls{sdk}; \textbf{productivity\_link\_agent.c}. It can help for further development.
+\subsubsection{PL protocol}
+The PL protocol is a simple network protocol designed to encapsulate and send \gls{api} calls to a networked agent, and to receive and decode a networked agent's answer to the \gls{api} calls. The application sees the same information between the file-system-based and the system-less mode. 
+
+The encoding of each function is explained in the documentation, and it's fairly technical maybe the agent can be used to just store the files on another system and nothing more. See more info at the \gls{pl} Agent!
+\subsubsection{Network Configuration}
+When compiled in file system-less mode, the \gls{api} uses two environment variables to specify the IPV4 address and port number in order to communicate with an agent.
+
+The IPV4 address environment variable is PL\_AGENT\_ADDRESS. If the variable does not exist, then PL\_DEFAULT\_PL\_AGENT\_ADDRESS (127.0.0.1)  is used.
+
+The port number environment variable is PL\_AGENT\_PL\_PORT. If it does not exist, then PL\_DEFAULT\_PL\_AGENT\_PL\_PORT (49253)  is used.
+\subsection{Using ESRV and TSRV Data}
+\subsubsection{Compilation in Geany}
+Compiling an application could be done by using either the \gls{makefile} provided for the default applications or using a custom command from the \gls{makefile} and add it to Geany so it's easier to edit and compile your own files. For multiple files or a bigger project it's suggested to just edit the \gls{makefile} as you like.
+
+Sample compilation for Linux:
+\begin{codelisting}
+	/usr/bin/gcc -D__PL_LINUX__ -D__PL_GENERATE_INI__ -D__PL_GENERATE_INI_VERSION_TAGGING__ -D__PL_GENERATE_INI_BUILD_TAGGING__ -D__PL_GENERATE_INI_DATE_AND_TIME_TAGGING__ -D__PL_BLOCKING_COUNTER_FILE_LOCK__ -D__PL_EXTRA_INPUT_CHECKS__ -m64  -O2 -msse -Wall -fPIC -std=gnu99 -D_SVID_SOURCE -D_REENTRANT -D_LIBC_REENTRANT -pthread	-I"/home/lostone/School/3nmct/Stage - Sizing Servers/iecsdk"/src/core_api "%f" "/home/lostone/School/3nmct/Stage - Sizing Servers/iecsdk"/src/core_api/productivity_link.c 	-o "%e" 	-lpthread -luuid -ldl
+\end{codelisting}
+\subsubsection{Start ESRV (Energy server)}
+I eventually had enough good luck to successfully start the ESRV energy server. This server uses either a simulated device or a real device to measure the energy usage and log all the counters. But be sure to compile the energy ESRV driver kits from \textbf{/iecsdk/utils/device\_driver\_kit/build/linux}. See the \gls{makefile} for more information.
+
+Start the EnergyServer to log its sensors in \textbf{/opt/productivity\_link/} :
+\begin{codelisting}
+	./esrv --start --library ./esrv_cpu_indexed_simulated_device.so
+\end{codelisting}
+For a scenario with a serial port use for Linux \textbf{/dev/ttyS1}
+
+\myparagraph{Start pl\_gui monitor}
+There is a problem in Linux to start the monitor so you'll have to use the windows one instead. The problems are with the Adobe Helvetica fonts.
+Even after installing the fonts, the program still doesn't work. With a few changes to the \textbf{pl\_config.ini} it will plot the data in Windows but it won't work if you want to see current data that gets changed.
+
+Use the --process option in the command line to compute real values using the suffix counters.
+
+You can however solve the problem under Debian/Ubuntu/Linux Mint for the \textbf{pl\_gui\_monitor} by installing the \textbf{xfonts\-100dpi \& xfonts\-75dpi} packages. Downloading the Helvetica font won't prove itself worthfull.
+\myparagraph{PL AGENT}
+There is a \gls{pl} Agent that can be programmed and is best compiled in \underline{debug mode} to show everything it does.
+
+The \gls{api} is providing automating mapping on the server for the \gls{uuid} so the client \gls{uuid}  will always be different from the server. 
+Be advised that all the UUID's here will be different from the ones you will actually see, because they are unique. All existing \gls{uuid}'s here are for illustration purpose only.
+\myparagraph{CSV monitoring}
+One thing I find very strange is why the \textbf{pl\_csv\_logger} application still needs a pl\_config file if it logs its own data anyway? When you run it after running \textbf{ESRV} it logs metrics again. The same work over and over again?
+Output to csv file:
+\begin{codelisting}
+	pl_csv_logger /opt/productivity_link/esrv_f18ee848-736d-4bc0-8c6f-576f6e096997/pl_config.ini --process --output esrv_log.csv
+\end{codelisting}
+
+\subsection{Easy implementation}
+These are a few settings to do before starting to work with the Intel Energy Checker \gls{sdk}.
+\begin{codelisting}
+sudo ln -s /home/lostone/School/3nmct/Stage\ -\ Sizing\ Servers/iecsdk/ /iecsdk
+lostone@Burebista /iecsdk/bin/energy_server/linux/x64 $ cp -r . /iecsdk/esrv
+lostone@Burebista /iecsdk/build/linux $ cp pl_csv_logger /iecsdk
+\end{codelisting}
+\subsubsection{Use the pl\_gui\_monitor with esrv}
+First start the ESRV server in a separate terminal(or tab):
+\begin{codelisting}
+$ /iecsdk/esrv/esrv --start --library /iecsdk/esrv/esrv_cpu_indexed_simulated_device.so
+\end{codelisting}%$
+The \gls{uuid} as example \textbf{[641e5c4e-fcb5-43ea-a426-effcd49e5688]}  search for it in that folder.
+
+Then open a new command-line (or run a process in the background from the first one) chose the right folder. 
+We use the \textbf{--process} option to process the \underline{.sign} and \underline{.decimals} files. The \textbf{--format} command makes it readable for humans.
+\begin{codelisting}
+	pl_gui_monitor --process --format /opt/productivity_link/esrv_641e5c4e-fcb5-43ea-a426-effcd49e5688/pl_config.ini 
+\end{codelisting}
+The second esrv libray that works is a simulated device but it doesnt really change too much, the rest need REAL machines to connect to.
+\begin{codelisting}
+	/iecsdk/esrv/esrv --start --library /iecsdk/esrv/esrv_simulated_device.so.1.0
+\end{codelisting}
+
+\subsubsection{Plot the data in Microsoft Excel/Open Office Calc with esrv}
+After using the \textbf{pl\_csv\_logger} to log the data, you can plot it in Excel.
+
+I had enough luck to be able to extract WATT usage data of my laptop while refreshing Firefox a few times and running a threaded application (4 threads for my 4 cores) that was a little intensive. Then I plotted it in Excel. Please note that if \textbf{ESRV} isn't connected to any real machine it just calculates its own values depending on \gls{cpu} and memory usage. It can't be trusted in a production environment if no power measuring unit is connected to it.
+
+Start the ESRV server:
+\begin{codelisting}
+	/iecsdk/esrv/esrv --start --library /iecsdk/esrv/esrv_cpu_indexed_simulated_device.so
+\end{codelisting}
+Look for the GUID Using GUID:     \textbf[9d92a093-721e-4b6f-ae6f-688567a39170]
+{}
+Now  start the \textbf{pl\_csv\_logger} with the pl\_ini provided by the ESRV. Also don't forget to use the \textbf --process command line.
+\begin{codelisting}
+	/iecsdk/pl_csv_logger /opt/productivity_link/esrv_9d92a093-721e-4b6ae6f-688567a39170/pl_config.ini --process --output /iecsdk/esrv_log.csv
+\end{codelisting}
+I waited for 150-200 seconds and ran some intensive programs and sometimes just left the \gls{cpu} idle. Now import the CSV in Excel, delete the rows that aren't needed.
+
+We'll plot the Energy in Joule (cumulative) and the Power in Watt/Second
+
+Don't forget to change the +74 numbers to real numbers so you can plot them. Also select the values of the Joules and add a new axis:
+\img[ht!]{width=16cm}{Esrv_Energy_Consumption.png}{Esrv energy consumption}
+\myparagraph{Use the pl\_gui\_monitor on Windows}
+\begin{codelisting}
+	pl_gui_monitor.exe --process --gdiplus --transparency 20 --top --title vmstat --format --page 2
+\end{codelisting}
+
+\subsection{Hellotest client application on Linux}{Hellotest client application on Linux that sends data to a localhost pl\_agent then to a Windows agent.}
+We want to see if the agent works well, but first we test it localhost. First change the  \gls{makefile} in \textbf{/iecsdk/build/linux} to 
+\begin{codelisting}
+IECSDK_VERSION=debug
+#IECSDK_VERSION=release
+\end{codelisting}
+And remake pl\_agent with the debug options so we see all the events.
+\begin{codelisting}
+-D __PL_FILESYSTEM_LESS__ must be in the buildlink
+\end{codelisting}
+At the top of the \textbf{hellotest.c} file change the IP address, later it will be the one of the Windows machine.
+Maybe a better way to implement it would be to load it from a file(changing the PL library is required).
+\begin{codelisting}
+#define PL_AGENT_ADDRESS 127.0.1.1 
+\end{codelisting}
+Start the pl\_agent:
+\begin{codelisting}
+$ /iecsdk/build/linux/pl_agent  
+\end{codelisting}
+Start hellonetwork
+\begin{codelisting}
+lostone@Burebista /iecsdk $ ./hellonetwork 
+\end{codelisting}
+\textbf{Ok, it was successful!}
+Look at the pl\_agent debug info: (only a part of it is shown)
+\begin{codelisting}
+[Wed Feb 29 10:48:04 2012]: ...Pl port listener thread has received a request.
+[Wed Feb 29 10:48:04 2012]: ...Pl port listener thread is searching a thread in the pool to serve the request.
+[Wed Feb 29 10:48:04 2012]: ......Pl port listener thread is trying to lock pool thread [0].
+[Wed Feb 29 10:48:04 2012]: ......Pl port listener thread has successfully locked pool thread [0].
+[Wed Feb 29 10:48:04 2012]: ...Pl port listener thread has triggered pool thread [0].
+[Wed Feb 29 10:48:04 2012]: Pool thread [0] is serving a PL API call.
+[Wed Feb 29 10:48:04 2012]: ...Pl port listener thread is accepting connections.
+[Wed Feb 29 10:48:04 2012]: ...Pool thread [0] has received...
+[Wed Feb 29 10:48:04 2012]: ......Pool thread [0]: Bytes in full message: [41]d - [29]h.
+[Wed Feb 29 10:48:04 2012]: ......Pool thread [0]: Bytes in message (skipping size header): [37]d - [25]h.
+[Wed Feb 29 10:48:04 2012]: ......Pool thread [0]: 25 00 00 00 01 03 00 00 00 09 00 00 00 68 65 6C 6C 6F 54 65 73 74 01 00 00 00 41 01 00 00 00 42 01 00 00 00 43 0D 00 00 00 
+[Wed Feb 29 10:48:04 2012]: ......Pool thread [0]: xx xx xx xx 01 03 00 00 00 09 00 00 00 68 65 6C 6C 6F 54 65 73 74 01 00 00 00 41 01 00 00 00 42 01 00 00 00 43 0D 00 00 00 
+...
+[Wed Feb 29 10:48:04 2012]: ......Pool thread [0]: uuid = [24cf231e-5261-4768-8b87-aeacdc47c5fe].
+...
+\end{codelisting}
+A program with the \gls{uuid} of \textbf{24cf231e-5261-4768-8b87-aeacdc47c5fe} exists.
+
+Conclusion: It works locally, now a remote test is required on the windows client.
+
+Recompile the \textbf{hellotest.c} file with the new IP in it: 
+\begin{codelisting}
+#define PL_AGENT_ADDRESS 192.168.34.70
+\end{codelisting}
+I started the pl\_agent on windows, it binded to the right IP. But the client wouldn't work. It was recompiled, no output given. Telnet to the ip and port works. The ip settings are OK.
+
+It seems the application ignores the ip and port it is compiled with and still sends everything to localhost. The simple question: ``How to fix it?'' jumps to mind.
+
+Even running as root or rewriting the default IP doesn't work.
+
+Edit the header file  \textbf{productivity\_link.h} at line \textbf{777} to \textbf{192.168.34.70} then recompile and run.
+
+Great, the header file modification worked. So we have the  \textbf{hellotest\_3b6ed167-3f9c-46ab-852e-33fbc81f0efe}  folder created on windows. I created another one for the assurance of it.
+
+\textbf{OK it works over the network!}
+
+\subsubsection{How to implement the energy server}
+I'm taking a look into esrv\_client code to see if there is any possibility to change it. It would be great if we could run ESRV and esrv\_client on Linux  and  then log the data and send it to any Windows machine via the agent to be able to plot it. This would be really helpful for multiple software applications. 
+Edit the \textbf Makefile on line 546
+\begin{codelisting}
+-D__PL_FILESYSTEM_LESS__ \
+\end{codelisting}
+It compiles but gives an assert fault.
+
+Following the documentation you can either write/read from a file time or from an agent but never do both at the same thus this is impossible. 
+
+Maybe if ESRV source code was provided to change the ESRV instance to report to Windows directly and read it from there. This possibility is far from reality. Considering that the \gls{uuid} changes each time, the application would have to know which \gls{uuid} it needs.
+
+No changes will be done in the source code of the esrv because of the overhead and complications it would provide.
+
+It works to store data on a server but you can't read/write from the esrv and add your own counters. You either can do one or the other thus the Intel Energy \gls{sdk} isn't that good for what we had in mind.
+
+
+\subsection{Conclusion}
+While Intel is working hard on good hardware and they're always bringing out state of the art hardware we can notice that this SDK implementation isn't that straightforward to use.
+Intel Energy Checker \gls{sdk} provides a lot of good software to do your job if the software you want to test is on a PC where you're at most of the time and not for servers.
+This is bad since you can either use the \gls{pl} counters from your HDD or via TCP/IP but not both at the same time. 
+This means that you can only log the ESRV server using another external program you have to write yourself.
+As we've seen the TCP/IP settings can't be given to the compiler and we have to manually change those settings in the header file.
+
+The logging system is very bad in my opinion. This because it uses flat files to store one \gls{pl} per file at a time. The values of those files change every time, and you can only have numerical values in those files. It would have been far easier to just use \gls{csv} files  or just store all the data in a \gls{sqlite} database.
+
+

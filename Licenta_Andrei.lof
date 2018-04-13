@@ -1,0 +1,49 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1}{\ignorespaces Esrv energy consumption\relax }}{14}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Sample compilation error\relax }}{26}{figure.caption.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces How the LAMP stack works\relax }}{34}{figure.caption.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces vApus and normal Client http requests\relax }}{35}{figure.caption.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Google PageSpeed in Chrome\relax }}{41}{figure.caption.6}
+\contentsline {figure}{\numberline {6}{\ignorespaces Yahoo YSlow in Chrome\relax }}{42}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces KCacheGrind graphical functions overview on index.php\relax }}{44}{figure.caption.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces KCacheGrind information on session\_create\relax }}{45}{figure.caption.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces KCacheGrind graphical functions overview on viewtopic.php\relax }}{45}{figure.caption.10}
+\contentsline {figure}{\numberline {10}{\ignorespaces Functions usage in KCacheGrind\relax }}{46}{figure.caption.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces CPU usage 1 core test\relax }}{51}{figure.caption.14}
+\contentsline {figure}{\numberline {12}{\ignorespaces Memory usage 1 core test\relax }}{51}{figure.caption.15}
+\contentsline {figure}{\numberline {13}{\ignorespaces Disk usage 1 core test\relax }}{52}{figure.caption.16}
+\contentsline {figure}{\numberline {14}{\ignorespaces Average queue size 1 core test\relax }}{52}{figure.caption.17}
+\contentsline {figure}{\numberline {15}{\ignorespaces Network traffic 1 core test\relax }}{53}{figure.caption.18}
+\contentsline {figure}{\numberline {16}{\ignorespaces CPU usage 2 cores test\relax }}{55}{figure.caption.20}
+\contentsline {figure}{\numberline {17}{\ignorespaces Memory usage 2 cores test\relax }}{55}{figure.caption.21}
+\contentsline {figure}{\numberline {18}{\ignorespaces Disk usage 2 cores test\relax }}{56}{figure.caption.22}
+\contentsline {figure}{\numberline {19}{\ignorespaces Network traffic 2 cores test\relax }}{56}{figure.caption.23}
+\contentsline {figure}{\numberline {20}{\ignorespaces Network traffic 4 cores test\relax }}{57}{figure.caption.25}
+\contentsline {figure}{\numberline {21}{\ignorespaces CPU usage 4 cores test\relax }}{58}{figure.caption.26}
+\contentsline {figure}{\numberline {22}{\ignorespaces Memory usage 4 cores test\relax }}{58}{figure.caption.27}
+\contentsline {figure}{\numberline {23}{\ignorespaces CPU usage 8 cores test\relax }}{60}{figure.caption.29}
+\contentsline {figure}{\numberline {24}{\ignorespaces Memory usage 8 cores test\relax }}{60}{figure.caption.30}
+\contentsline {figure}{\numberline {25}{\ignorespaces Network traffic 8 cores test\relax }}{61}{figure.caption.31}
+\contentsline {figure}{\numberline {26}{\ignorespaces Throughput per second for 1 to 8 cores\relax }}{63}{figure.caption.34}
+\contentsline {figure}{\numberline {27}{\ignorespaces Response Time in ms for 1 to 8 cores\relax }}{63}{figure.caption.35}
+\contentsline {figure}{\numberline {28}{\ignorespaces Disk usage for 8 cores test with memcached enables\relax }}{67}{figure.caption.37}
+\contentsline {figure}{\numberline {29}{\ignorespaces Memory usage for 8 cores test with memcached enables\relax }}{67}{figure.caption.38}
+\contentsline {figure}{\numberline {30}{\ignorespaces Apache and MySQL CPU usage\relax }}{69}{figure.caption.41}
+\contentsline {figure}{\numberline {31}{\ignorespaces New vs old Apache configuration comparison\relax }}{71}{figure.caption.43}
+\contentsline {figure}{\numberline {32}{\ignorespaces Memcached new settings memory usage\relax }}{73}{figure.caption.46}
+\contentsline {figure}{\numberline {33}{\ignorespaces Other apache settings and memory usage\relax }}{75}{figure.caption.48}
+\contentsline {figure}{\numberline {34}{\ignorespaces High disk/write for the newest apache settings\relax }}{75}{figure.caption.49}
+\contentsline {figure}{\numberline {35}{\ignorespaces PHP APC CPU Usage\relax }}{78}{figure.caption.52}
+\contentsline {figure}{\numberline {36}{\ignorespaces PHP APC Memory Usage\relax }}{78}{figure.caption.53}
+\contentsline {figure}{\numberline {37}{\ignorespaces PHP APC Disk usage Usage\relax }}{79}{figure.caption.54}
+\contentsline {figure}{\numberline {38}{\ignorespaces PHP APC CPU share of the total\relax }}{79}{figure.caption.55}
+\contentsline {figure}{\numberline {39}{\ignorespaces PHP APC 1000 concurrent users CPU Usage\relax }}{81}{figure.caption.57}
+\contentsline {figure}{\numberline {40}{\ignorespaces PHP APC 1000 concurrent users Memory Usage\relax }}{81}{figure.caption.58}
+\contentsline {figure}{\numberline {41}{\ignorespaces PHP APC 1000 concurrent users Disk usage\relax }}{81}{figure.caption.59}
+\contentsline {figure}{\numberline {42}{\ignorespaces PHP APC disk queue 1000 concurrent users\relax }}{82}{figure.caption.60}
+\contentsline {figure}{\numberline {43}{\ignorespaces PHP APC CPU share of the total 1000 concurrent users\relax }}{82}{figure.caption.61}
+\contentsline {figure}{\numberline {44}{\ignorespaces Throughput comparison for tests 8 and 16 cores\relax }}{85}{figure.caption.65}
+\contentsline {figure}{\numberline {45}{\ignorespaces Conclusions and comparison of the best tests response time from beginning to APC\relax }}{86}{figure.caption.66}
+\contentsline {figure}{\numberline {46}{\ignorespaces Conclusions and comparison of the best tests throughput from beginning to APC\relax }}{86}{figure.caption.67}
+\contentsline {figure}{\numberline {47}{\ignorespaces TCL Plotchart script example\relax }}{88}{figure.caption.68}
+\contentsline {figure}{\numberline {48}{\ignorespaces Memory usage for new apache settings\relax }}{97}{figure.caption.70}

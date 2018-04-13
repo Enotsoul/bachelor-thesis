@@ -1,0 +1,902 @@
+\section{vApus test cases for phpBB}\label{sec:testcasesphpBB}
+\gls{vapus} stands for Virtualized Application Unique Stresstesting and it can be used to stresstest anything. It works in a master-client way that can be used to stresstest different types of applications including databases, php websites or any other program. It also can be used to test a full server to its full potential.
+
+vApus should be run as a test client on another pc than your development one, I'm using a quadcore client on the ip of 192.168.35.145. It's currently being controlled by RDP.
+
+First import the \underline{Log Rule} set \textbf{Web Log Rule Set.xml}. Then import the Log 1: HTTP stresstest from the vApus mark II. Import a connection proxy: \textbf{Web HTTP (GZip Encoding, ignore logged cookies) Connection Proxy.xml}. Create a new connection with the website used. Add a new stresstest and configure it to use the logs imported.
+\\But you can also use the pre-set settings and only use stresstest.
+
+We have two stresstests. An original one using the path to /phpbb/ and a phpBB optimised using a path to /phpbboptimized/. The original one is started only once and then we compare it to the changes done with the optimised one.
+
+Run the \textbf{importmysqldb.sh} script I made based on the info from the wiki so the \gls{mysql} database is reset after every usage. This script should reset both databases for the /phpbb/ and /phpbboptimized/ subdirectories. 
+
+\subsection{Tools used and setup}
+\subsubsection{Configuration and files}
+This is our system setup and all the data locations, configuration files, versions of the software we'll use.
+
+\begin{table}[htb!]\begin{center}
+\caption{Table containing all the information of the different softwares used}\label{tab:configuration}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{3cm}|p{3cm}|c|}\hline %\rowcolor{myLightGreen}
+% & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} After APC} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Before APC} \\ \hline  \rowcolor{myLightGreen}
+ %{\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms}  \\ \hline 
+ 
+Operating system &	\multicolumn{2}{>{}c|}{\textbf{Ubuntu 11.10 64bit}} \\ \hline
+CPU &  \multicolumn{2}{>{}c|}{2x Intel(R) Xeon(R) CPU  L5520  @ 2.27GHz, 4 cores, 8 threads} \\ \hline
+RAM & 8GB & APC version 3.1.10  \\ \hline \rowcolor{myLightGreen}
+%\multicolumn{3}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Software info}  \\ \hline
+\rowcolor{myLightGreen} {\bf\color{white} Version}	& {\bf\color{white} Files} & {\bf\color{white} Configuration} \\ \hline{}
+Apache  2.2.20 &  /mnt/raid/www  &  /etc/apache2/apache2.conf \\ \hline
+MySQL  5.5.24.1 &  /mnt/raid/mysql &  /etc/mysql/my.cnf \\ \hline
+PHP   5.4.0 & /mnt/raid/www & /etc/php5/apache2/php.ini \\ \hline 
+% 200 & 1403.0 & 51.5 & 1327.6 & 58.7 \\ \hline \rowcolor{rowhighlight}
+
+\end{tabular}\end{center}
+\end{table}
+\subsubsection{Using dstat and top when stresstesting with vApus}
+First of all \gls{vapus} uses a \textbf{dstat} monitoring agent for the information we need. \textbf{Dstat} can be configured to give us detailed information. One big good thing about the intern dstat monitoring is that it automatically generates CSV/TSV's that can be imported in Excel or any other program to generate graphics. 
+
+My main problem now is that I require something to view which applications use most of the memory so I'll have to import TOP data and also Input Output statistics from each device SSD/HDD to view if there are bottlenecks. That data isn't CSV friendly so I need to import it in another manner.
+
+The stresstests we'll do requires that we know what processes are using most of the memory, \gls{cpu}, IO so we filter them and see what we can optimise. Top remains the best app for such things.
+
+Starting \gls{vapus} and at the same moment issuing the top command to read everything:
+\begin{codelisting}
+top -b > topOutput.txt
+\end{codelisting}
+The data that we get from the dstat agent, \gls{vapus} monitoring stresstest and \textbf{top} is a lot to edit every time in Excel so a little automatization project has been started; first I needed to inspect what I will actually use. The idea is to save the data in a Sqlite database,  plot the data as you wish, export them to images 
+and also maybe export everything to a \gls{html} file so it could be accessible for everyone. This will be explained in (add section reference here) \gls{tcl} script to plot charts.
+
+Please note that some tests will be redone because this is research and in research we need to retest the same thing over and over and also to refine our tests. Trial and error is our friend as in every other research on earth. Some tests were not included because they were missing information or had been incorrect, some failed tests are explained to give us a better understanding of what went wrong and how we fixed some things. 
+For a list of all the test files refer to the Appendix.
+
+\subsubsection{First test case}
+The first test case was a simple one using all 16 cores with a concurrency of 5, 100 and 250 clients.
+
+We saw that the \gls{cpu} usage wasn't so high, it peaks at a total of 30 sometimes since there are 16 cores, maybe disabling 8 cores and testing again could result something else? A maximum of 2000 mb of memory were used at the start of the 250 concurrent clients. Writes up to 1.2 MB/sec have been noted
+The latency is a little bad sometimes after viewing some other files.
+
+Now I still have to see which process uses the most information so a little script to filter that out is also helpful. More details about this in \autoref{sec:scripts}.
+\subsubsection{Failed test case with 8 cores}
+After discussing with my coach and someone else from the team, a few problems have been spotted. The first problem is that there were some 403 FORBIDDEN errors, the LOGIN command in vApus wasn't pinned down as the first so I have to redo the tests.
+
+The second problem was that \gls{hyperthreading} might be enabled; I had to disable it and then test everything again with 1, 2, 4 and 8 cores to \textbf{\underline{see if it scales}}. Because \gls{hyperthreading} isn't really a full scale core and it can improve the actual speed anywhere from 10\% to 50% so the test output can't be too reliable while we want to view the scaling. In production environments or when we'll start to optimise, this is important but now we'll disable it. This setting can easily be changed in BIOS.
+
+Because we're using Linux we can change the system in almost any way we want without having to install too many programs or to dig into the internals like we'd do in Windows. It's fairly easy to disable some cores and enable them \textbf{\underline{while}} the system is running.
+
+The following code disables the last 7 cores one by one and then gets the information to see if they really are disabled. To re-enable the cores change the 0 to 1 at the echo. Please do note that the core count starts from 0.
+\begin{codelisting}
+sudo bash
+for i in {1..7};  do
+	echo "Disabling CPU$i"
+	echo 0 > /sys/devices/system/cpu/cpu$i/online
+done
+grep "processor" /proc/cpuinfo
+\end{codelisting}
+
+Before we start the stresstest, we have to reset the database like shown in a previous chapter.
+
+It would have been great if we had been able to use \textbf{top} and iostat or \textbf{sar} within \textbf{dstat} so I wouldn't have to log everything separate. So maybe there are options in dstat self already knowing that it contains many default plugin's.
+
+List all the \textbf{dstat} internal functions but also plug-in's.
+\begin{codelisting}
+lostone@chenbro-nehalem:~$ dstat --list
+internal:
+	aio, cpu, cpu24, disk, disk24, disk24old, epoch, fs, int, int24, io, ipc, 	load, lock, mem, net, page, page24, proc, raw, socket, swap, swapold, sys, 	tcp, time, udp, unix, vm
+/usr/share/dstat:
+	battery, battery-remain, cpufreq, dbus, disk-tps, disk-util, dstat, dstat-cpu, dstat-ctxt, dstat-mem, fan, freespace, gpfs, gpfs-ops, helloworld, innodb-buffer, innodb-io, innodb-ops, lustre, memcache-hits, mysql-io, 	mysql-keys, mysql5-cmds, mysql5-io, mysql5-keys, net-packets, nfs3, nfs3-ops, nfsd3, nfsd3-ops, ntp, postfix, power, proc-count, qmail, rpc, rpcd, sendmail, snooze, squid, test, thermal, top-bio, top-bio-adv, top-childwait, top-cpu, top-cpu-adv, top-cputime, top-cputime-avg, top-int, top-io, top-io-adv, top-latency, top-latency-avg, top-mem, top-oom, utmp, vm-memctl, vmk-hba, vmk-int, vmk-nic, vz-cpu, vz-io, vz-ubc, wifi
+\end{codelisting}%$
+Too bad that none of them actually do what we need so I guess it will have to be done manually using top and sar.
+
+Instead of opening two terminals we can run both tests in one command:
+\begin{codelisting}
+sar -p -d 1 > 16cores_test_sar.txt & top -b > 16cores_test_top.txt 
+\end{codelisting}
+To stop it just press CTRL+C, and don't forget to \textbf{pkill} sar since it will still actively write to the file.
+
+The value that interests us the most from \textbf{sar} is \textbf{avgqu-sz}. This is the average queue length of the requests that were issued to the device and if it's above 1 for a longer time then there is a bottleneck for the disk IO.
+
+The \textbf{top} command produces a lot of output so filtering it is a job for a script.
+\subsection{Simple scaling example}
+\subsubsection{Test case with 1 core}
+In a normal production environment we'd only get CPU and memory usage information for the server itself but since we need more information we'll have to log different things every second so this logging will have an effect on the CPU usage and some disk IO for the SATA disk. This isn't that bad since we'll be using the same test patterns for every disk and thus everything will be uniform. Even the growth with the cores should be constant and uniform.
+\begin{codelisting}
+sudo bash
+for i in {1..7};  do
+	echo "Disabling CPU$i"
+	echo 0 > /sys/devices/system/cpu/cpu$i/online
+done
+grep "processor" /proc/cpuinfo
+\end{codelisting}
+Reset the \gls{mysql} database:
+\begin{codelisting}
+cd scripts
+./importmysqldb.sh
+\end{codelisting}
+Start the IO logger and top. We're using SAR instead of iostats because of the better structure we get.
+\begin{codelisting}
+sar -p -d 1 > stresstest_1core_iosar.txt & top -b > stresstest_1core_procs.txt
+\end{codelisting}
+
+First I have started vApus with 25, 100 and 200 concurrent users. There were some errors again. After spending a few hours searching and then talking to one of my colleagues Liz, we finally made some changes to the vApus file and fixed everything, now it works. I wasn't using variables, so I always got redirects and because of that it took the tests way longer than normal. This test has been redone with 25,50,100,150,200 concurrent users.  Because this is our first test we'll show all the graphics, but for the next tests we'll only show the graphics that have changed or things that differ. 
+
+Looking at \autoref{tab:1core} we can see that the maximum throughput is somewhere between 25 and 50 concurrent users so we'll need to redo this test later for more accurate information.
+\begin{table}[ht!]
+\begin{center}
+\caption{Throughput and response time for 1 core}
+\label{tab:1core}
+\begin{tabular}[ht!]{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 25 & 160.5 & 63.9 \\ \hline  \rowcolor{rowhighlight} 
+ 50 & 161.5 & 216.6 \\ \hline 
+ 100 & 146.7 & 589.5 \\ \hline 
+ 150 & 141.5 & 963.3 \\ \hline 
+ 200 & 144.2 & 1298.2 \\ \hline 
+\end{tabular}
+\end{center}
+\end{table}
+What we can conclude is that there is a very high CPU usage when looking at \autoref{rId47.png}. 
+\\The memory grows steadily but doesn't surpass 2500 MB (\autoref{rId48.png} on page \pageref{rId48.png}).
+\\The disk usage has a few peaks but is still underused (\autoref{rId49.png} on page \pageref{rId49.png}). 
+\\The network transfer is very low one peak of 5.1 MBps and the average is around 800KBps (\autoref{rId51.png} on page \pageref{rId51.png}).
+\\The average queue isn't that bad either (\autoref{rId50.png} on page \pageref{rId50.png}).
+
+\img[h!]{scale=0.5}{rId47.png}{CPU usage 1 core test}
+\img[h!]{scale=0.5}{rId48.png}{Memory usage 1 core test} 
+\img[h!]{scale=0.5}{rId49.png}{Disk usage 1 core test}
+\img[h!]{scale=0.5}{rId50.png}{Average queue size 1 core test}
+\img[h!]{scale=0.5}{rId51.png}{Network traffic 1 core test}
+\clearpage{}%Leaves all the images BEFORE the next subsection, otherwise they'd tend to go to the end of the document
+
+\subsubsection{Test case with 2 cores}
+Enable core 2:
+\begin{codelisting}
+sudo bash
+echo 1 > /sys/devices/system/cpu/cpu1/online
+\end{codelisting}
+The rest of the steps are the same, reset the DB, start the logging and start \gls{vapus} stresstesting.
+
+The funny thing about this test was that I had Fiddler (a proxy) open on the client machine that ran vApus and it began using 3 GB of memory thus the testing wasn't what it should have been so I had to redo the tests so that the logs would be accurate.
+
+\begin{table}[ht!]
+\begin{center}
+\caption{Throughput and response time for 2 core} \label{tab:2cores}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 25 & 199.8 & 29.9 \\ \hline 
+ 50 & 338.7 & 52.5 \\ \hline \rowcolor{rowhighlight}
+ 100 & 362.4 & 183.1 \\ \hline 
+ 150 & 335.7 & 353.8 \\ \hline 
+ 200 & 311.8 & 548.8 \\ \hline 
+\end{tabular}
+\end{center}
+\end{table}
+The throughput and response time is at its highest for 100 concurrent users (\autoref{tab:2cores}).
+
+CPU usage is as high as before (\autoref{rId52.png} on page \pageref{rId52.png}).
+
+The memory seems to be the same  (\autoref{rId53.png} on page \pageref{rId53.png}).
+
+The disk usage is a little lower than before, with just 2 peaks above 2 MB. There are fewer peaks above one MB than with 1 core (\autoref{rId54.png} on page \pageref{rId54.png}).
+
+The network traffic has grown a little bit  (\autoref{rId56.png} on page \pageref{rId56.png}).
+\img[h!]{scale=0.5}{rId52.png}{CPU usage 2 cores test}
+\img[h!]{scale=0.5}{rId53.png}{Memory usage 2 cores test}
+\img[h!]{scale=0.5}{rId54.png}{Disk usage 2 cores test}
+%add the disk queue here? \img[h!]{scale=0.5}{rId55.png}{Average queue size 2 cores test}
+\img[h!]{scale=0.5}{rId56.png}{Network traffic 2 cores test}
+\clearpage{}
+
+\subsubsection{Test case with 4 cores}
+Everything that you have to set up is the same as the other settings except that you have to enable another 2 cores. For this test we'll add 300 extra concurrent users at the end.
+\begin{codelisting}
+sudo bash
+echo 1 > /sys/devices/system/cpu/cpu2/online
+echo 1 > /sys/devices/system/cpu/cpu3/online
+\end{codelisting}
+Again as in the past examples reset the database, start the TOP and SAR log's and start \gls{vapus}.
+The best results are for 200 concurrent users. The throughput tripled and the concurrent users doubled with a lower time than before (\autoref{tab:4cores}).
+\begin{table}[ht!]\begin{center}
+\caption{Throughput and response time for 4 cores}\label{tab:4cores}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 25 & 217.4 & 21.9 \\ \hline 
+ 50 & 386.6 & 34.9 \\ \hline 
+ 100 & 704.5 & 49.2 \\ \hline 
+ 150 & 901.9 & 73.1 \\ \hline \rowcolor{rowhighlight}
+ 200 & 942.8 & 119.5 \\ \hline 
+ 300 & 753.9 & 308.4 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+The CPU usage seems lower at the beginning, and it's higher only for a short period of time, 200 samples instead of 150 for the 1 core version (\autoref{rId57.png} on page \pageref{rId57.png}).
+
+The peak memory is only for a short while and it decreases to around 1190 MB. It's stable and it doesn't persist too much (\autoref{rId58.png} on page \pageref{rId58.png}).
+
+We can clearly see network peaks that are larger than in the example with 1 or 2 cores. But this is because it must send more data in less time. It still scales with no problem (\autoref{rId61.png} on page \pageref{rId61.png}).
+\img[h!]{scale=0.37}{rId61.png}{Network traffic 4 cores test}
+\img[h!]{scale=0.5}{rId57.png}{CPU usage 4 cores test}
+\img[h!]{scale=0.5}{rId58.png}{Memory usage 4 cores test}
+%disk IO & disk queue neglected..?
+
+\clearpage{}
+
+\subsubsection{Test case with 8 cores}
+Everything that you have to set up is the same as the other settings except that you have to enable another 8 cores. Another 400 concurrent users where added to vApus.
+\begin{codelisting}
+sudo bash
+for i in {4..7};  do
+	echo "Enabling CPU$i"
+	echo 1 > /sys/devices/system/cpu/cpu$i/online
+done
+grep "processor" /proc/cpuinfo
+\end{codelisting}
+The throughput doubled again but this time only 300 concurrent users where served and it seems that the response time is stable (\autoref{tab:8cores}).
+\begin{table}[ht!]
+\begin{center}
+\caption{Throughput and response time for 8 cores}\label{tab:8cores}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 25 & 214.7 & 24.5 \\ \hline 
+ 50 & 391.8 & 33.7 \\ \hline 
+ 100 & 740.7 & 41.8 \\ \hline 
+ 150 & 1034.0 & 52.4 \\ \hline 
+ 200 & 1331.8 & 58.1 \\ \hline \rowcolor{rowhighlight}
+ 300 & 1624.8 & 93.4 \\ \hline 
+ 400 & 1560.4 & 168.4 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+The CPU usage is very stable with only momentary high peaks. The higher CPU time for 400 concurrent users is normal since we see that the request time is lower because of too many requests. (\autoref{rId62.png} on page \pageref{rId62.png}).
+
+The memory scales very well, nothing new here, the maximum values are taking less time and they're decreasing to a lower value (\autoref{rId63.png} on page \pageref{rId63.png}).
+
+%disk usage not included..? negligible
+Again, the network traffic grows with the total number of concurrent users but it all gets sent so nothing is left behind (\autoref{rId65.png} on page \pageref{rId65.png}). It scales well
+\img[h!]{scale=0.5}{rId62.png}{CPU usage 8 cores test}
+\img[h!]{scale=0.5}{rId63.png}{Memory usage 8 cores test}
+\img[h!]{scale=0.5}{rId65.png}{Network traffic 8 cores test}
+\clearpage{}
+\subsubsection{1 Core with more steps and warming up for a better overview}
+\begin{wraptable}{r}{0.5\columnwidth}
+\begin{centering}
+\caption{Throughput and response time for 1 core with more steps}\label{tab:1coremoresteps}
+\begin{tabular}{|p{2.2cm}|p{2.3cm}|p{2.3cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 5 & 44.2 & 18.6 \\ \hline 
+ 15 & 112.9 & 33.7 \\ \hline \rowcolor{rowhighlight} 
+ 25 & 157.1 & 62.9 \\ \hline \rowcolor{rowhighlight}
+ 35 & 177.1 & 103.0 \\ \hline 
+ 50 & 167.0 & 204.8 \\ \hline 
+ 75 & 153.3 & 396.3 \\ \hline 
+ 100 & 152.0 & 563.6 \\ \hline 
+ 115 & 148.1 & 683.1 \\ \hline 
+ 130 & 134.4 & 998.1 \\ \hline 
+\end{tabular}
+\end{centering}
+\end{wraptable}
+A better way to view where 1 core scales the best is to add more steps. Also added 5 and 15 steps for the time it requires to start the Apache processes.  We have used the following number of concurrent users: 5,15,25,35,50,75,100,115,130,150,175
+
+The test was stopped when it passed 130 concurrent users because have already reached the highest throughput anyway.
+What is interesting now is to see the fast results from vApus.
+We see (\autoref{tab:1coremoresteps}) that the maximum thorughput is 177 requests per second and the response time is 102 ms at 35 concurrent users. After this the response time doubles and the throughput gets lower. For 1 core we'll conclude that phpBB and Apache meet their maximum at 35 concurrent users.
+For one core we'll conclude that the highest thorughput and best responsetime is for 35 concurrent users.
+
+\subsubsection{Conclusions for 1 to 8 cores tests}
+As the core count grows everything scales with it(\autoref{tab:1to8cores}). The network traffic is higher with each new core but this is normal and logical because it sends more data in less time. The tests complete faster so there are fewer steps in between. 
+
+\begin{table}[ht!]\begin{center}
+\caption{Throughput and Response Time for 1 to 8 cores}\label{tab:1to8cores}
+\begin{tabular}{|p{1.5cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+  &  \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} 1 core} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} 2 cores} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} 4 cores} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} 8 cores} \\ \hline  \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Thr / s} & {\bf\color{white} Resp Time / ms} & {\bf\color{white} Thr / s} & {\bf\color{white} Resp Time / ms} & {\bf\color{white} Thr/ s} & {\bf\color{white} Resp Time / ms} & {\bf\color{white} Thr / s} & {\bf\color{white} Resp Time / ms} \\ \hline 
+ 25 & 160.5 & 63.9 & 199.8 & 29.9  & 217.4 & 21.9 & 214.7 & 24.5 \\ \hline
+ 50 & \bf 161.5 &  \bf 216.6 & \bf 338.7 & \bf 52.5 &  386.6 & 34.9 & 391.8 & 33.8 \\ \hline
+ 100 & 146.7 & 589.5 & \bf 362.4 & \bf 183.1 &  704.5 & 49.2 & 740.7 & 41.8 \\ \hline
+ 150 & 141.5 & 963.3 & 335.7 & 353.8 &  901.9 & 73.2 & 1034.0 & 52.4 \\ \hline
+ 200 & 144.2 & 1298.2 & 311.8 & 548.8 & \bf  942.8 & \bf 119.5 & 1331.8 & 58.1 \\ \hline
+ 300 &  &  &  &  &  753.9 & 308.4 & \bf 1624.8 & \bf 93.5 \\ \hline
+ 400 &  &  &  &  &   &  & 1560.4 & 168.4 \\ \hline
+\end{tabular}\end{center}
+\end{table}
+For 2 cores the throughput doubles and the response time is halved for the same amount of users(50). For 4 cores the concurrent users have a tripled throughput with a relative good response time of 120 ms.
+\img[h!]{}{throughput1to8cores.png}{Throughput per second for 1 to 8 cores}
+From both graphics (\autoref{throughput1to8cores.png} on page \pageref{throughput1to8cores.png}) and (\autoref{responsetime1to8cores.png} on page \pageref{responsetime1to8cores.png}) we can conclude that as the core count doubles so does the maximum throughput for the stress tests. 
+\img[h!]{}{responsetime1to8cores.png}{Response Time in ms for 1 to 8 cores}
+Once the optimal number of concurrent users has been reached for any stress test the response time is almost exponential (\autoref{responsetime1to8cores.png} on page \pageref{responsetime1to8cores.png}). The 1 core actually hits 1300 but it has been capped at 500 so we see the rest clearly.
+
+\clearpage{}
+\subsection{Tweaking the Apache settings}
+Being sure that \gls{apache} uses the \textbf{gzip} and mod\_deflate to send compressed data to the browser and to \gls{vapus} so we decrease the total network traffic, this is a form of optimisation. It should be on by default in the newer versions, but it's provided as a help.
+
+Changes in \textbf{/etc/apache2/apache2.conf}
+\begin{codelisting}
+SetOutputFilter DEFLATE
+BrowserMatch ^Mozilla/4\.0[678] no-gzip\
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+# Don't compress images
+SetEnvIfNoCase Request_URI \\.(?:gif|jpe?g|png)\$ no-gzip dont-vary
+\end{codelisting}
+Edit the \textbf{/etc/apache/mods/mod\_deflate.conf }file.
+\begin{codelisting}
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/javascript application/ecmascript application/rss+xml text/x-js
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+\end{codelisting}
+Because of the information provided by \textbf{YSlow} and \textbf{Google's PageSpeed} (\autoref{subsec:frontend}) applications we have concluded that we need to add caching to all our files. This is best done in \gls{apache}. Caching of files to the client helps us have a lower page load time if we use the site a longer time. It decreases traffic for the server so it's good. Caching stuff, this is best so the users won't request them anymore. This is one optimisation we won't be able to test because we are not using a browser to stresstest it and \gls{vapus} always gets all the files, it doesn't cache anything. 
+
+Install the \gls{apache} \textbf{expires} module.\cite{optimizing_LAMP_helioviewer}
+\begin{codelisting}
+sudo a2enmod expires
+\end{codelisting}
+Next, edit \textbf{/etc/apache2/mods-enabled/expires.conf} and add the following section:
+\begin{codelisting}
+<IfModule mod_expires.c>
+      ExpiresActive On
+      ExpiresByType image/x-icon "access plus 1 year"
+      ExpiresByType image/png "access plus 3 months"
+      ExpiresByType image/jpg "access plus 3 months"
+      ExpiresByType image/gif "access plus 3 months"
+      ExpiresByType image/jpeg "access plus 3 months"
+      ExpiresByType video/ogg "access plus 1 month"
+      ExpiresByType video/mpeg "access plus 1 month"
+      ExpiresByType video/mp4 "access plus 1 month"
+      ExpiresByType video/quicktime "access plus 1 month"
+      ExpiresByType video/x-ms-wmv "access plus 1 month"
+      ExpiresByType text/css "access plus 3 months"
+      ExpiresByType text/html "access plus 3 months"
+      ExpiresByType text/javascript "access plus 3 months"
+      ExpiresByType application/javascript "access plus 3 months"
+</IfModule>
+\end{codelisting}
+After doing this the pagespeed score 99/100 and it used to be 80! The YSlow is also 99 and it was 77.
+\clearpage{}
+\subsection{Update phpBB 3.0.5 to 3.0.10}
+We'll update the phpBB forum installation to see if it runs faster. We also want to be able to use \gls{memcached} later to see if there is any speed difference. Although \gls{memcached} is made for distributed computing we should be able to view a change because it saves everything in memory instead of reading from the disk.
+
+Extract the contents of the update archive to \textbf{/mnt/raid/www/phpbboptimized/}.
+First we change the name of the \textbf{degrensstreek} database in the \textbf{degrensstreek2.sql} file that we save, we change our script to import both databases at the same time.
+Then we edit \textbf{config.php}
+\begin{codelisting}
+$dbname = 'degrensstreek2';
+\end{codelisting}%$
+Run the ./importmysqldb.sh to change the database. Following: http://yoursite/install/index.php
+
+This updates the database, it collects the FILE differences of each file and prompts with more information about each file then you can either use FTP to update them or just download.  Now a fun part, if you want to download the files you get a tar.gz from the host where you tried to update it to manually copy the files. I find this stupid because phpBB can copy them directly using \gls{php}!
+
+Change the location of the folder's place in \gls{vapus}.
+Problems: when I ran the script to reset the database, it actually reset everything to the old version that wouldn't work. So I had to redo the installation and backup the database first!
+
+Don't forget to edit the \gls{vapus} HTTP log at the \textbf{ViewTopic} link, it must become  \textbf{/phpbboptimized/viewtopic.php} instead of \textbf{/phpbboptimized/viewforum.php}.
+
+Also update the degrensstreek2.sql and add the following code at the top:
+\begin{codelisting}
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `degrensstreek2` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `degrensstreek2`;
+\end{codelisting}
+The graphics are almost all the same as previous tests, it scales great. The optimized phpBB with 8 cores uses 300 more MB than the previous version, the scaling is the same. It could be that there is some other process running in the \gls{ram}.
+What is interesting now is to see the fast results from \gls{vapus} in \autoref{tab:phpbbUpgrade}.
+
+Just as the normal 8 cores test, at 300 concurrent users we see a throughput of 1611 requests per second and a average response time of 95 ms. This is the maximum, for more concurrent users it just gets worse.
+
+\begin{table}[htb!]\begin{center}
+\caption{Differencing response time and throughput after phpBB upgrade}\label{tab:phpbbUpgrade}
+\begin{tabular}{|p{2.3cm}|p{2.3cm}|p{2.3cm}|p{2.3cm}|p{2.3cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Before upgrade} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} After upgrade} \\ \hline  \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} &  {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 100 & 740.7 & 41.8 & 753.1 & 41.3 \\ \hline 
+ 150 & 1034.0 &  52.4 & 1039.8 & 52.2 \\ \hline 
+ 200 & 1331.8 &  58.1 & 1330.8 & 59.1 \\ \hline 
+ 300 & 1624.8 & 93.4 & 1611.9 & 95.3 \\ \hline 
+ 400 & 1560.4 & 168.4 & 1558.9 & 167.4 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+%PHPBB cache changes for 8 cores
+\clearpage
+\subsection{phpBB cache changes for 8 cores}
+\subsubsection{No cache enabled}
+This is a test done with no cache enabled. To disable caching in phpBB just edit the config.php file:
+\begin{codelisting}
+$acm_type = 'null';
+\end{codelisting}%$
+We see that the maximum throughput is 1521 requests per second and that the response time is 106. Our conclusion for this test is that caching in phpBB is efficient! 
+\subsubsection{Memcached enabled}
+\gls{memcached} is a server application that stores data for other applications in memory so it can work faster, it caches things it needs. It's very useful for caching static data or existing forum posts that haven't been altered in some time.
+To enable memcache just edit the config.php file:
+\begin{codelisting}
+$acm_type = 'memcache';
+\end{codelisting}%$
+The maximum throughput for this test is 1528 and a response time of 105, this caches everything in memory but still we see no difference. Let's look at some graphics this time, not everything seems the same.
+
+The CPU seems to be the same as the file cache. 
+
+The disk queue is stable and the network traffic seems to scale the same way.
+
+The disk usage has a lot of peaks and goes a lot above 10 MBps. This wasn't so for the normal 8 core test not even for the updated version of phpBB (\autoref{rId69.png} on page \pageref{rId69.png}).
+
+The memory usage is \textbf{doubled} if you want to compare to the normal 8 cores test which uses 2.7 GB RAM and now the maximum peak is 5.2 GB (\autoref{rId70.png} on page \pageref{rId70.png}).
+
+A simple conclusion is that enabling \gls{memcached} actually uses more memory, and it writes even more to the hard disk, it's not known why. File cache seems faster.
+\img[htb!]{scale=0.5}{rId69.png}{Disk usage for 8 cores test with memcached enables}
+\img[htb!]{scale=0.5}{rId70.png}{Memory usage for 8 cores test with memcached enables}
+\clearpage{}
+\subsubsection{Conclusion for 8 cores with no cache and Memcached tests}
+Looking at \autoref{tab:8coresmemcached} we can conclude that there is no real difference between the \gls{memcached} settings and if no cache at all would be enabled (meaning everything would be regenerated at every request). This means that memcached doesn't have any speed impact on a webserver unless it's used from multiple servers.
+
+\begin{table}[htb!]\begin{center}
+\caption{Throughput and Response time for 8 cores comparing no cache settings with Memcached}\label{tab:8coresmemcached}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen} 
+& \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} No cache} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Memcached} \\ \hline \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 25 & 210.8 & 24.3 & 206.0 & 28.0 \\ \hline 
+ 50 & 394.0 &  33.3 & 387.6 & 32.5 \\ \hline 
+ 100 & 741.4 &  41.6 & 741.7 & 41.8 \\ \hline 
+ 150 & 1017.7 & 54.4 & 1017.8 & 55.5 \\ \hline 
+ 200 & 1285.8 &  63.9 & 1269.2 & 66.6 \\ \hline 
+ 300 & 1521.5 &  106.7 & 1528.3 & 105.4 \\ \hline 
+ 400 & 1431.8 &  200.6 & 1450.7 & 192.4 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+\subsection{Hyperthreading enabled to see how it scales}
+Enabling \gls{hyperthreading} and doing an intensive test with more steps is required to be able to see what the real bottleneck would be in a production environment where we would use all the resources available.
+
+From now on we'll have 16 cores (8 real cores with 2 threads each) with the following concurrent users to see where we'll find the maximum throughput: 5, 25, 50, 100, 200, 300, 325, 350, 375 and 400.
+
+Here we'll do 2 tests, one with file cache where all the settings are the same as with the 8 cores and another with \gls{memcached} again. \gls{memcached} is just used to see how it scales on 16 cores. 
+\subsubsection{16 cores with simple file cache}
+It seems we can get up to 1753 requests per second at 375 concurrent users and an average response time of 126 ms. The \gls{hyperthreading} is doing its work. 
+\subsubsection{16 cores with memcached on}
+As we're used to this, the \gls{memcached} version uses almost double RAM. The disk write seems to be the same. IO sar doesn't report any disk problem so we're ok. 1733 maximum requests per second for 375 users with only a little higher average time of 129 ms.
+\subsubsection{Conclusion for 16 cores test}
+One interesting conclusion to note is that even if the throughput is lower for the \gls{memcached} test the response time is better than for the file cache starting from the 100 to the 375 concurrent users where it increases again. The memcached test at 300 concurrent users seems 25 ms faster with 105 more requests per second than the simple file cache.  
+We'll notice that MySQL is using only 10\% of the total CPU.
+\ref{tab:16coreCompare}
+\begin{table}[ht!]\begin{center}
+\caption{Throughput and Response time for 16 cores comparing simple file cache with memcached}\label{tab:16coreCompare}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} File cache} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Memcached} \\ \hline \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 5 & 45.0 & 13.9 & 46.5 & 14.8 \\ \hline 
+ 25 & 212.3 &  26.8 & 204.3 & 27.4 \\ \hline 
+ 50 & 397.4 &  31.6 & 390.0 & 36.3 \\ \hline 
+ 100 & 702.2 &  49.4 & 719.0 & 46.4 \\ \hline 
+ 200 & 1290.4 &  63.2 & 1293.8 & 63.0 \\ \hline 
+ 300 & 1548.1 & 115.4 & 1653.4 & 90.9 \\ \hline 
+ 325 & 1581.4 &  128.0 & 1628.2 & 109.7 \\ \hline 
+ 350 & 1620.0 & 139.4 & 1685.8 & 121.3 \\ \hline 
+ 375 & 1753.3 &  126.8 & 1733.5 & 129.8 \\ \hline 
+ 400 & 1693.8 & 149.0 & 1644.2 & 161.9 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+\img[htb!]{scale=0.3}{16_cores_cpu_intensive.png}{Apache and MySQL CPU usage}
+\subsection{Changing Apache worker module settings}\label{subsec:changingApacheSettings}
+One key to making Apache ,,work faster'' is to tweak the total number of start servers. Also play around with the maxClients, threads and MaxRequestsPerChild.
+T
+he MaxRequestsPerChild allows 2000 requests per child thread/server before it gets killed. This is useful because of possible memory leaks that could occur. 
+\begin{codelisting}
+<IfModule mpm_worker_module>
+    StartServers          7
+    MinSpareThreads      25
+    MaxSpareThreads      75 
+    ThreadLimit          64
+    ThreadsPerChild      25
+    MaxClients          300
+    MaxRequestsPerChild   2000
+</IfModule>
+\end{codelisting}
+\subsubsection{Worker module settings with simple file cache}
+The examples in graphics aren't shown here because they scale the same way, however the memory does seem to go above 3 GB at some times (\autoref{rId71.png} on page \pageref{rId71.png}). Apache seems to use 32\% of the memory on an average in the total time of the test. That's a little more than when using less servers. 
+We do get a higher throughput for a longer time than the previous tests. Looking at \autoref{newVSoldApache.png} on page \pageref{newVSoldApache.png} it seems that the new test is better.
+
+\subsubsection{Differences between old and new Apache settings}
+
+For the new \gls{apache} configuration we can observe that the throughput is higher and that the response time is lower. This test was a success between 100 and 375 concurrent users. From 400 upwards it begins to start losing its grip a little bit but that doesn't matter since the other differences are so big. (\autoref{tab:apacheNewAndOld})
+\begin{table}[htb!]\begin{center}
+\caption{Apache old vs new configuration differences}\label{tab:apacheNewAndOld}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Old configuration} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} New configuration} \\ \hline  \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 5 & 45 & 13.9 & 46.6 & 16.9 \\ \hline 
+ 25 & 212.3 & 26.8 & 209 & 25 \\ \hline 
+ 50 & 397.4 & 31.6 & 393.2 & 34.2 \\ \hline 
+ 100 & 702.2 & 49.4 & 709.8 & 47.9 \\ \hline 
+ 200 & 1290.4 & 63.2 & 1327.6 & 58.7 \\ \hline 
+ 300 & 1548.1 & 115.4 & 1714 & 83.6 \\ \hline 
+ 325 & 1581.4 & 128 & 1734.5 & 96.1 \\ \hline 
+ 350 & 1620 & 139.4 & 1630.3 & 125.1 \\ \hline 
+ 375 & 1753.3 & 126.8 & 1746.1 & 126.2 \\ \hline 
+ 400 & 1693.8 & 149 & 1671.3 & 151.6 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+\img[htb!]{}{newVSoldApache.png}{New vs old Apache configuration comparison}
+\clearpage{}
+
+\subsubsection{Comparing memcache tests with the new and old Apache settings}
+All graphic have almost the same scaling as the previous \gls{memcached}. We're used to the poorer performance of \gls{memcached}.
+You don't require a physics degree to see that the \gls{memcached} settings are bad in \autoref{tab:memcachedCompare}. If you recall the first 16 core memcached test, it's even worse than those (refresh your memory with \autoref{tab:16coreCompare} on page \pageref{tab:16coreCompare})
+\begin{table}[htb!]\begin{center}
+\caption{Comparing memcache tests with the new and old settings}\label{tab:memcachedCompare}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+& \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} New settings} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Old settings} \\ \hline \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 5 & 47.6 & 16.8 & 46.5 & 14.8 \\ \hline 
+ 25 & 214.2 &  24.2 & 204.3 & 27.4 \\ \hline 
+ 50 & 395.4 & 33.7 & 390.0 & 36.3 \\ \hline 
+ 100 & 737.0 & 43.6 & 719.0 & 46.4 \\ \hline 
+ 200 & 1254.1 & 66.2 & 1293.8 & 63.0 \\ \hline \rowcolor{rowhighlight}
+ 300 & 1648.7 & 93.5 & 1653.4 & 90.9 \\ \hline \rowcolor{rowhighlight}
+ 325 & 1661.5 & 104.6 & 1628.2 & 109.7 \\ \hline 
+ 350 & 1693.7 & 119.1 & 1685.8 & 121.3 \\ \hline \rowcolor{rowhighlight}
+ 375 & 1668.6 & 136.8 & 1733.5 & 129.8 \\ \hline 
+ 400 & 1600.6 & 163.0 & 1644.2 & 161.9 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+\subsubsection{Conclusions for the new vs old Apache settings}
+The new settings give the simple file cache a great boost between 100 and 375 users. It has a downside for the memcached one.
+\subsection{Modifying memcache settings}
+While searching the internet for tweakings and optimisations for memcached I found some info on how to change the total RAM that memcached can use.\cite{optimizing_memcached} I then saw that it had been using 64. I've changed that to 2048 MB of ram in the file /etc/memcached.conf. 
+\\\textbf{-m 2048}
+
+This was expected, it uses a little more average memory than the previous \gls{memcached} test but the peak isn't at the end of the test anymore but at the middle. As we can conclude from the vApus information and from the memory usage graphics:
+
+The biggest peak is at 300 concurrent users, then at 325 where the memory already starts to be less (see \autoref{rId73.png} on page \pageref{rId73.png}). It's interesting to note that memory used for the 400 concurrent users is even lower than that of the simple file cache.
+Probably running memcached in the long run on a webserver does have benefits of lesser cpu usage but it has way lower throughput and response time as to be seen in \autoref{tab:newmemcachedResults}.
+
+\begin{table}[htb!]\begin{center}
+\caption{Throughput results for new memcached settings}\label{tab:newmemcachedResults}
+\begin{tabular}{|p{2.2cm}|p{2.3cm}|p{2.3cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 5 & 47.6 & 18.2 \\ \hline 
+ 25 & 217.7 & 23.0 \\ \hline 
+ 50 & 393.8 & 34.4 \\ \hline 
+ 100 & 717.5 & 45.5 \\ \hline 
+ 200 & 1278.1 & 63.5 \\ \hline 
+ 300 & 1602.1 & 98.1 \\ \hline 
+ 325 & 1539.6 & 125.6 \\ \hline 
+ 350 & 1637.5 & 125.7 \\ \hline 
+ 375 & 1608.7 & 156.0 \\ \hline 
+ 400 & 1534.2 & 178.7 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+%image here
+\img[h!]{scale=0.5}{rId73.png}{Memcached new settings memory usage}
+\clearpage{}
+
+\subsection{Other Apache configuration settings}\label{subsec:apacheOtherSettings}
+Changing the worker module settings again just to see how it scales.
+\begin{codelisting}
+<IfModule mpm_worker_module>
+    StartServers          10
+    MinSpareThreads      25
+    MaxSpareThreads      75 
+    ThreadLimit          64
+    ThreadsPerChild      25
+    MaxClients          300
+    MaxRequestsPerChild   4000
+</IfModule>
+\end{codelisting}
+I expected it to be better but it seems that the throughput and response time is far even from the unaltered settings of \gls{apache} in \autoref{tab:otherApache-settings}.
+
+\begin{table}[ht!]\begin{center}
+\caption{Other apache settings}\label{tab:otherApache-settings}
+\begin{tabular}{|p{2.2cm}|p{2.3cm}|p{2.3cm}|}\hline\rowcolor{myLightGreen}\arrayrulecolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time ms} \\ \hline 
+ 5 & 41.9 & 18.3 \\ \hline 
+ 25 & 209.4 & 25.1 \\ \hline 
+ 50 & 384.2 & 35.5 \\ \hline 
+ 100 & 728.9 & 44.0 \\ \hline 
+ 200 & 1289.3 & 63.0 \\ \hline 
+ 300 & 1522.8 & 117.6 \\ \hline 
+ 325 & 1609.2 & 121.5 \\ \hline 
+ 350 & 1437.7 & 163.6 \\ \hline 
+ 375 & 1592.0 & 167.8 \\ \hline 
+ 400 & 1511.9 & 184.4 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+It uses more memory peaks that are above 4.3 GB of RAM and also the average is higher than the previous tests (see \autoref{rId74.png} on page \pageref{rId74.png}).
+
+The disk write is also much higher than an usual test (see \autoref{rId75.png} on page \pageref{rId75.png}).
+
+\img[h!]{scale=0.5}{rId74.png}{Other apache settings and memory usage}
+\img[h!]{scale=0.5}{rId75.png}{High disk/write for the newest apache settings}
+\clearpage{}
+\subsection{New MySQL settings}
+While searching the filesystem I noted that the place for the MySQL my.cnf settings was wrong, also the settings in that file where not correct since I've followed the CentOS directives and I'm using Ubuntu. The settings have to be changed and reimported. It's not expected that these settings would have too much of an impact on the end results so it will just be a new testcase.
+As far as I've noted the only great difference is changing one file location with the other twice in my.cnf.
+\begin{codelisting}
+/var/lib/mysql/mysql.sock -> /var/run/mysqld/mysqld.sock
+\end{codelisting}
+
+Something bad must have happened because after the holiday it didn't work anymore.
+Even after setting everything to the correct values, now MySQL won't connect anymore. Reinstalling everything was the only way to fix these problems otherwise nothing would work. 
+I even tried to reconfigure everything to the beginning. I have no ideea why MySQL doesn't work anymore.
+\begin{codelisting}
+sudo apt-get purge remove mysql-server mysql-client mysql-common
+sudo aptitude install mysql-server mysql-client
+\end{codelisting}
+The new \gls{mysql} password is \textbf{13131313}. Reimport the databases changing the \textbf{importmysqldb.sh}.
+
+Interesting to see in \autoref{tab:newMysqlSettings} is that the the throughput didn't really change up untill 375 concurrent users. It didn't really have any outstanding impact.
+\begin{table}[htb!]\begin{center}
+\caption{New MySQL settings and APC installation}\label{tab:newMysqlSettings}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ 300 & 1517.6 & 119.8 \\ \hline 
+ 325 & 1557.5 & 128.7 \\ \hline 
+ 350 & 1614.6 & 142.3 \\ \hline \rowcolor{rowhighlight}
+ 375 & 1808.2 & 117.6 \\ \hline 
+ 400 & 1647.4 & 151.7 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+\subsection{Installing and testing APC}
+While looking on the web for optimisation techniques I always read something about \gls{apc} so this time I thought, why shouldn't it be tested?
+
+\gls{apc} is a free, open, and good framework for optimizing and caching \gls{php} intermediate code. 
+As a PECL extension, it shares a lot of the packaging and distribution system with PEAR.
+It offers an excellent \gls{api} for disk and memory caching. 
+It can be compared to \gls{memcached}. Because it's not in the core of PHP you can install it with PECL:
+\begin{codelisting}
+sudo pecl install apc                   #install APC with pecl
+... output ...
+Build process completed successfully
+Installing '/usr/include/php5/ext/apc/apc_serializer.h'
+Installing '/usr/lib/php5/20090626/apc.so'
+install ok: channel://pecl.php.net/APC-3.1.9
+configuration option "php_ini" is not set to php.ini location
+You should add "extension=apc.so" to php.ini
+\end{codelisting}
+
+Then modify \textbf{php.ini} as stated above.
+\begin{codelisting}
+sudo nano /etc/php5/apache2/php.ini
+extension=apc.so
+\end{codelisting}
+
+Note! Because we use phpBB that has built-in functionality available for \gls{apc} it doesn't mean that you can just install \gls{apc} and then your website will magically work. 
+You need to see how \gls{apc} works and implement it into your application using the specified functions in the \gls{php} documentation.
+
+A simple example on the usage is shown on the Zend devzone.\footnote{A guide on using APC \url{http://devzone.zend.com/1812/using-apc-with-php/}}
+\begin{codelisting}
+<?php
+if ($quote = apc_fetch('starwars')) {
+  echo $quote;
+  echo " [cached]";
+} else {
+  $quote = "Do, or do not. There is no try. -- Yoda, Star Wars";
+  echo $quote;
+  apc_add('starwars', $quote, 120);
+}
+?>
+\end{codelisting}%$
+To enable \gls{apc} in phpBB edit \textbf{config.php}:
+\begin{codelisting}
+	$acm_type = 'apc';
+\end{codelisting}%$
+
+Taking a look at \autoref{tab:APCvsApache} we can clearly identify a huge increase in throughput and a decrease in the response time. 
+Only by just looking at the table we can see that the average increase is arround 20\%  for throughput and almost 40\% decrease for response time.
+\begin{table}[htb!]\begin{center}
+\caption{APC module for PHP vs Simple apache}\label{tab:APCvsApache}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}
+ & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} After APC} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Before APC} \\ \hline  \rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms}  \\ \hline 
+% 5 & 49.0 & 11.7 &  46.6 & 16.9 \\ \hline
+% 25 & 226.0 & 15.9 & 209.0 & 25.0 \\ \hline
+% 50 & 415.5 & 28.9 &  393.2 & 34.2 \\ \hline
+% 100 & 773.6 & 36.6 &  709.8 & 47.9 \\ \hline \rowcolor{rowhighlight}
+ 200 & 1403.0 & 51.5 & 1327.6 & 58.7 \\ \hline \rowcolor{rowhighlight}
+ 300 & 1860.9 & 70.7 &  1714.0 & 83.6 \\ \hline \rowcolor{rowhighlight}
+ 325 & 1974.6 & 74.5 &  1734.5 & 96.1 \\ \hline \rowcolor{rowhighlight}
+ 350 & 2004.6 & 84.6 & 1630.3 & 125.1 \\ \hline \rowcolor{rowhighlight}
+ 375 & 1843.4 & 114.8 &  1746.1 & 126.2 \\ \hline \rowcolor{rowhighlight}
+ 400 & 2136.1 & 107.3 &  1671.3 & 151.6 \\ \hline
+\end{tabular}\end{center}
+\end{table}
+
+A very interesting new thing to see is that the CPU usage is now under 50\% (see \autoref{PHP_APC_Cpu_Usage.png} on page \pageref{PHP_APC_Cpu_Usage.png}). so from now on the \gls{cpu} isn't the bottleneck anymore even when the server is first hit in other tests.% (see the \gls{apache} test \autoref{changingApacheSettings.png} on page \pageref{changingApacheSettings.png}).
+\\The memory does increase beyond 3 GB RAM (see \autoref{PHP_APC_Memory_usage.png} on page \pageref{PHP_APC_Memory_usage.png}) which is very good.
+\\One thing does increase and that's the \gls{cpu} usage of \gls{mysql}, it's now almost 23\% of the total (see \autoref{PHP_APC_CPU_usage_processes.png} on page \pageref{PHP_APC_CPU_usage_processes.png}) which leads me to think that it might become the bottleneck soon.
+\\Disk usage is good.
+
+What we can conclude is that \gls{apc} has the greatest impact on performance up untill now. 
+I don't think that there are any other settings or modules that could have such a great impact on the performance of any \gls{apache} and \gls{php} webserver.
+
+\img[htb!]{scale=0.33}{PHP_APC_Cpu_Usage.png}{PHP APC CPU Usage}
+\img[htb!]{scale=0.33}{PHP_APC_Memory_usage.png}{PHP APC Memory Usage}
+\img[htb!]{scale=0.33}{PHP_APC_Disk_Usage.png}{PHP APC Disk usage Usage}
+\img[htb!]{scale=0.33}{PHP_APC_CPU_usage_processes.png}{PHP APC CPU share of the total}
+\clearpage{}
+\subsubsection{APC stresstest up to 1000 concurrent users}
+Looking at the success of the previous \gls{apc} test we decided to stresstest the \gls{lamp} server up to \textbf{1000} concurrent users.
+We'll disable the extra steps between 300 and 400 and add a step at each 100 concurrent users.
+This was one of the longest tests, it might have taken longer than half an hour.
+
+Looking at \autoref{tab:apcTo1000Users} we observe that the we get the best results at 450 concurrent users then it decreases dramatically.
+\begin{table}[htb!]\begin{center}
+\caption{APC module up till 1000 users}\label{tab:apcTo1000Users}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ %5 & 45.0 & 11.5 \\ \hline 
+ %25 & 218.3 & 20.5 \\ \hline 
+ %50 & 412.4 & 29.7 \\ \hline 
+ 100 & 752.2 & 40.2 \\ \hline 
+ 200 & 1278.0 & 69.3 \\ \hline 
+ 300 & 1725.5 & 89.7 \\ \hline 
+ 400 & 1699.1 & 163.0 \\ \hline 
+ 450 & 2053.3 & 131.4 \\ \hline 
+ 500 & 1638.4 & 219.4 \\ \hline 
+ 600 & 1247.1 & 395.6 \\ \hline 
+ 700 & 872.0 & 719.0 \\ \hline 
+ 800 & 751.1 & 982.7 \\ \hline 
+ 900 & 697.1 & 1207.1 \\ \hline 
+ 1000 & 257.1 & 3807.3 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+The \gls{cpu} usage is still under 50\% and it decreases as the concurrent users increase, this is a weird thing(see \autoref{APC_1000_cpu.png} on page \pageref{APC_1000_cpu.png}). 
+\\The memory is under 2.5 GB and only reaches almost 4 GB at 900-1000 concurrent users(see \autoref{APC_1000_memory.png} on page \pageref{APC_1000_memory.png}).
+\\The disk usage is big at the beginning and then it decreases near the end(see \autoref{APC_1000_diskusage.png} on page \pageref{APC_1000_diskusage.png}).
+The network transfer is of the same graphic type as the CPU.
+\\The disk queue goes above 2 for a large period of time, they even have some peaks above 10. (see \autoref{APC_1000_iosar.png} on page \pageref{APC_1000_iosar.png})
+
+Now looking at the process share we see that \gls{mysql} is using almost 30\% of the time (see \autoref{APC_1000_processes.png} on page \pageref{APC_1000_processes.png}) which is a lot. Analysing everything we can conclude that the queries are the problem and not \gls{apache}.
+\img[htb!]{scale=0.33}{APC_1000_cpu.png}{PHP APC 1000 concurrent users CPU Usage}
+\img[htb!]{scale=0.33}{APC_1000_memory.png}{PHP APC 1000 concurrent users Memory Usage}
+\img[htb!]{scale=0.33}{APC_1000_diskusage.png}{PHP APC 1000 concurrent users Disk usage}
+\img[htb!]{scale=0.4}{APC_1000_iosar.png}{PHP APC disk queue 1000 concurrent users}
+\img[htb!]{scale=0.4}{APC_1000_processes.png}{PHP APC CPU share of the total 1000 concurrent users}
+
+\clearpage{}
+\subsubsection{APC stresstest with more steps}
+A test with more steps between 400 and 500 has been conducted to conclude where we have the best increase.
+Looking at \autoref{tab:apcmoresteps} we see that the best responsetime and throughput is arround 400-450 concurrent users.
+\begin{table}[htb!]\begin{center}
+\caption{APC module more steps}\label{tab:apcmoresteps}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|}\hline\rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} Throughput / s} & {\bf\color{white} Response Time in ms} \\ \hline 
+ %5 & 49.9 & 11.8 \\ \hline   25 & 226.0 & 16.7 \\ \hline   50 & 425.6 & 24.5 \\ \hline  100 & 772.4 & 37.2 \\ \hline  200 & 1427.9 & 47.0 \\ \hline   300 & 1877.2 & 73.8 \\ \hline 
+ 400 & 1984.4 & 112.6 \\ \hline 
+ 425 & 1918.1 & 131.2 \\ \hline 
+ 450 & 2081.5 & 130.0 \\ \hline 
+ 475 & 1829.7 & 174.6 \\ \hline 
+ 500 & 1414.9 & 267.9 \\ \hline 
+ 525 & 1366.0 & 302.7 \\ \hline 
+ 550 & 1174.2 & 382.0 \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+\subsubsection{Disabling AppArmor and configuring MySQL (getting rid of some problems)}
+There have been some more problems with MySQL when editing the configuration files and a few reinstalls where necessary.
+You are spared the details since even one of my fellow colleagues helped me out to find the problems, eventually I installed a newer version of MySQL removing a lot of things.
+You can disable AppArmor if you find it annoying:
+\begin{codelisting}
+/etc/init.d/apparmor stop
+update-rc.d -f apparmor remove
+sudo apt-get --purge remove apparmor apparmor-utils libapparmor-perl libapparmor1
+rm -rf /etc/apparmor*
+\end{codelisting}
+Install the new MySQL 5.5.24 version instead of the old 5.1 version:
+\begin{codelisting}
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:nathan-renniewaldock/ppa 
+sudo apt-get update
+sudo apt-get purge mysql-server
+sudo apt-get install mysql-server
+\end{codelisting}
+Upstart script still has some problems under Ubuntu, there was something I might have messed up while trying to fix the problems I've had.
+Please do note that these settings are just some simple workarounds since it's useless to just reinstall the whole system if it isn't going live.
+For the final test we'll just do a simple hack, in a real environment it's best to just reinstall the whole OS when something like this happens, or just reconfigure all the software that's not working properly.
+Start it:
+\begin{codelisting}
+	sudo -u mysql mysqld_safe </dev/null >/dev/null 2>&1 &
+\end{codelisting}
+Correctly stop MySQL(manually):
+\begin{codelisting}
+	mysqladmin -uroot -p shutdown
+\end{codelisting}
+After many tries..
+\textbf{Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist}
+To fix this issue you simply just have to tell mysql where to look not that the default installation is moved. You can do that with:
+\begin{codelisting}
+mysql_install_db --user=mysql --ldata=/newlocation
+\end{codelisting}
+Another problem is that \gls{apc} can't be found even though it was reinstalled. This is because adding the new repository and reinstalling \gls{php} made different build versions for \gls{apc} while installing it from pecl.
+To fix it type  \textbf{sudo apt-get install php-apc}
+
+\subsection{Conclusion of the tests}
+%throughput for 1 to 8 cores example + 16 cores
+Linux web servers are widely used and easy to configure, look for example at how you could disable or enable new cores.
+As we've shown earlier the throughput for all the tests from 1 to 8 cores increase steadily (see \autoref{throughput1to8cores.png} on page \pageref{throughput1to8cores.png}). 
+As each core count increased the total CPU usage decreased. 
+Interesting to view is that the network traffic models after the \gls{cpu} usage. There haven't been any problems with any disk activity on the SSD's, they seem to work properly.
+There isn't really a big increase if you're enabling \gls{hyperthreading} (16 logical out of 8 physical cores see \autoref{comparison_8_16_cores.png} on page \pageref{comparison_8_16_cores.png}).
+
+In a real environment using \gls{hyperthreading} for the extra boost it gives is important if you want to use 10\% more \gls{cpu} power. Our main comparison point for all the tests was the one with \gls{hyperthreading} enabled, as we'll refer to "16 cores normal". 
+There have been more than 20 tests in total, some failed, we will be only showing 5 of them.
+The caching and expires settings of \gls{apache} couldn't have been stresstested since vApus doesn't look at the expire times, but in the real world using a browser with caching enabled helps save bandwidth thus increasing throughput.
+
+Using \gls{memcached} has a benefit only in a distributed environment, on a single server it uses far more memory (double than normal) and it's slower even compared to simple file cache. Changing the memory settings increases the memory to 5.2GB but does not give any extra performance.
+
+You do get a little boost if you tweak the Apache worker settings to suite your webserver. Each system administrator needs to check the hardware available and set everything accordingly.
+This can improve throughput and response time in high traffic websites. Using the wrong settings can have bad effects as shown in  \autoref{newVSoldApache.png} on page \pageref{newVSoldApache.png}.
+
+\gls{apc} is the best thing that you can do to optimise your \gls{php} website. It decreases the \gls{cpu} usage and increases the throughput while lowering the response time. It does this by using an opcode system. 
+
+Please refer to  \autoref{tab:scalingBeginToEndThroughput} and \autoref{tab:scalingBeginToEndResponseTime} on page \pageref{tab:scalingBeginToEndResponseTime} for the results, they are relative to the first test. 
+However when you want to go past 500 concurrent users on our phpBB site, the \gls{mysql} process starts using a lot of \gls{cpu} (see \autoref{APC_1000_processes.png} on page \pageref{APC_1000_processes.png}), even after changing the settings. 
+This has to do with the queries and all the connections that occur all the time since \gls{mysql} has to open and close a connection for every HTTP request.
+
+\begin{comment}
+	\begin{table}[htb!]\begin{center}
+\caption{Percentage scaling from begin to end tests}\label{tab:scalingBeginToEnd}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}\hline\rowcolor{myLightGreen}
+  & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Normal test} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Memcached} & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} New settings}  & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} Bad settings}  & \multicolumn{2}{>{\columncolor{myLightGreen}}c|}{\bf\color{white} APC} \\ \hline  \rowcolor{myLightGreen}
+ {\bf\color{white} Users} & {\bf\color{white} T /s} & {\bf\color{white} R T ms} & {\bf\color{white} T /s} & {\bf\color{white} R T ms} & {\bf\color{white} T /s} & {\bf\color{white} R T ms} & {\bf\color{white} T /s} & {\bf\color{white} R T ms} & {\bf\color{white} T /s} & {\bf\color{white} R T ms} \\ \hline 
+ 5 & 45 & 14 & 3\% & 6\% & 4\% & 21\% & -7\% & 32\% & 9\% & -16\% \\ \hline 
+ 25 & 212 & 27 & -4\% & 2\% & -2\% & -7\% & -1\% & -7\% & 6\% & -41\% \\ \hline 
+ 50 & 397 & 32 & -2\% & 15\% & -1\% & 8\% & -3\% & 12\% & 5\% & -9\% \\ \hline 
+ 100 & 702 & 49 & 2\% & -6\% & 1\% & -3\% & 4\% & -11\% & 10\% & -26\% \\ \hline 
+ 200 & 1290 & 63 & 0\% & 0\% & 3\% & -7\% & 0\% & 0\% & 9\% & -19\% \\ \hline 
+ 300 & 1548 & 115 & 7\% & -21\% & 11\% & -28\% & -2\% & 2\% & 20\% & -39\% \\ \hline 
+ 325 & 1581 & 128 & 3\% & -14\% & 10\% & -25\% & 2\% & -5\% & 25\% & -42\% \\ \hline 
+ 350 & 1620 & 139 & 4\% & -13\% & 1\% & -10\% & -11\% & 17\% & 24\% & -39\% \\ \hline 
+ 375 & 1753 & 127 & -1\% & 2\% & 0\% & -1\% & -9\% & 32\% & 5\% & -9\% \\ \hline 
+ 400 & 1694 & 149 & -3\% & 9\% & -1\% & 2\% & -11\% & 24\% & \textbf{26\%} & \textbf{-28\%} \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+\end{comment}
+
+\begin{table}[htb!]\begin{center}
+\caption{Throughput for all the tests}  \label{tab:scalingBeginToEndThroughput}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.1cm}|p{1.7cm}|r|r|r|r|}\hline\rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} 16 cores normal} & {\bf\color{white} Memcached} & {\bf\color{white} New apache} & {\bf\color{white} Other Apache} & {\bf\color{white} APC} \\ \hline 
+ 5 & 45 & 3.2\% & 3.6\% & -7.0\% & 8.7\% \\ \hline 
+ 25 & 212 & -3.8\% & -1.5\% & -1.3\% & 6.5\% \\ \hline 
+ 50 & 397 & -1.9\% & -1.0\% & -3.3\% & 4.6\% \\ \hline 
+ 100 & 702 & 2.4\% & 1.1\% & 3.8\% &  \textbf{10.2\%} \\ \hline 
+ 200 & 1290 & 0.3\% & 2.9\% & -0.1\% & 8.7\% \\ \hline 
+ 300 & 1548 & 6.8\% & \textbf{10.7\%} & -1.6\% &  \textbf{20.2\%} \\ \hline 
+ 325 & 1581 & 3.0\% & 9.7\% & 1.8\% &  \textbf{24.9\%} \\ \hline 
+ 350 & 1620 & 4.1\% & 0.6\% & -11.3\% & \textbf{23.7\%} \\ \hline 
+ 375 & 1753 & -1.1\% & -0.4\% & -9.2\% & 5.1\% \\ \hline 
+ 400 & 1694 & -2.9\% & -1.3\% & -10.7\% & \textbf{26.1\%} \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+
+\begin{table}[htb!]\begin{center}
+\caption{Response Time for all the tests}\label{tab:scalingBeginToEndResponseTime}
+\arrayrulecolor{myLightGreen}
+\begin{tabular}{|p{2.1cm}|p{1.7cm}|r|r|r|r|}\hline\rowcolor{myLightGreen}
+ {\bf\color{white} Concurrent Users} & {\bf\color{white} 16 cores normal} & {\bf\color{white} Memcached} & {\bf\color{white} New apache} & {\bf\color{white} Other Apache} & {\bf\color{white} APC} \\ \hline 
+ 5 & 14 & 6.4\% & 21.5\% & -16.0\% & -16.0\% \\ \hline 
+ 25 & 27 & 2.2\% & -6.7\% & -6.6\% & \textbf{-40.7\%} \\ \hline 
+ 50 & 32 & 14.9\% & 8.3\% & 12.2\% & -8.7\% \\ \hline 
+ 100 & 49 & -6.1\% & -2.9\% & -10.8\% &  \textbf{-25.9\%} \\ \hline 
+ 200 & 63 & -0.4\% & -7.1\% & -0.4\% &  \textbf{-18.5\%} \\ \hline 
+ 300 & 115 &  \textbf{-21.3\%} &  \textbf{-27.5\%} & 1.9\% &  \textbf{-38.7\%} \\ \hline 
+ 325 & 128 &  \textbf{-14.3\%} &  \textbf{-24.9\%} & -5.1\% &  \textbf{-41.8\%} \\ \hline 
+ 350 & 139 &  \textbf{-13.0\%} &  \textbf{-10.3\%}\textbf{} & 17.3\% &  \textbf{-39.3\%} \\ \hline 
+ 375 & 127 & 2.3\% & -0.5\% & 32.3\% & -9.4\% \\ \hline 
+ 400 & 149 & 8.7\% & 1.7\% & 23.8\% &  \textbf{-28.0\%} \\ \hline 
+\end{tabular}\end{center}
+\end{table}
+
+%\img[htb!]{scale=0.8}{throughput1to8cores.png}{Throughput per second for 1 to 8 cores}
+\img[htb!]{scale=0.7}{comparison_8_16_cores.png}{Throughput comparison for tests 8 and 16 cores}
+
+\img[htb!]{scale=0.7}{conclusion_tests_responsetime.png}{Conclusions and comparison of the best tests response time from beginning to APC}
+\img[htb!]{scale=0.7}{conclusion_tests_throughput.png}{Conclusions and comparison of the best tests throughput from beginning to APC}
+

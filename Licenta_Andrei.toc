@@ -1,0 +1,143 @@
+\select@language {english}
+\contentsline {section}{\numberline {0.1}The lovely world of research}{6}{section.0.1}
+\contentsline {subsection}{\numberline {0.1.1}About Sizing Servers lab}{6}{subsection.0.1.1}
+\contentsline {subsection}{\numberline {0.1.2}Why have I chosen for this internship}{6}{subsection.0.1.2}
+\contentsline {subsection}{\numberline {0.1.3}My research projects}{6}{subsection.0.1.3}
+\contentsline {section}{\numberline {0.2}Intel energy Checker SDK}{8}{section.0.2}
+\contentsline {subsection}{\numberline {0.2.1}Product overview}{8}{subsection.0.2.1}
+\contentsline {subsubsection}{\numberline {0.2.1.1}Documentation}{8}{subsubsection.0.2.1.1}
+\contentsline {subsubsection}{\numberline {0.2.1.2}Programs included in SDK}{8}{subsubsection.0.2.1.2}
+\contentsline {subsubsection}{\numberline {0.2.1.3}Basic concepts}{8}{subsubsection.0.2.1.3}
+\contentsline {paragraph}{\numberline {0.2.1.3.1}Productivity links}{9}{paragraph.0.2.1.3.1}
+\contentsline {paragraph}{\numberline {0.2.1.3.2}Suffix counters}{9}{paragraph.0.2.1.3.2}
+\contentsline {subsubsection}{\numberline {0.2.1.4}API commands}{9}{subsubsection.0.2.1.4}
+\contentsline {paragraph}{\numberline {0.2.1.4.1}pl\_open()}{9}{paragraph.0.2.1.4.1}
+\contentsline {paragraph}{\numberline {0.2.1.4.2}pl\_close()}{10}{paragraph.0.2.1.4.2}
+\contentsline {paragraph}{\numberline {0.2.1.4.3}pl\_write()}{10}{paragraph.0.2.1.4.3}
+\contentsline {paragraph}{\numberline {0.2.1.4.4}pl\_read()}{10}{paragraph.0.2.1.4.4}
+\contentsline {paragraph}{\numberline {0.2.1.4.5}pl\_attach()}{11}{paragraph.0.2.1.4.5}
+\contentsline {subsection}{\numberline {0.2.2}File system-less mode}{11}{subsection.0.2.2}
+\contentsline {subsubsection}{\numberline {0.2.2.1}PL protocol}{11}{subsubsection.0.2.2.1}
+\contentsline {subsubsection}{\numberline {0.2.2.2}Network Configuration}{11}{subsubsection.0.2.2.2}
+\contentsline {subsection}{\numberline {0.2.3}Using ESRV and TSRV Data}{11}{subsection.0.2.3}
+\contentsline {subsubsection}{\numberline {0.2.3.1}Compilation in Geany}{11}{subsubsection.0.2.3.1}
+\contentsline {subsubsection}{\numberline {0.2.3.2}Start ESRV (Energy server)}{12}{subsubsection.0.2.3.2}
+\contentsline {paragraph}{\numberline {0.2.3.2.1}Start pl\_gui monitor}{12}{paragraph.0.2.3.2.1}
+\contentsline {paragraph}{\numberline {0.2.3.2.2}PL AGENT}{12}{paragraph.0.2.3.2.2}
+\contentsline {paragraph}{\numberline {0.2.3.2.3}CSV monitoring}{12}{paragraph.0.2.3.2.3}
+\contentsline {subsection}{\numberline {0.2.4}Easy implementation}{13}{subsection.0.2.4}
+\contentsline {subsubsection}{\numberline {0.2.4.1}Use the pl\_gui\_monitor with esrv}{13}{subsubsection.0.2.4.1}
+\contentsline {subsubsection}{\numberline {0.2.4.2}Plot the data in Microsoft Excel/Open Office Calc with esrv}{13}{subsubsection.0.2.4.2}
+\contentsline {paragraph}{\numberline {0.2.4.2.1}Use the pl\_gui\_monitor on Windows}{14}{paragraph.0.2.4.2.1}
+\contentsline {subsection}{\numberline {0.2.5}Hellotest client application on Linux}{15}{subsection.0.2.5}
+\contentsline {subsubsection}{\numberline {0.2.5.1}How to implement the energy server}{16}{subsubsection.0.2.5.1}
+\contentsline {subsection}{\numberline {0.2.6}Conclusion}{16}{subsection.0.2.6}
+\contentsline {section}{\numberline {0.3}Using HipHop}{18}{section.0.3}
+\contentsline {subsection}{\numberline {0.3.1}What is HipHop?}{18}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {0.3.2}Why use PHP?}{18}{subsection.0.3.2}
+\contentsline {subsection}{\numberline {0.3.3}Optimisations}{18}{subsection.0.3.3}
+\contentsline {subsubsection}{\numberline {0.3.3.1}Server setup}{18}{subsubsection.0.3.3.1}
+\contentsline {subsubsection}{\numberline {0.3.3.2}Building and installing on Ubuntu 11.10}{19}{subsubsection.0.3.3.2}
+\contentsline {paragraph}{\numberline {0.3.3.2.1}Building third-party libraries}{19}{paragraph.0.3.3.2.1}
+\contentsline {paragraph}{\numberline {0.3.3.2.2}Building HipHop}{20}{paragraph.0.3.3.2.2}
+\contentsline {paragraph}{\numberline {0.3.3.2.3}Exports}{21}{paragraph.0.3.3.2.3}
+\contentsline {subsection}{\numberline {0.3.4}Running HipHop Applications}{21}{subsection.0.3.4}
+\contentsline {subsection}{\numberline {0.3.5}Setting Up Your Environment}{21}{subsection.0.3.5}
+\contentsline {subsection}{\numberline {0.3.6}Choosing which Mode to Run HipHop}{22}{subsection.0.3.6}
+\contentsline {subsection}{\numberline {0.3.7}Small one page tests to measure speed}{23}{subsection.0.3.7}
+\contentsline {subsubsection}{\numberline {0.3.7.1}Pack and Unpack tests}{23}{subsubsection.0.3.7.1}
+\contentsline {subsection}{\numberline {0.3.8}Other tests}{23}{subsection.0.3.8}
+\contentsline {subsubsection}{\numberline {0.3.8.1}String concatenation speed test}{24}{subsubsection.0.3.8.1}
+\contentsline {subsection}{\numberline {0.3.9}Compiling a large codebase}{24}{subsection.0.3.9}
+\contentsline {subsubsection}{\numberline {0.3.9.1}Using Parse-on-demand Mode (optional)}{24}{subsubsection.0.3.9.1}
+\contentsline {subsection}{\numberline {0.3.10}Example: Compiling WordPress}{25}{subsection.0.3.10}
+\contentsline {subsubsection}{\numberline {0.3.10.1}phpBB test case}{27}{subsubsection.0.3.10.1}
+\contentsline {subsubsection}{\numberline {0.3.10.2}Other test cases}{28}{subsubsection.0.3.10.2}
+\contentsline {subsection}{\numberline {0.3.11}The only functional test case: OcPortal CMS}{28}{subsection.0.3.11}
+\contentsline {subsubsection}{\numberline {0.3.11.1}The big setup}{28}{subsubsection.0.3.11.1}
+\contentsline {subsubsection}{\numberline {0.3.11.2}Writing it as an upstart service that respawns}{30}{subsubsection.0.3.11.2}
+\contentsline {subsubsection}{\numberline {0.3.11.3}Working with Lupus}{31}{subsubsection.0.3.11.3}
+\contentsline {subsection}{\numberline {0.3.12}HipHop Documentation Server}{31}{subsection.0.3.12}
+\contentsline {subsection}{\numberline {0.3.13}Compilation errors}{31}{subsection.0.3.13}
+\contentsline {subsection}{\numberline {0.3.14}Conclusions}{31}{subsection.0.3.14}
+\contentsline {subsubsection}{\numberline {0.3.14.1}Positive points}{31}{subsubsection.0.3.14.1}
+\contentsline {subsubsection}{\numberline {0.3.14.2}Downsides}{32}{subsubsection.0.3.14.2}
+\contentsline {subsubsection}{\numberline {0.3.14.3}Final personal conclusion}{32}{subsubsection.0.3.14.3}
+\contentsline {subsection}{\numberline {0.3.15}Problems and erros}{33}{subsection.0.3.15}
+\contentsline {subsubsection}{\numberline {0.3.15.1}Libevent not found}{33}{subsubsection.0.3.15.1}
+\contentsline {section}{\numberline {0.4}LAMP optimisation techniques}{34}{section.0.4}
+\contentsline {subsection}{\numberline {0.4.1}What is LAMP?}{34}{subsection.0.4.1}
+\contentsline {subsection}{\numberline {0.4.2}What is optimisation?}{34}{subsection.0.4.2}
+\contentsline {subsubsection}{\numberline {0.4.2.1}Not only about coding}{35}{subsubsection.0.4.2.1}
+\contentsline {subsubsection}{\numberline {0.4.2.2}How to optimise?}{35}{subsubsection.0.4.2.2}
+\contentsline {subsubsection}{\numberline {0.4.2.3}The logic between speed versus accuracy versus scalability}{35}{subsubsection.0.4.2.3}
+\contentsline {subsubsection}{\numberline {0.4.2.4}Bottlenecks}{36}{subsubsection.0.4.2.4}
+\contentsline {paragraph}{\numberline {0.4.2.4.1}Network}{36}{paragraph.0.4.2.4.1}
+\contentsline {paragraph}{\numberline {0.4.2.4.2}Processor load}{37}{paragraph.0.4.2.4.2}
+\contentsline {paragraph}{\numberline {0.4.2.4.3}File system}{37}{paragraph.0.4.2.4.3}
+\contentsline {paragraph}{\numberline {0.4.2.4.4}Threading and processes}{37}{paragraph.0.4.2.4.4}
+\contentsline {paragraph}{\numberline {0.4.2.4.5}External services}{37}{paragraph.0.4.2.4.5}
+\contentsline {paragraph}{\numberline {0.4.2.4.6}When do you optimise?}{37}{paragraph.0.4.2.4.6}
+\contentsline {subsubsection}{\numberline {0.4.2.5}Techniques}{37}{subsubsection.0.4.2.5}
+\contentsline {paragraph}{\numberline {0.4.2.5.1}Database}{37}{paragraph.0.4.2.5.1}
+\contentsline {paragraph}{\numberline {0.4.2.5.2}Caching}{38}{paragraph.0.4.2.5.2}
+\contentsline {paragraph}{\numberline {0.4.2.5.3}HTTP accelerators}{38}{paragraph.0.4.2.5.3}
+\contentsline {paragraph}{\numberline {0.4.2.5.4}Profiling software}{38}{paragraph.0.4.2.5.4}
+\contentsline {subsection}{\numberline {0.4.3}RAID setup and content migration}{38}{subsection.0.4.3}
+\contentsline {subsubsection}{\numberline {0.4.3.1}Setup disks}{38}{subsubsection.0.4.3.1}
+\contentsline {paragraph}{\numberline {0.4.3.1.1}Create RAID set}{38}{paragraph.0.4.3.1.1}
+\contentsline {subsubsection}{\numberline {0.4.3.2}Problems}{39}{subsubsection.0.4.3.2}
+\contentsline {subsubsection}{\numberline {0.4.3.3}MySQL migration to SSD}{39}{subsubsection.0.4.3.3}
+\contentsline {subsubsection}{\numberline {0.4.3.4}Apache migration to SSD}{40}{subsubsection.0.4.3.4}
+\contentsline {subsection}{\numberline {0.4.4}Optimisation tweaks and profiling}{40}{subsection.0.4.4}
+\contentsline {subsubsection}{\numberline {0.4.4.1}Frontend}{40}{subsubsection.0.4.4.1}
+\contentsline {paragraph}{\numberline {0.4.4.1.1}Google PageSpeed}{41}{paragraph.0.4.4.1.1}
+\contentsline {paragraph}{\numberline {0.4.4.1.2}YSlow}{41}{paragraph.0.4.4.1.2}
+\contentsline {subsection}{\numberline {0.4.5}Xdebug PHP profiler}{42}{subsection.0.4.5}
+\contentsline {subsubsection}{\numberline {0.4.5.1}How to install Xdebug}{42}{subsubsection.0.4.5.1}
+\contentsline {subsubsection}{\numberline {0.4.5.2}Configure PHP to use Xdebug}{43}{subsubsection.0.4.5.2}
+\contentsline {subsection}{\numberline {0.4.6}Conclusion}{45}{subsection.0.4.6}
+\contentsline {section}{\numberline {0.5}vApus test cases for phpBB}{47}{section.0.5}
+\contentsline {subsection}{\numberline {0.5.1}Tools used and setup}{47}{subsection.0.5.1}
+\contentsline {subsubsection}{\numberline {0.5.1.1}Configuration and files}{47}{subsubsection.0.5.1.1}
+\contentsline {subsubsection}{\numberline {0.5.1.2}Using dstat and top when stresstesting with vApus}{47}{subsubsection.0.5.1.2}
+\contentsline {subsubsection}{\numberline {0.5.1.3}First test case}{48}{subsubsection.0.5.1.3}
+\contentsline {subsubsection}{\numberline {0.5.1.4}Failed test case with 8 cores}{48}{subsubsection.0.5.1.4}
+\contentsline {subsection}{\numberline {0.5.2}Simple scaling example}{49}{subsection.0.5.2}
+\contentsline {subsubsection}{\numberline {0.5.2.1}Test case with 1 core}{49}{subsubsection.0.5.2.1}
+\contentsline {subsubsection}{\numberline {0.5.2.2}Test case with 2 cores}{54}{subsubsection.0.5.2.2}
+\contentsline {subsubsection}{\numberline {0.5.2.3}Test case with 4 cores}{57}{subsubsection.0.5.2.3}
+\contentsline {subsubsection}{\numberline {0.5.2.4}Test case with 8 cores}{59}{subsubsection.0.5.2.4}
+\contentsline {subsubsection}{\numberline {0.5.2.5}1 Core with more steps and warming up for a better overview}{62}{subsubsection.0.5.2.5}
+\contentsline {subsubsection}{\numberline {0.5.2.6}Conclusions for 1 to 8 cores tests}{62}{subsubsection.0.5.2.6}
+\contentsline {subsection}{\numberline {0.5.3}Tweaking the Apache settings}{64}{subsection.0.5.3}
+\contentsline {subsection}{\numberline {0.5.4}Update phpBB 3.0.5 to 3.0.10}{65}{subsection.0.5.4}
+\contentsline {subsection}{\numberline {0.5.5}phpBB cache changes for 8 cores}{66}{subsection.0.5.5}
+\contentsline {subsubsection}{\numberline {0.5.5.1}No cache enabled}{66}{subsubsection.0.5.5.1}
+\contentsline {subsubsection}{\numberline {0.5.5.2}Memcached enabled}{66}{subsubsection.0.5.5.2}
+\contentsline {subsubsection}{\numberline {0.5.5.3}Conclusion for 8 cores with no cache and Memcached tests}{68}{subsubsection.0.5.5.3}
+\contentsline {subsection}{\numberline {0.5.6}Hyperthreading enabled to see how it scales}{68}{subsection.0.5.6}
+\contentsline {subsubsection}{\numberline {0.5.6.1}16 cores with simple file cache}{68}{subsubsection.0.5.6.1}
+\contentsline {subsubsection}{\numberline {0.5.6.2}16 cores with memcached on}{68}{subsubsection.0.5.6.2}
+\contentsline {subsubsection}{\numberline {0.5.6.3}Conclusion for 16 cores test}{68}{subsubsection.0.5.6.3}
+\contentsline {subsection}{\numberline {0.5.7}Changing Apache worker module settings}{69}{subsection.0.5.7}
+\contentsline {subsubsection}{\numberline {0.5.7.1}Worker module settings with simple file cache}{70}{subsubsection.0.5.7.1}
+\contentsline {subsubsection}{\numberline {0.5.7.2}Differences between old and new Apache settings}{70}{subsubsection.0.5.7.2}
+\contentsline {subsubsection}{\numberline {0.5.7.3}Comparing memcache tests with the new and old Apache settings}{72}{subsubsection.0.5.7.3}
+\contentsline {subsubsection}{\numberline {0.5.7.4}Conclusions for the new vs old Apache settings}{72}{subsubsection.0.5.7.4}
+\contentsline {subsection}{\numberline {0.5.8}Modifying memcache settings}{72}{subsection.0.5.8}
+\contentsline {subsection}{\numberline {0.5.9}Other Apache configuration settings}{74}{subsection.0.5.9}
+\contentsline {subsection}{\numberline {0.5.10}New MySQL settings}{76}{subsection.0.5.10}
+\contentsline {subsection}{\numberline {0.5.11}Installing and testing APC}{76}{subsection.0.5.11}
+\contentsline {subsubsection}{\numberline {0.5.11.1}APC stresstest up to 1000 concurrent users}{80}{subsubsection.0.5.11.1}
+\contentsline {subsubsection}{\numberline {0.5.11.2}APC stresstest with more steps}{83}{subsubsection.0.5.11.2}
+\contentsline {subsubsection}{\numberline {0.5.11.3}Disabling AppArmor and configuring MySQL (getting rid of some problems)}{83}{subsubsection.0.5.11.3}
+\contentsline {subsection}{\numberline {0.5.12}Conclusion of the tests}{84}{subsection.0.5.12}
+\contentsline {section}{\numberline {0.6}Scripts written}{87}{section.0.6}
+\contentsline {subsection}{\numberline {0.6.1}TCL script to plot charts}{87}{subsection.0.6.1}
+\contentsline {subsection}{\numberline {0.6.2}CSV convert script}{88}{subsection.0.6.2}
+\contentsline {section}{\numberline {0.7}Final conclusion}{89}{section.0.7}
+\contentsline {chapter}{Appendices}{93}{section*.69}
+\contentsline {section}{\numberline {.1}Hellotest.c example intel SDK}{95}{section.1..1}
+\contentsline {section}{\numberline {.2}Best way to set up PostgreSQL/MySQL}{96}{section.1..2}
+\contentsline {section}{\numberline {.3}Graphics}{97}{section.1..3}

@@ -1,0 +1,115 @@
+\BOOKMARK [1][-]{section.0.1}{The lovely world of research}{}% 1
+\BOOKMARK [2][-]{subsection.0.1.1}{About Sizing Servers lab}{section.0.1}% 2
+\BOOKMARK [2][-]{subsection.0.1.2}{Why have I chosen for this internship}{section.0.1}% 3
+\BOOKMARK [2][-]{subsection.0.1.3}{My research projects}{section.0.1}% 4
+\BOOKMARK [1][-]{section.0.2}{Intel energy Checker SDK}{}% 5
+\BOOKMARK [2][-]{subsection.0.2.1}{Product overview}{section.0.2}% 6
+\BOOKMARK [3][-]{subsubsection.0.2.1.1}{Documentation}{subsection.0.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.0.2.1.2}{Programs included in SDK}{subsection.0.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.0.2.1.3}{Basic concepts}{subsection.0.2.1}% 9
+\BOOKMARK [3][-]{subsubsection.0.2.1.4}{API commands}{subsection.0.2.1}% 10
+\BOOKMARK [2][-]{subsection.0.2.2}{File system-less mode}{section.0.2}% 11
+\BOOKMARK [3][-]{subsubsection.0.2.2.1}{PL protocol}{subsection.0.2.2}% 12
+\BOOKMARK [3][-]{subsubsection.0.2.2.2}{Network Configuration}{subsection.0.2.2}% 13
+\BOOKMARK [2][-]{subsection.0.2.3}{Using ESRV and TSRV Data}{section.0.2}% 14
+\BOOKMARK [3][-]{subsubsection.0.2.3.1}{Compilation in Geany}{subsection.0.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.0.2.3.2}{Start ESRV \(Energy server\)}{subsection.0.2.3}% 16
+\BOOKMARK [2][-]{subsection.0.2.4}{Easy implementation}{section.0.2}% 17
+\BOOKMARK [3][-]{subsubsection.0.2.4.1}{Use the pl\137gui\137monitor with esrv}{subsection.0.2.4}% 18
+\BOOKMARK [3][-]{subsubsection.0.2.4.2}{Plot the data in Microsoft Excel/Open Office Calc with esrv}{subsection.0.2.4}% 19
+\BOOKMARK [2][-]{subsection.0.2.5}{Hellotest client application on Linux}{section.0.2}% 20
+\BOOKMARK [3][-]{subsubsection.0.2.5.1}{How to implement the energy server}{subsection.0.2.5}% 21
+\BOOKMARK [2][-]{subsection.0.2.6}{Conclusion}{section.0.2}% 22
+\BOOKMARK [1][-]{section.0.3}{Using HipHop}{}% 23
+\BOOKMARK [2][-]{subsection.0.3.1}{What is HipHop?}{section.0.3}% 24
+\BOOKMARK [2][-]{subsection.0.3.2}{Why use PHP?}{section.0.3}% 25
+\BOOKMARK [2][-]{subsection.0.3.3}{Optimisations}{section.0.3}% 26
+\BOOKMARK [3][-]{subsubsection.0.3.3.1}{Server setup}{subsection.0.3.3}% 27
+\BOOKMARK [3][-]{subsubsection.0.3.3.2}{Building and installing on Ubuntu 11.10}{subsection.0.3.3}% 28
+\BOOKMARK [2][-]{subsection.0.3.4}{Running HipHop Applications}{section.0.3}% 29
+\BOOKMARK [2][-]{subsection.0.3.5}{Setting Up Your Environment}{section.0.3}% 30
+\BOOKMARK [2][-]{subsection.0.3.6}{Choosing which Mode to Run HipHop}{section.0.3}% 31
+\BOOKMARK [2][-]{subsection.0.3.7}{Small one page tests to measure speed}{section.0.3}% 32
+\BOOKMARK [3][-]{subsubsection.0.3.7.1}{Pack and Unpack tests}{subsection.0.3.7}% 33
+\BOOKMARK [2][-]{subsection.0.3.8}{Other tests}{section.0.3}% 34
+\BOOKMARK [3][-]{subsubsection.0.3.8.1}{String concatenation speed test}{subsection.0.3.8}% 35
+\BOOKMARK [2][-]{subsection.0.3.9}{Compiling a large codebase}{section.0.3}% 36
+\BOOKMARK [3][-]{subsubsection.0.3.9.1}{Using Parse-on-demand Mode \(optional\)}{subsection.0.3.9}% 37
+\BOOKMARK [2][-]{subsection.0.3.10}{Example: Compiling WordPress}{section.0.3}% 38
+\BOOKMARK [3][-]{subsubsection.0.3.10.1}{phpBB test case}{subsection.0.3.10}% 39
+\BOOKMARK [3][-]{subsubsection.0.3.10.2}{Other test cases}{subsection.0.3.10}% 40
+\BOOKMARK [2][-]{subsection.0.3.11}{The only functional test case: OcPortal CMS}{section.0.3}% 41
+\BOOKMARK [3][-]{subsubsection.0.3.11.1}{The big setup}{subsection.0.3.11}% 42
+\BOOKMARK [3][-]{subsubsection.0.3.11.2}{Writing it as an upstart service that respawns}{subsection.0.3.11}% 43
+\BOOKMARK [3][-]{subsubsection.0.3.11.3}{Working with Lupus}{subsection.0.3.11}% 44
+\BOOKMARK [2][-]{subsection.0.3.12}{HipHop Documentation Server}{section.0.3}% 45
+\BOOKMARK [2][-]{subsection.0.3.13}{Compilation errors}{section.0.3}% 46
+\BOOKMARK [2][-]{subsection.0.3.14}{Conclusions}{section.0.3}% 47
+\BOOKMARK [3][-]{subsubsection.0.3.14.1}{Positive points}{subsection.0.3.14}% 48
+\BOOKMARK [3][-]{subsubsection.0.3.14.2}{Downsides}{subsection.0.3.14}% 49
+\BOOKMARK [3][-]{subsubsection.0.3.14.3}{Final personal conclusion}{subsection.0.3.14}% 50
+\BOOKMARK [2][-]{subsection.0.3.15}{Problems and erros}{section.0.3}% 51
+\BOOKMARK [3][-]{subsubsection.0.3.15.1}{Libevent not found}{subsection.0.3.15}% 52
+\BOOKMARK [1][-]{section.0.4}{LAMP optimisation techniques}{}% 53
+\BOOKMARK [2][-]{subsection.0.4.1}{What is LAMP?}{section.0.4}% 54
+\BOOKMARK [2][-]{subsection.0.4.2}{What is optimisation?}{section.0.4}% 55
+\BOOKMARK [3][-]{subsubsection.0.4.2.1}{Not only about coding}{subsection.0.4.2}% 56
+\BOOKMARK [3][-]{subsubsection.0.4.2.2}{How to optimise?}{subsection.0.4.2}% 57
+\BOOKMARK [3][-]{subsubsection.0.4.2.3}{The logic between speed versus accuracy versus scalability}{subsection.0.4.2}% 58
+\BOOKMARK [3][-]{subsubsection.0.4.2.4}{Bottlenecks}{subsection.0.4.2}% 59
+\BOOKMARK [3][-]{subsubsection.0.4.2.5}{Techniques}{subsection.0.4.2}% 60
+\BOOKMARK [2][-]{subsection.0.4.3}{RAID setup and content migration}{section.0.4}% 61
+\BOOKMARK [3][-]{subsubsection.0.4.3.1}{Setup disks}{subsection.0.4.3}% 62
+\BOOKMARK [3][-]{subsubsection.0.4.3.2}{Problems}{subsection.0.4.3}% 63
+\BOOKMARK [3][-]{subsubsection.0.4.3.3}{MySQL migration to SSD}{subsection.0.4.3}% 64
+\BOOKMARK [3][-]{subsubsection.0.4.3.4}{Apache migration to SSD}{subsection.0.4.3}% 65
+\BOOKMARK [2][-]{subsection.0.4.4}{Optimisation tweaks and profiling}{section.0.4}% 66
+\BOOKMARK [3][-]{subsubsection.0.4.4.1}{Frontend}{subsection.0.4.4}% 67
+\BOOKMARK [2][-]{subsection.0.4.5}{Xdebug PHP profiler}{section.0.4}% 68
+\BOOKMARK [3][-]{subsubsection.0.4.5.1}{How to install Xdebug}{subsection.0.4.5}% 69
+\BOOKMARK [3][-]{subsubsection.0.4.5.2}{Configure PHP to use Xdebug}{subsection.0.4.5}% 70
+\BOOKMARK [2][-]{subsection.0.4.6}{Conclusion}{section.0.4}% 71
+\BOOKMARK [1][-]{section.0.5}{vApus test cases for phpBB}{}% 72
+\BOOKMARK [2][-]{subsection.0.5.1}{Tools used and setup}{section.0.5}% 73
+\BOOKMARK [3][-]{subsubsection.0.5.1.1}{Configuration and files}{subsection.0.5.1}% 74
+\BOOKMARK [3][-]{subsubsection.0.5.1.2}{Using dstat and top when stresstesting with vApus}{subsection.0.5.1}% 75
+\BOOKMARK [3][-]{subsubsection.0.5.1.3}{First test case}{subsection.0.5.1}% 76
+\BOOKMARK [3][-]{subsubsection.0.5.1.4}{Failed test case with 8 cores}{subsection.0.5.1}% 77
+\BOOKMARK [2][-]{subsection.0.5.2}{Simple scaling example}{section.0.5}% 78
+\BOOKMARK [3][-]{subsubsection.0.5.2.1}{Test case with 1 core}{subsection.0.5.2}% 79
+\BOOKMARK [3][-]{subsubsection.0.5.2.2}{Test case with 2 cores}{subsection.0.5.2}% 80
+\BOOKMARK [3][-]{subsubsection.0.5.2.3}{Test case with 4 cores}{subsection.0.5.2}% 81
+\BOOKMARK [3][-]{subsubsection.0.5.2.4}{Test case with 8 cores}{subsection.0.5.2}% 82
+\BOOKMARK [3][-]{subsubsection.0.5.2.5}{1 Core with more steps and warming up for a better overview}{subsection.0.5.2}% 83
+\BOOKMARK [3][-]{subsubsection.0.5.2.6}{Conclusions for 1 to 8 cores tests}{subsection.0.5.2}% 84
+\BOOKMARK [2][-]{subsection.0.5.3}{Tweaking the Apache settings}{section.0.5}% 85
+\BOOKMARK [2][-]{subsection.0.5.4}{Update phpBB 3.0.5 to 3.0.10}{section.0.5}% 86
+\BOOKMARK [2][-]{subsection.0.5.5}{phpBB cache changes for 8 cores}{section.0.5}% 87
+\BOOKMARK [3][-]{subsubsection.0.5.5.1}{No cache enabled}{subsection.0.5.5}% 88
+\BOOKMARK [3][-]{subsubsection.0.5.5.2}{Memcached enabled}{subsection.0.5.5}% 89
+\BOOKMARK [3][-]{subsubsection.0.5.5.3}{Conclusion for 8 cores with no cache and Memcached tests}{subsection.0.5.5}% 90
+\BOOKMARK [2][-]{subsection.0.5.6}{Hyperthreading enabled to see how it scales}{section.0.5}% 91
+\BOOKMARK [3][-]{subsubsection.0.5.6.1}{16 cores with simple file cache}{subsection.0.5.6}% 92
+\BOOKMARK [3][-]{subsubsection.0.5.6.2}{16 cores with memcached on}{subsection.0.5.6}% 93
+\BOOKMARK [3][-]{subsubsection.0.5.6.3}{Conclusion for 16 cores test}{subsection.0.5.6}% 94
+\BOOKMARK [2][-]{subsection.0.5.7}{Changing Apache worker module settings}{section.0.5}% 95
+\BOOKMARK [3][-]{subsubsection.0.5.7.1}{Worker module settings with simple file cache}{subsection.0.5.7}% 96
+\BOOKMARK [3][-]{subsubsection.0.5.7.2}{Differences between old and new Apache settings}{subsection.0.5.7}% 97
+\BOOKMARK [3][-]{subsubsection.0.5.7.3}{Comparing memcache tests with the new and old Apache settings}{subsection.0.5.7}% 98
+\BOOKMARK [3][-]{subsubsection.0.5.7.4}{Conclusions for the new vs old Apache settings}{subsection.0.5.7}% 99
+\BOOKMARK [2][-]{subsection.0.5.8}{Modifying memcache settings}{section.0.5}% 100
+\BOOKMARK [2][-]{subsection.0.5.9}{Other Apache configuration settings}{section.0.5}% 101
+\BOOKMARK [2][-]{subsection.0.5.10}{New MySQL settings}{section.0.5}% 102
+\BOOKMARK [2][-]{subsection.0.5.11}{Installing and testing APC}{section.0.5}% 103
+\BOOKMARK [3][-]{subsubsection.0.5.11.1}{APC stresstest up to 1000 concurrent users}{subsection.0.5.11}% 104
+\BOOKMARK [3][-]{subsubsection.0.5.11.2}{APC stresstest with more steps}{subsection.0.5.11}% 105
+\BOOKMARK [3][-]{subsubsection.0.5.11.3}{Disabling AppArmor and configuring MySQL \(getting rid of some problems\)}{subsection.0.5.11}% 106
+\BOOKMARK [2][-]{subsection.0.5.12}{Conclusion of the tests}{section.0.5}% 107
+\BOOKMARK [1][-]{section.0.6}{Scripts written}{}% 108
+\BOOKMARK [2][-]{subsection.0.6.1}{TCL script to plot charts}{section.0.6}% 109
+\BOOKMARK [2][-]{subsection.0.6.2}{CSV convert script}{section.0.6}% 110
+\BOOKMARK [1][-]{section.0.7}{Final conclusion}{}% 111
+\BOOKMARK [0][-]{section*.69}{Appendices}{}% 112
+\BOOKMARK [1][-]{section.1..1}{Hellotest.c example intel SDK}{section*.69}% 113
+\BOOKMARK [1][-]{section.1..2}{Best way to set up PostgreSQL/MySQL}{section*.69}% 114
+\BOOKMARK [1][-]{section.1..3}{Graphics}{section*.69}% 115

@@ -1,0 +1,78 @@
+\section{NaviServer}
+History
+
+Information...
+
+It can also use a php mo, altough slower than Tcl because it doesn't have the direct connection to the root of the server.
+
+Installation of Tcl
+Tcl is included in the distro packages but we'll use the ActiveTcl for ease.
+Either build Tcl yourself, or download the ActiveTcl "batteries included" distribution.
+SO DO NOT DO
+sudo apt-get install tcl8.5 tcl8.5-dev
+Instead download ActiveTcl 8.5.11 (not the 8.6 beta because it will fail the compilation of naviserver)
+wget http://downloads.activestate.com/ActiveTcl/releases/8.5.11.1/ActiveTcl8.5.11.1.295590-linux-x86_64-threaded.tar.gz
+tar zxvf ActiveTcl8.5.11.1.295590-linux-x86_64-threaded.tar.gz
+cd ActiveTcl8.5.11.1.295590-linux-x86_64-threaded/
+sudo ./install.sh
+As folder, select /opt/
+
+Download naviserver 4.99.4
+wget http://downloads.sourceforge.net/project/naviserver/naviserver/4.99.4/naviserver-4.99.4d.tar.gz?r=&ts=1338882881&use_mirror=garr
+tar zxvf naviserver-4.99.4d.tar.gz?r=
+cd naviserver-4.99.4/
+
+Install naviserver
+./configure --prefix=/opt/ns --with-tcl=/opt/ActiveTcl-8.5/lib/tcl8.5 --enable-symbols
+make -j16
+sudo make install
+
+Then setup the nsadmin username
+sudo useradd nsadmin
+sudo chown -R nsadmin /opt/ns
+
+Firstly edit the wrong path in nsd-config:
+sudo nano /opt/ns/conf/nsd-config.tcl8
+set home /opt/ns
+
+Then finally run it, if it fails giving error 11 or something like that just rerun the command a few times untill it works
+sudo /opt/ns/bin/nsd -f -u nsadmin -t /opt/ns/conf/nsd-config.tcl
+
+To start an init or watchdog version just replace the -f with either -i or -w 
+sudo /opt/ns/bin/nsd -i -u nsadmin -t /opt/ns/conf/nsd-config.tcl
+
+IT should work if you surf to the browser.
+
+Now download the extra naviserver modules, we'll install the MySQL driver and PHP module:
+cd ..
+wget http://downloads.sourceforge.net/project/naviserver/naviserver/4.99.4/naviserver-4.99.4-modules.tar.gz?r=&ts=1338885457&use_mirror=freefr
+tar zxvf naviserver-4.99.4-modules.tar.gz?r= 
+
+Because the default php installation does not have embed and ZST support we'll have to recompile PHP.
+wget http://be2.php.net/get/php-5.4.3.tar.gz/from/this/mirror
+tar zxvf mirror
+cd php-5.4.3
+
+For the phpBB installation you require at least the following settings
+$ ./configure --enable-embed=shared --enable-pdo --enable-dom --with-zlib-dir=/usr 
+%$
+make -j16
+make test <- you can skip this one
+Wait.... Ok it should work, you now have the newest and stablest version installed and it should have passed most of the tests.
+
+
+
+
+The installation is fairly simple:
+cd nsphp/
+make install NAVISERVER=/opt/ns
+
+Let naviserver download & compile it .. automatically..?
+just edit the Makefile
+ http://be.php.net/get/$(PHP_VER).tar.gz/from/this/mirror 
+%$
+--with-ldap delete it
+
+
+
+These things can be automated, a .deb / .rmp file could be created by your administrator.
